@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+    <h1>좌표 이동하기 + 레벨 바꾸기</h1>
+    <div id="map" style="width:1100px;height:600px;"></div>
+    <hr>
+    <input type="button" value="서울역으로 이동하기" id="btn1">
+    <input type="button" value="역삼역으로 이동하기" id="btn2">
+    <input type="button" value="강남역으로 이동하기" id="btn3">
+    
+              
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=658cb4c01ee75e477d48ab1d061d5370"></script>
+    <script>
+
+        var container = document.getElementById('map'); 
+        var options = { 
+            center: new kakao.maps.LatLng(37.533216, 127.076086), 
+            level: 3 
+        };
+        var map = new kakao.maps.Map(container, options); 
+
+        var btn1 = document.getElementById("btn1");
+
+        /*
+        포인트 이동
+        1. 순간이동
+         - map.setCenter()
+        2. 가까운 거리에서 밀어내기 
+         - map.panTo()
+        */
+
+        btn1.onclick = function() {
+            var seoulStation = new kakao.maps.LatLng(37.555146, 126.970789);
+            //새로운 좌표로 중심값 설정하기
+            // map.setCenter(seoulStation);
+            map.panTo(seoulStation); 
+        }
+        btn2.onclick = function() {
+            var yeoksamStation = new kakao.maps.LatLng(37.500530, 127.036287);
+            //새로운 좌표로 중심값 설정하기
+            // map.setCenter(yeoksamStation);
+            map.panTo(yeoksamStation);
+        }
+        btn3.onclick = function() {
+            var gangnamStation = new kakao.maps.LatLng(37.497914, 127.027548);
+            //새로운 좌표로 중심값 설정하기
+            // map.setCenter(gangnamStation);
+            map.panTo(gangnamStation);
+        }
+
+    </script>
+    
+</body>
+</html>

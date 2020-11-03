@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="button" value="버튼1" name="btn1">
+    <input type="button" value="버튼2" name="btn2">
+    <input type="button" value="버튼3" name="btn3">
+
+
+    <script>
+        
+        var btn1 = document.all.btn1;
+        var btn2 = document.all.btn2;
+        var btn3 = document.all.btn3;
+
+        //메시지 박스
+        //1. alert(메시지) : 단순 메세지 전달용
+        //2. confirm(메시지) : 질문 -> 의사 확인용
+        //3. prompt(메시지, 초기값)
+
+
+
+        btn1.onclick = function() {
+            alert("메시지");
+        }
+        btn2.onclick = function() {
+            //확인(true) & 취소(false)
+            var result = confirm("메시지");
+            console.log(result);
+        }
+        btn3.onclick = function() {
+            var result = prompt("메시지", "");
+            console.log(result);
+        }
+
+    </script>
+
+
+</body>
+</html>

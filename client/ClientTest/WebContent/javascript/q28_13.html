@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" href="basic.css">
+    <style>
+        #list > button {
+            font-size: 2.5em;
+            padding: 15px;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #ccc;
+        }
+        #list > button:enabled {
+            background-color: white;
+        }
+        #list > button:disabled {
+            background-color: #bbb;			
+        }
+    </style>
+</head>
+<body>
+    <div class="main m1200">
+        <div class="mainHeader">
+            <h1>버튼 클릭 + 활성화</h1>
+            <div>활성화된 버튼을 클릭하시오.</div>
+            <ul>
+                <li>&lt;button&gt; + fontawesome icon</li>
+                <li>흰색 버튼 : btn.disabled = false;</li>
+                <li>회색 버튼 : btn.disabled = true;</li>
+                <li>흰색 버튼 : btn:enabled { background-color: white; }</li>
+                <li>회색 버튼 : btn:disabled { background-color: gray; }</li>
+            </ul>
+            <div class="code">window.open, window.close, opener</div>
+        </div>
+    
+        <div id="list">
+            <button type="button" name="btn"><i class="fas fa-dog"></i></button>
+            <button type="button" name="btn" disabled><i class="fas fa-paw"></i></button>
+            <button type="button" name="btn" disabled><i class="fas fa-bone"></i></button>
+            <button type="button" name="btn" disabled><i class="fas fa-frog"></i></button>
+            <button type="button" name="btn" disabled><i class="fas fa-cat"></i></button>
+            <button type="button" name="btn" disabled><i class="fas fa-piggy-bank"></i></button>
+            <button type="button" name="btn" disabled><i class="fas fa-horse"></i></button>
+            <button type="button" name="btn" disabled><i class="fas fa-dove"></i></button>
+            <button type="button" name="btn" disabled><i class="fas fa-drumstick-bite"></i></button>
+            <button type="button" name="btn" disabled><i class="fas fa-fish"></i></button>
+        </div>
+        <div class="script script42_3" style="left: 35px; top: 190px;">
+            <div style="left: 35px; top: 95px;">
+                Font Awesome을<br>사용한 이미지입니다.<br>https://fontawesome.com/
+            </div>
+        </div>
+        <div class="script script42_3" style="left: 335px; top: 190px;">
+            <div style="left: 22px; top: 102px;">
+                &lt;input type='button'&gt;<br>
+                &lt;input type='button' disabled&gt;
+            </div>
+        </div>
+        <div class="script script42_3" style="left: 635px; top: 190px;">
+            <div style="left: 35px; top: 95px;">
+                    .btn:enabled { 배경색 :흰색; }<br>
+                    .btn:disabled { 배경 : 회색; }<br>
+                    btn[i].disabled = true;
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        var btn = document.all.btn;
+        var n = 0;
+        var timer = 0;
+
+        timer = setInterval(function() {
+
+            for (var i=0; i<btn.length; i++) {
+                btn[i].disabled = true;
+            }
+            btn[n].disabled = false;
+            n++;
+            if(n > 9) n = 0;
+        }, 200);
+
+        for (var i=0; i<btn.length; i++) {
+
+            btn[i].onclick = function() {
+                clearInterval(timer);
+                document.body.bgColor = "cornflowerblue";
+            }
+        }
+
+    </script>
+
+</body>
+</html>

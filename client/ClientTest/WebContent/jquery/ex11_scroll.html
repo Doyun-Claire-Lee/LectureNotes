@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body { margin: 0; padding: 0;}
+        #top {
+            background-color: rgb(58, 56, 53);
+            height: 500px;
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+        #top > h1 {
+            font-size: 100px;
+            width: 1000px;
+            text-align: center;
+            margin: 0px auto;
+            color: whitesmoke;
+            padding-top: 160px;
+            font-variant: small-caps;
+        }
+        #menu {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 50px;
+            text-align: center;
+            border-top: 1px solid whitesmoke;
+            background-color: rgb(58, 56, 53);
+
+        }
+        #menu > span {
+            color: whitesmoke;
+            font-weight: bold;
+            display: inline-block;
+            width: 100px;
+            text-align: center;
+            margin: 13px 0px;
+            border-right: 1px dashed whitesmoke;
+            cursor: pointer;
+        }
+        #menu > span:last-child {
+            border-right: 0px;
+        }
+
+        #menu > span > a {
+            color: white;
+            text-decoration: none;
+        }
+        .item {
+            width: 950px;
+            margin: 50px auto;
+        }
+        .item > h2 {
+            border-bottom: 1px dashed gray;
+            padding-bottom: 10px;
+            color: rgb(146, 126, 100);
+        }
+        .item > .back {
+            text-align: right;
+            padding: 20px 30px 0px 0px;
+        }
+        .item > .back > a {
+            color: tan;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 원페이지 구성, 포트폴리오 -->
+
+    <header id="top">
+        <h1>Software Developer</h1>
+        <nav id="menu">
+            <!-- <span><a href="#item1">Home</a></span>
+            <span><a href="#item2">Skill</a></span>
+            <span><a href="#item3">Portfolio</a></span>
+            <span><a href="#item4">Resume</a></span>
+            <span><a href="#item5">Education</a></span> -->
+            <span data-item="item1">Home</span>
+            <span data-item="item2">Skill</span>
+            <span data-item="item3">Portfolio</span>
+            <span data-item="item4">Resume</span>
+            <span data-item="item5">Education</span>
+        </nav>
+    </header>
+    <section id="item1" class="item">
+
+        <h2>Home</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis animi voluptates optio. Non ex reprehenderit doloribus quod dolorum qui repudiandae sequi ab nam consectetur beatae, ea, inventore, numquam aliquam quasi?</p>
+        <p>Quia, atque. Iusto enim atque quia earum ab blanditiis accusantium totam ducimus laborum? Sint pariatur, architecto mollitia, quasi ducimus qui enim voluptas eum a fugiat dignissimos consectetur non sit nobis.</p>
+        <p>Sit possimus eum repellat doloremque quia architecto perspiciatis deserunt sapiente! Illo obcaecati ducimus quasi voluptatum culpa tempore labore reprehenderit at, eum minus, nisi placeat facere error doloremque iusto provident ea?</p>
+        <p>Dolorum, ipsa fuga facere, nisi officiis, quaerat aliquam cupiditate corporis neque ad alias in ipsum hic autem officia aliquid nam accusamus laboriosam repellendus eaque sapiente odit. Magnam similique iusto eos?</p>
+        <p>Autem veritatis enim, modi eveniet est expedita aut voluptatibus dicta laborum provident nulla quam ex suscipit magnam excepturi incidunt libero explicabo similique. Soluta accusantium, nobis blanditiis labore adipisci dolorem odit?</p>
+        <p>Facere perferendis facilis aliquid dolore odit a nisi, error itaque necessitatibus incidunt corrupti deleniti magni optio accusamus tenetur provident? Nam dolor deleniti tempora ea! Ullam laboriosam ab exercitationem quisquam nihil?</p>
+        <p>Quaerat vitae rem iste delectus. Magnam exercitationem vero, neque, dolorem unde rerum laboriosam atque quisquam debitis ipsam assumenda id accusamus est ipsum beatae numquam fugit rem reprehenderit maxime aut minus!</p>
+        <p>Excepturi, totam nulla molestias voluptas ad libero non eos placeat, molestiae maxime aliquid quae repudiandae at fugit eaque ea odit magni accusantium dolor, quas sapiente? Suscipit eaque expedita quod beatae!</p>
+        <p>A corrupti consequatur tempora fugit quod temporibus suscipit necessitatibus dolore blanditiis velit, deserunt provident assumenda nihil deleniti error at cum non neque quasi. Pariatur sunt omnis aut harum, aperiam quia!</p>
+        <p>Molestias voluptates beatae reprehenderit saepe natus porro ratione est, quibusdam hic excepturi unde deserunt corporis eligendi, eaque provident! Nihil recusandae molestias quam quo, molestiae sapiente debitis vel facilis placeat optio.</p>
+        <div class="back"><a href="#top">▲TOP</a></div>
+    </section>
+    <section id="item2" class="item">
+
+        <h2>Skill</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis animi voluptates optio. Non ex reprehenderit doloribus quod dolorum qui repudiandae sequi ab nam consectetur beatae, ea, inventore, numquam aliquam quasi?</p>
+        <p>Quia, atque. Iusto enim atque quia earum ab blanditiis accusantium totam ducimus laborum? Sint pariatur, architecto mollitia, quasi ducimus qui enim voluptas eum a fugiat dignissimos consectetur non sit nobis.</p>
+        <p>Sit possimus eum repellat doloremque quia architecto perspiciatis deserunt sapiente! Illo obcaecati ducimus quasi voluptatum culpa tempore labore reprehenderit at, eum minus, nisi placeat facere error doloremque iusto provident ea?</p>
+        <p>Dolorum, ipsa fuga facere, nisi officiis, quaerat aliquam cupiditate corporis neque ad alias in ipsum hic autem officia aliquid nam accusamus laboriosam repellendus eaque sapiente odit. Magnam similique iusto eos?</p>
+        <p>Autem veritatis enim, modi eveniet est expedita aut voluptatibus dicta laborum provident nulla quam ex suscipit magnam excepturi incidunt libero explicabo similique. Soluta accusantium, nobis blanditiis labore adipisci dolorem odit?</p>
+        <p>Facere perferendis facilis aliquid dolore odit a nisi, error itaque necessitatibus incidunt corrupti deleniti magni optio accusamus tenetur provident? Nam dolor deleniti tempora ea! Ullam laboriosam ab exercitationem quisquam nihil?</p>
+        <p>Quaerat vitae rem iste delectus. Magnam exercitationem vero, neque, dolorem unde rerum laboriosam atque quisquam debitis ipsam assumenda id accusamus est ipsum beatae numquam fugit rem reprehenderit maxime aut minus!</p>
+        <p>Excepturi, totam nulla molestias voluptas ad libero non eos placeat, molestiae maxime aliquid quae repudiandae at fugit eaque ea odit magni accusantium dolor, quas sapiente? Suscipit eaque expedita quod beatae!</p>
+        <p>A corrupti consequatur tempora fugit quod temporibus suscipit necessitatibus dolore blanditiis velit, deserunt provident assumenda nihil deleniti error at cum non neque quasi. Pariatur sunt omnis aut harum, aperiam quia!</p>
+        <p>Molestias voluptates beatae reprehenderit saepe natus porro ratione est, quibusdam hic excepturi unde deserunt corporis eligendi, eaque provident! Nihil recusandae molestias quam quo, molestiae sapiente debitis vel facilis placeat optio.</p>
+        <div class="back"><a href="#top">▲TOP</a></div>
+
+    </section>
+    <section id="item3" class="item">
+
+        <h2>Portfolio</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis animi voluptates optio. Non ex reprehenderit doloribus quod dolorum qui repudiandae sequi ab nam consectetur beatae, ea, inventore, numquam aliquam quasi?</p>
+        <p>Quia, atque. Iusto enim atque quia earum ab blanditiis accusantium totam ducimus laborum? Sint pariatur, architecto mollitia, quasi ducimus qui enim voluptas eum a fugiat dignissimos consectetur non sit nobis.</p>
+        <p>Sit possimus eum repellat doloremque quia architecto perspiciatis deserunt sapiente! Illo obcaecati ducimus quasi voluptatum culpa tempore labore reprehenderit at, eum minus, nisi placeat facere error doloremque iusto provident ea?</p>
+        <p>Dolorum, ipsa fuga facere, nisi officiis, quaerat aliquam cupiditate corporis neque ad alias in ipsum hic autem officia aliquid nam accusamus laboriosam repellendus eaque sapiente odit. Magnam similique iusto eos?</p>
+        <p>Autem veritatis enim, modi eveniet est expedita aut voluptatibus dicta laborum provident nulla quam ex suscipit magnam excepturi incidunt libero explicabo similique. Soluta accusantium, nobis blanditiis labore adipisci dolorem odit?</p>
+        <p>Facere perferendis facilis aliquid dolore odit a nisi, error itaque necessitatibus incidunt corrupti deleniti magni optio accusamus tenetur provident? Nam dolor deleniti tempora ea! Ullam laboriosam ab exercitationem quisquam nihil?</p>
+        <p>Quaerat vitae rem iste delectus. Magnam exercitationem vero, neque, dolorem unde rerum laboriosam atque quisquam debitis ipsam assumenda id accusamus est ipsum beatae numquam fugit rem reprehenderit maxime aut minus!</p>
+        <p>Excepturi, totam nulla molestias voluptas ad libero non eos placeat, molestiae maxime aliquid quae repudiandae at fugit eaque ea odit magni accusantium dolor, quas sapiente? Suscipit eaque expedita quod beatae!</p>
+        <p>A corrupti consequatur tempora fugit quod temporibus suscipit necessitatibus dolore blanditiis velit, deserunt provident assumenda nihil deleniti error at cum non neque quasi. Pariatur sunt omnis aut harum, aperiam quia!</p>
+        <p>Molestias voluptates beatae reprehenderit saepe natus porro ratione est, quibusdam hic excepturi unde deserunt corporis eligendi, eaque provident! Nihil recusandae molestias quam quo, molestiae sapiente debitis vel facilis placeat optio.</p>
+        <div class="back"><a href="#top">▲TOP</a></div>
+
+    </section>
+    <section id="item4" class="item">
+
+        <h2>Resume</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis animi voluptates optio. Non ex reprehenderit doloribus quod dolorum qui repudiandae sequi ab nam consectetur beatae, ea, inventore, numquam aliquam quasi?</p>
+        <p>Quia, atque. Iusto enim atque quia earum ab blanditiis accusantium totam ducimus laborum? Sint pariatur, architecto mollitia, quasi ducimus qui enim voluptas eum a fugiat dignissimos consectetur non sit nobis.</p>
+        <p>Sit possimus eum repellat doloremque quia architecto perspiciatis deserunt sapiente! Illo obcaecati ducimus quasi voluptatum culpa tempore labore reprehenderit at, eum minus, nisi placeat facere error doloremque iusto provident ea?</p>
+        <p>Dolorum, ipsa fuga facere, nisi officiis, quaerat aliquam cupiditate corporis neque ad alias in ipsum hic autem officia aliquid nam accusamus laboriosam repellendus eaque sapiente odit. Magnam similique iusto eos?</p>
+        <p>Autem veritatis enim, modi eveniet est expedita aut voluptatibus dicta laborum provident nulla quam ex suscipit magnam excepturi incidunt libero explicabo similique. Soluta accusantium, nobis blanditiis labore adipisci dolorem odit?</p>
+        <p>Facere perferendis facilis aliquid dolore odit a nisi, error itaque necessitatibus incidunt corrupti deleniti magni optio accusamus tenetur provident? Nam dolor deleniti tempora ea! Ullam laboriosam ab exercitationem quisquam nihil?</p>
+        <p>Quaerat vitae rem iste delectus. Magnam exercitationem vero, neque, dolorem unde rerum laboriosam atque quisquam debitis ipsam assumenda id accusamus est ipsum beatae numquam fugit rem reprehenderit maxime aut minus!</p>
+        <p>Excepturi, totam nulla molestias voluptas ad libero non eos placeat, molestiae maxime aliquid quae repudiandae at fugit eaque ea odit magni accusantium dolor, quas sapiente? Suscipit eaque expedita quod beatae!</p>
+        <p>A corrupti consequatur tempora fugit quod temporibus suscipit necessitatibus dolore blanditiis velit, deserunt provident assumenda nihil deleniti error at cum non neque quasi. Pariatur sunt omnis aut harum, aperiam quia!</p>
+        <p>Molestias voluptates beatae reprehenderit saepe natus porro ratione est, quibusdam hic excepturi unde deserunt corporis eligendi, eaque provident! Nihil recusandae molestias quam quo, molestiae sapiente debitis vel facilis placeat optio.</p>
+        <div class="back"><a href="#top">▲TOP</a></div>
+
+    </section>
+    <section id="item5" class="item">
+
+        <h2>Education</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis animi voluptates optio. Non ex reprehenderit doloribus quod dolorum qui repudiandae sequi ab nam consectetur beatae, ea, inventore, numquam aliquam quasi?</p>
+        <p>Quia, atque. Iusto enim atque quia earum ab blanditiis accusantium totam ducimus laborum? Sint pariatur, architecto mollitia, quasi ducimus qui enim voluptas eum a fugiat dignissimos consectetur non sit nobis.</p>
+        <p>Sit possimus eum repellat doloremque quia architecto perspiciatis deserunt sapiente! Illo obcaecati ducimus quasi voluptatum culpa tempore labore reprehenderit at, eum minus, nisi placeat facere error doloremque iusto provident ea?</p>
+        <p>Dolorum, ipsa fuga facere, nisi officiis, quaerat aliquam cupiditate corporis neque ad alias in ipsum hic autem officia aliquid nam accusamus laboriosam repellendus eaque sapiente odit. Magnam similique iusto eos?</p>
+        <p>Autem veritatis enim, modi eveniet est expedita aut voluptatibus dicta laborum provident nulla quam ex suscipit magnam excepturi incidunt libero explicabo similique. Soluta accusantium, nobis blanditiis labore adipisci dolorem odit?</p>
+        <p>Facere perferendis facilis aliquid dolore odit a nisi, error itaque necessitatibus incidunt corrupti deleniti magni optio accusamus tenetur provident? Nam dolor deleniti tempora ea! Ullam laboriosam ab exercitationem quisquam nihil?</p>
+        <p>Quaerat vitae rem iste delectus. Magnam exercitationem vero, neque, dolorem unde rerum laboriosam atque quisquam debitis ipsam assumenda id accusamus est ipsum beatae numquam fugit rem reprehenderit maxime aut minus!</p>
+        <p>Excepturi, totam nulla molestias voluptas ad libero non eos placeat, molestiae maxime aliquid quae repudiandae at fugit eaque ea odit magni accusantium dolor, quas sapiente? Suscipit eaque expedita quod beatae!</p>
+        <p>A corrupti consequatur tempora fugit quod temporibus suscipit necessitatibus dolore blanditiis velit, deserunt provident assumenda nihil deleniti error at cum non neque quasi. Pariatur sunt omnis aut harum, aperiam quia!</p>
+        <p>Molestias voluptates beatae reprehenderit saepe natus porro ratione est, quibusdam hic excepturi unde deserunt corporis eligendi, eaque provident! Nihil recusandae molestias quam quo, molestiae sapiente debitis vel facilis placeat optio.</p>
+        <div class="back"><a href="#top">▲TOP</a></div>
+
+    </section>
+
+
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+
+
+        $("#menu > span").click(function() {
+
+            //event.srcElement.dataset["item"]
+            //$(this).data("item")  -> 문자열 반환
+
+            console.log($("#" + $(this).data("item")).position().top);
+
+            $("html, body").animate({
+                scrollTop: $("#" + $(this).data("item")).position().top - 30
+            }, 1000);
+
+        });
+
+        $(".item > .back > a").click(function() {
+            
+            //번쩍 하는 현상 -> a태그가 먼저 작용했기 때문에
+            //a태그 본연의 기능을 제거하기
+            event.preventDefault();
+
+            $("html, body").animate({
+                scrollTop: 0
+            }, 1000);
+        });
+
+
+        //1회성 애니메이션을 통제하기 위한 변수(붙박이 메뉴 슬라이드로 나타나기)
+        var flag = false;
+        
+        $(document).scroll(function() {
+            
+            //메뉴가 시야에서 사라지는 순간 메뉴를 붙박이로 만들기
+            if ( $(document).scrollTop() > $("#menu").position().top) {
+
+                if (!flag) {
+
+                    $("#menu").css({
+                        position : "fixed",
+                        // top: "0px",
+                        top: -$("menu").outerHeight(),  //슬라이드 효과를 주기 위해 메뉴를 일단 숨겨놓기
+                        bottom: ""  //bottom을 없앨때 -> 빈 값을 주기
+                    });
+
+					// $("#menu").animate({
+					// 	top: "0px"
+					// }, 1000, function() {
+					// 	//alert();
+					// 	flag = true;
+					// });
+
+                }
+
+            } 
+
+            //상단 헤더(top)이 눈에 보일때 쯤 원래대로 돌아가기
+            //내릴때랑 올라갈 때 조금 더 자연스럽게 보이기 위해, 덜컹거리는 현상을 방지하기 위해 메뉴의 높이를 빼줌(메뉴가 빠지면서 상단의 길이가 줄어들기 때문)
+            if ($(document).scrollTop() <= $("#top").outerHeight() - $("#menu").outerHeight()) {
+                $("#menu").css({
+                    position : "absolute",
+                    top: "",
+                    bottom: "0"  //bottom을 없앨때 -> 빈 값을 주기
+                });
+            }
+        });
+
+    </script>
+</body>
+</html>

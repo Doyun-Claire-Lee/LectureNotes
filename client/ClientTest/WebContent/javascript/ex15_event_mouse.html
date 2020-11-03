@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+    </script>
+    <style>
+        #txt1 {
+            width: 800px;
+            height: 500px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>마우스 이벤트</h1>
+    <form action="" name="form1">
+        <textarea name="txt1" id="txt1"></textarea>
+        <hr>
+        <input type="text" value="클릭" name="btn1">
+    </form>
+
+    <script>
+        
+        var txt1 = window.document.form1.txt1;
+        var btn1 = window.document.form1.btn1;
+
+        //마우스 관련 이벤트
+        // - onmouseXXX
+        //1. onmouseover : 해당 객체 영역 내에 마우스 커서가 진입하는 순간 발생
+        //2. onmouseout : 해당 객체 영역 내에 마우스 커서가 빠져나가는 순간 발생
+        //3. onmousedown : 해당 객체 영역에서 마우스 버튼을 눌렀을 때 발생
+        //4. onmouseup : 해당 객체 영역에서 마우스 버튼을 떼는 순간 발생
+        //5. onmousemove : 해당 객체 영역에서 마우스 커서를 움직일 때 발생
+
+
+        //onclick - 마우스 관련 이벤트가 아님. (키보드로도 클릭이 가능하기 때문)
+
+
+        // event 객체 : 사건 관련 정보를 제공해줌
+        // 1. buttons
+        // 2. 좌표
+        //      - event.x, event.y : 문서 좌측 상단 기준, 비표준(MS에서 만들어낸것)
+        //      - event.clientX, event.clientY : 문서 좌측 상단 기준, 표준(FM), 가장 많이 사용, position = absolute와 비슷
+        //      - evnent.screenX, event.screenY : 화면 좌측 상단 기준
+        //      - offsetX, offsetY : 이벤트 발생 객체의 좌측 상단 기준, 많이 사용, position-relative와 비슷
+        txt1.onmouseover = function() {
+            // window.document.body.bgColor = "#eee";
+            // window.document.form1.txt1.value = "마우스 오버: " + event.x;
+        }
+        txt1.onmouseout = function() {
+            // window.document.body.bgColor = "white";
+            // window.document.form1.txt1.value = "마우스 아웃";
+        }
+        txt1.onclick = function() {
+            // window.document.body.bgColor = "cornflowerblue";
+            // window.document.form1.txt1.value = "마우스 오버";
+        }
+        txt1.onmousedown = function() {
+            // if (event.buttons == 2) {
+            //     alert("오른쪽 버튼 사용 금지");
+            // }
+            // window.document.form1.txt1.value = "마우스 다운" + event.buttons;
+            // txt1.value = "마우스 좌표: " + event.x + ", " + event.y;
+            // txt1.value = "마우스 좌표: " + event.clientX + ", " + event.clientY;
+            // txt1.value = "마우스 좌표: " + event.screenX + ", " + event.screenY;
+            txt1.value = "마우스 좌표: " + event.offsetX + ", " + event.offsetY;
+        }
+        txt1.onmouseup = function() {
+            // window.document.form1.txt1.value = "마우스 업" + event.buttons;
+        }
+        txt1.onmousemove = function() {
+
+            //마우스 궤도(?) 누적 출력
+            txt1.value = event.offsetX + ", " + event.offsetY + "\n" + txt1.value;
+
+            if (event.offsetX < 400) {
+                window.document.body.bgColor = "#123123";
+            } else {
+                window.document.body.bgColor = "#defdef";
+            }
+        }
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

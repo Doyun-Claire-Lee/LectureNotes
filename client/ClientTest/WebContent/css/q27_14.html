@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+        
+        }
+        #box:hover .ball {
+            transform: translate(1298px, 0px) rotate(3600deg);
+        }
+        .lane {
+            border: 1px solid #333;
+            width: 1400px;
+            height: 150px;
+            margin: -1px auto;
+
+            position: relative;
+            top: 0px;
+            left: 0px;
+        }
+        .ball {
+            border: 1px solid #333;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            text-align: center;
+            font-size: 70px;
+            font-weight: bold;
+        }
+        #ball1 {
+            background-color: tomato;
+            transition: transform 3s;
+        }
+        #ball2 {
+            background-color: orange;
+            transition: transform 2s;
+        }
+        #ball3 {
+            background-color: gold;
+            transition: transform 2.5s;
+        }
+        #ball4 {
+            background-color: olivedrab;
+            transition: transform 3.5s;
+        }
+        #ball5 {
+            background-color: cornflowerblue;
+            transition: transform 2s;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="lane1" class="lane">
+            <div id="ball1" class="ball">A</div>
+        </div>
+        <div id="lane2" class="lane">
+            <div id="ball2" class="ball">B</div>
+        </div>
+        <div id="lane3" class="lane">
+            <div id="ball3" class="ball">C</div>
+        </div>
+        <div id="lane4" class="lane">
+            <div id="ball4" class="ball">D</div>
+        </div>
+        <div id="lane5" class="lane">
+            <div id="ball5" class="ball">E</div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+</body>
+</html>

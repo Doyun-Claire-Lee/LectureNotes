@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tbl {
+            border: 1px solid gray;
+            border-collapse: collapse;
+            margin: 10px auto;
+        }
+        #tbl td {
+            border: 1px solid gray;
+            width: 100px;
+            height: 100px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: rgb(256, 256, 256);
+        }
+
+    </style>
+</head>
+<body>
+    <table id="tbl">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <script>
+
+        var td = document.getElementsByTagName("td");
+        var r;
+        var g;
+        var b;
+
+        for (var i=0; i<td.length; i++) {
+            
+            td[i].onclick = function() {
+
+                clear();
+
+                var temp = getComputedStyle(event.srcElement)["background-color"];
+                var tlist = temp.split(",");
+
+                r = parseInt(tlist[0].substring(4));
+                g = parseInt(tlist[1].substring(1));
+                b = parseInt(tlist[2].substring(1));
+
+                r -= 40;
+                g -= 40;
+                b -= 40;
+
+                event.srcElement.style.backgroundImage = "url('../images/38번.png')";
+                event.srcElement.style.backgroundColor = "rgb(" + r + ", " + g + ", " + b + ")";
+
+                // console.log(event.srcElement.style.backgroundColor);
+
+                if (event.srcElement.style.backgroundColor == "rgb(0, 0, 0)") {
+                    clear();
+                    event.srcElement.onclick = null;
+                }
+            };
+        }
+
+        function clear() {
+            for (var i=0; i<td.length; i++) {
+                td[i].style.backgroundImage = "url()";
+            }
+        }
+
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>

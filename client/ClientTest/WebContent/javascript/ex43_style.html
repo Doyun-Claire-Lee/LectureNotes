@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            /* border: 1px solid gray; */
+            width: 150px;
+            height: 150px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+    
+    <script>
+        
+        window.addEventListener("mousedown", function() {
+            
+            if (event.buttons == 1) {
+
+                var box = document.createElement("div");
+                box.className = "box";
+                // box.innerText = "상자";
+                box.style.left = event.clientX - 75 + "px";
+                box.style.top = event.clientY - 75 + "px";
+                
+                //0~255사이의 값 만들어서 rgb 넣기
+                var r = parseInt(Math.random() * 256);
+                var g = parseInt(Math.random() * 256);
+                var b = parseInt(Math.random() * 256);
+                //배경색을 주는 이유 -> 기본 div의 배경은 투명이기 때문에 클릭을 하면 body로 넘어가 이벤트를 body에 주게됨..
+                box.style.backgroundColor = "rgb(" + r + "," + g  + "," + b + ")"; 
+
+                // css를 자바스크립트에서 주기 -> 비권장, CSS영역에서 만들고 클래스 이름 주기
+                // box.style.border = "1px solid gray";
+                // box.style.width = "150px";
+                // box.style.height = "150px";
+                // box.style.position = "absolute";
+
+                document.body.appendChild(box);
+
+                
+            } else if (event.buttons == 2) {
+
+                document.body.removeChild(event.srcElement);
+            }
+        });
+
+    </script>
+
+</body>
+</html>

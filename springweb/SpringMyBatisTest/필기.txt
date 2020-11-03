@@ -1,0 +1,51 @@
+
+#MyBatis(iBatis - 예전이름)
+ - 응용프로그램(Java) <-> 중간계층(JDBC, Spring-JDBC, MyBatis, JPA) <-> 데이터베이스(Oracle)
+ - 스프링 기술은 아님, 독립적인 기술(C# 등 다른 언어에도 사용 가능)
+ 
+ 
+#프로젝트 세팅
+
+	1. 버전 변경
+		- pom.xml
+		
+	2. pom.xml
+		- dependency로 jar파일 가져오기
+		- project-오른쪽버튼-maven-updateProject
+		- jdbc: WEB-INF > lib > ojdbc6.jar 복사 (jdbc는 dependency를 통해 가져올 수 없음)
+		
+	3. web.xml
+		- *.action
+		- POST방식에 따른 인코딩 필터 등록	
+		
+	4. root-context.xml
+		- <bean> 3개 생성
+		- WEB-INF > mybatis.xml 생성
+		- com.test.spring.mapper > *.xml 생성
+		
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

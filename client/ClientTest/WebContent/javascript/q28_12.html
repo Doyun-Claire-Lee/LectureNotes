@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" href="basic.css">
+    <style>
+        #num {
+            font-size: 10em;
+            font-weight: bold;
+            text-align: center;
+            width: 250px;
+            display: block;
+            margin: 100px auto;
+            border: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main m800">
+        <div class="mainHeader">
+            <h1>카운트 다운 + 페이지 이동</h1>
+            <div>카운트 다운을 구현하시오.</div>
+            <ul>
+                <li>카운트가 0이 되면 페이지를 구글로 이동하시오.</li>
+                <li><code>esc</code> 키를 누르면 카운트를 중단하시오.</li>
+            </ul>
+            <div class="code">setTimeout() or setInterval() / clearTimeout() or clearInterval(), window.onkeydown</div>
+        </div>
+        <div>
+            <input type="text" name="num" id="num" value="10">
+        </div>
+        <div class="script script42_2" style="left: 170px; top: 460px;">
+            <div style="left: 35px; top: 110px;">&lt;input type='text'&gt; 입니다.<br>테두리를 감췄습니다.</div>
+        </div>
+    </div>
+
+    <script>
+        var count = 10;
+        var timer = 0;
+        var num = document.all.num;
+
+        // esc = 27
+        if (timer == 0) {
+            timer = setInterval(function() {
+                count--;
+                num.value = count;
+                console.log(count);
+                if (count == 0) {
+                    location.href = "http://google.com";
+                }
+            }, 1000)
+        } else {
+            console.log("incorrect timer")
+        }
+       
+       window.onkeydown = function() {
+            if (event.keyCode == 27) {
+                clearInterval(timer);
+                document.body.bgColor = "tomato";
+                timer = 0;    
+            }
+       }
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

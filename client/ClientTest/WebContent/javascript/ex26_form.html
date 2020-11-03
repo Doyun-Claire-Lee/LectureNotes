@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<!-- ex26_form.html -->
+
+	<form name="form1" action="ex26_ok.jsp">
+
+		<div><input type="text" name="txt1"></div>
+		<div>
+			<input type="button" name="btn1" value="버튼1">
+			<input type="button" name="btn2" value="버튼2">
+		</div>
+
+		<h1>유효성 검사</h1>
+		<fieldset>
+			<legend>필수 입력</legend>
+			<div>
+				<label>이름: </label>
+				<input type="text" name="txtName">
+			</div>
+			<div>
+				<label>나이: </label>
+				<input type="text" name="txtAge">
+			</div>
+			<div>
+				<label>아이디: </label>
+				<input type="text" name="txtID">
+			</div>
+			<div>
+				<label>암호: </label>
+				<input type="text" name="txtPW">
+			</div>
+			<div>
+				<label>암호 확인: </label>
+				<input type="text" name="txtPW2">
+			</div>
+		</fieldset>
+		<div>
+			<input type="button" value="가입하기"
+				name="btnRegister">
+		</div>
+
+	</form>
+	<script>
+		var txt1 = document.form1.txt1;
+		var btn1 = document.form1.btn1;
+		var btn2 = document.form1.btn2;
+
+		var txtName = document.form1.txtName;
+		var txtAge = document.form1.txtAge;
+		var txtID = document.form1.txtID;
+		var btnRegister = document.form1.btnRegister;
+
+		var txtPW = document.form1.txtPW;
+		var txtPW2 = document.form1.txtPW2;
+		
+
+		btn1.onclick = function() {
+			//console.log(txt1.value);
+			//txt1.size = 5;
+			//txt1.readOnly = true;
+			//txt1.disabled = true;
+			//txt1.maxLength = 3;
+			//txt1.value = txt1.value.substr(0, 3);
+
+			//에뮬레이트 함수
+			//- 진짜 컨트롤을 클릭하지 않았는데 클릭된것처럼 실행
+			// - onclick -> click()
+			// - onmouseover -> mouserover()
+			btn2.click();
+		};
+
+		btn2.onclick = function() {
+			txt1.value = "홍길동";
+			txt1.disabled = false;
+		};
+		txt1.ondblclick = function() {
+			//txt1.readOnly = false;
+			txt1.disabled = false;
+		};
+
+		btnRegister.onclick = function() {
+
+			//유효성 검사 -> 잘못된 경우를 찾아라!!
+
+			//1. 이름
+			// - 필수값
+			// - 2자~5자 이내
+			// - 한글만 입력
+			if (txtName.value == "") {
+				alert("이름은 필수로 입력하세요.");
+				txtName.focus();
+				return; //빈 리턴문(-> 함수 종료)
+			}
+
+			if (txtName.value.length < 2 ||
+				txtName.value.length > 5) {
+				alert("이름을 2자~5자 이내로 입력하세요.");
+				//txtName.focus();
+				txtName.select();
+				//txtName.value = ""; //텍스트 박스 초기화
+				//txtName.focus();
+				return;
+			}
+
+			for (var i=0; i<txtName.value.length; i++) {
+				var c = txtName.value.charAt(i);
+				//console.log(c);
+				if (c < "가" || c > "힣") {
+					alert("이름은 한글로 입력하세요.");
+					txtName.select();
+					return;
+				}
+			}
+
+
+			//나이
+			//1. 필수값
+			//2. 숫자만
+			//3. 범위(1~100)
+			if (txtAge.value == "") {
+				alert("나이를 반드시 입력하세요.");
+				txtAge.focus();
+				return;
+			}
+
+			//isNaN
+			if (isNaN(txtAge.value)) {
+				alert("나이를 숫자로 입력하세요.");
+				txtAge.select();
+				return;
+			}
+
+			if (txtAge.value < 1 || txtAge.value > 100) {
+				alert("나이를 1~100세 사이로 입력하세요.");
+				txtAge.select();
+				return;
+			}
+
+			//아이디
+			//1. 필수값
+			//2. 4~12자 이내
+			//3. 영어 + 숫자 + '_'
+			//4. 숫자로 시작 불가
+			if (txtID.value == "") {
+				alert("아이디를 반드시 입력하세요.");
+				txtID.focus();
+				return;
+			}
+
+			if (txtID.value.length < 4 || txtID.value.lenght > 12) {
+				alert("아이디는 4~12이내로 입력하세요.");
+				txtID.select();
+				return;
+			}
+
+			for (var i=0; i<txtID.value.length; i++) {
+				var c = txtID.value.charAt(i);
+				if ((c < 'A' || c > 'Z') && (c < 'a' || c > 'z') && (c < '0' || c > '9') && c != "_") {
+					alert("아이디는 영어와 숫자와 '_'로 입력하세요.");
+					txtID.select();
+					return;
+				}
+			}
+
+			if (!isNaN(txtID.value.charAt(0))) {
+				alert("아이디는 숫자로 시작할 수 없습니다.");
+				txtID.select();
+				return;
+			}
+
+			//암호 검사
+			if (txtPW.value != txtPW2.value) {
+				alert("암호가 일치하지 않습니다.");
+				txtPW.focus();
+				return;
+			}
+
+			//페이지 전송
+			alert("회원 가입 성공!!");
+		};
+
+	</script>
+
+</body>
+</html>

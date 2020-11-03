@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+	<link rel="stylesheet" href="basic.css">
+</head>
+<body>
+    <div class="main m800">
+        <div class="mainHeader">
+            <h1>고양이 키우기 + 마우스 이벤트</h1>
+            <div>마우스를 올리면 고양이 사이즈를 증가시키고, 클릭하면 리셋하시오.</div>
+            <div class="code">document.images, img.onmouseover, img.onclick, img.width, confirm()</div>
+        </div>
+        <img src="../images/catty01.png" name="cat1">
+        <img src="../images/catty02.png" name="cat2">
+        <img src="../images/catty03.png" name="cat3">
+        <img src="../images/catty04.png" name="cat4">
+        <img src="../images/catty05.png" name="cat5">
+    </div>
+
+    <script>
+
+        for(var i=1; i<=document.images.length; i++) {
+
+            var cat = document.images["cat" + i];
+
+            cat.onmouseover = function() {
+                event.srcElement.width = event.srcElement.width*1.01;
+            }
+            cat.onclick = function() {
+
+                var result = confirm("reset??");
+                if(result) {
+                    event.srcElement.width = 128;
+                } 
+            }
+
+        }
+
+
+    </script>
+
+
+</body>
+</html>

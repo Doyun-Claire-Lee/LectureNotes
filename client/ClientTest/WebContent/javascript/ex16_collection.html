@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>이미지</h1>
+    <img src="../images/catty01.png" alt="">
+    <img src="../images/catty02.png" alt="">
+    <img src="../images/catty03.png" alt="">
+    <img src="../images/catty04.png" alt="">
+    <img src="../images/catty05.png" alt="">
+
+    <h1>링크</h1>
+    <a href="#">네이버</a>
+    <a name="a">A표지판</a>
+    <a href="#">다음</a>
+    <a name="b">B표지판</a>
+    <a href="#">구글</a>
+
+    <h1>폼</h1>
+    <form name="form1">
+        <input type="text" name="txt1">
+        <input type="text" name="txt2">
+        <input type="button" value="전송" name="btn1">
+    </form>
+
+    <script>
+        
+        //자바스크립트가 문서 내용을 기반으로 자동 생성하는 배열들
+        //1. window.document.images : 문서상이 모든 <img>태스 배열
+        //2. window.document.links : 문서상의 모든 <a href="">태그 배열
+        //3. window.document.anchors : 문서상의 모든 <a name="" id="">태그 배열
+        //4. window.document.forms : 문서상의 모든 <form>태그 배열
+        //5. window.document.forms[1].elements : 특정 폼의 하위 입력 태그 배열
+        //5. window.document.all : 문서상의 모든 태그 배열, 비표준(MS 자체 문법), 그러나 대부분의 브라우저가 지원함.
+
+        console.log(window.document.images.length);
+        console.log(window.document.images);
+        console.log(window.document.links.length);
+        console.log(window.document.links);
+        console.log(window.document.anchors.length);
+        console.log(window.document.anchors);
+        
+        console.log(window.document.forms.length);
+        console.log(window.document.forms);
+        window.document.forms[0].txt1.value="확인";
+        console.log(window.document.forms[0].elements.length);
+       
+        //1. 모든 태그 집합(BOM에 없는 태그조차 포함함.)
+        //2. 계증에 상관없이 하나의 집합으로 나타내줌
+        //3. 요즘엔 all 대신 보통 DOM을 씀..
+        console.log(window.document.all.length);
+        
+        var alist = window.document.all;
+        for (var i=0; i<alist.length; i++) {
+            console.log(alist[i].nodeName); //DOM
+            //BOM은 트리구조 외의 태그들엔 접근하지 못하지만 DOM은 가능
+            
+        }
+
+
+    </script>
+</body>
+</html>

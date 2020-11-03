@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*         
+        박스 모델, Box Model
+        - CSS(HTML)는 모든 태그를 렌더링의 결과로 사각형 형태로 출력한다.
+        
+        1. 테두리(Border)
+            - 모든 요소는 테두리를 가질 수 있다.
+            - 일부 요소는 이미 시각적으로 테두리를 가지고 있다.
+        2. 너비, 높이(width, height)
+            - width
+            - height
+            - 절대크기(px) or 상대크기(%)
+        3. 여백(padding, margin) 
+        
+        */
+
+        /* 
+        블럭 태그의 너비, 높이 정책
+        1. 너비와 높이를 지정할 수 있다.
+        2. 기본 정책(미지정시)
+            a. 너비: 100%(화면을 꽉 채운다)
+            b. 높이: 콘텐츠 높이
+                1) 높이를 지정했을 경우: 콘텐츠 높이와 상관없이 박스의 높이는 고정 -> 콘텐츠가 많을 경우 상자 밖으로 내용이 빠져나옴.
+                2) 높이를 지정하지 않았을 경우 : 콘텐츠 높이에 따라 박스 높이도 자동 조절
+
+
+        인라인 태그의 너비, 높이 정책
+        1. 너비와 높이를 지정할 수 없다.
+            예외) 이미지 태그, 폼태그
+        2. 기본 정책
+            a. 너비 : 콘텐츠 너비
+            b. 높이 : 콘텐츠 너비
+            - 직접 너비와 높이 지정 불가능       
+         */
+
+
+        .box {
+            border: 1px solid grey;
+        }
+
+        #box2 {
+
+            background-color: mistyrose;
+            /* width: 50%; */
+            /* height : 50%;  --> 높이 상대값 적용 안됨..*/
+            width : 300px;
+            /* height : 100px; */
+        }
+
+        #txt1 {
+            width: 300px;
+            /* height: 30px; 텍스트 박스는 높이를 안주는 편.. 글자는 안커지기 때문에.. 폰트 사이즈를 키우는 것이 더 효과적 */
+        }
+
+        #cat1 {
+            /* 종횡비 자동계산됨 */
+            width: 500px;
+        }
+        
+        p >b { 
+            /* 인라인 태그의 크기는 너비도 컨텐츠만큼, 높이도 컨텐츠만큼 자동 설정됨. 따라서 따로 설정할 수 없다. */
+            /* display: inline-block; */
+            width: 200px;
+            height : 200px;
+        }
+
+
+
+    </style>
+
+
+
+
+
+
+</head>
+<body>
+    
+    <h1>박스 모델</h1>
+    
+
+    <div id="box1" class="box">상자1</div>
+    홍길동
+    <div id="box2" class="box">상자2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur sit aperiam laudantium recusandae tempora, perferendis porro suscipit corporis, hic delectus ducimus iusto dolorem id labore odit consequatur dicta! Cumque, repudiandae.</div>
+    아무개
+    <div id="box3" class="box">상자3</div>
+
+    <!-- 
+        블럭태그의 특징
+        - 너비를 줄여도 그 한 줄은 블럭태그의 영역이므로 다른 요소가 침범하지 못함.
+        - 상자2번의 너비가 줄어들었어도 그 밑의 텍스트가 위로 올라오지 않음.
+     -->
+
+     <hr>
+     <input type="text" id="txt1">
+     <hr>
+     <img src="../images/catty01.png" alt="" id="cat1">
+     <hr>
+     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero incidunt doloribus a voluptatibus ullam? Alias rem perspiciatis distinctio, enim earum tenetur dicta temporibus amet consectetur non recusandae, esse nihil odio velit eius provident? Incidunt reprehenderit veritatis eveniet fugiat accusantium libero sit aliquid molestias excepturi, cum atque labore optio officia laboriosam, voluptatibus rerum porro? Ea architecto earum perspiciatis amet nobis atque dicta minima aliquid vero ab eum consectetur maiores sed doloremque itaque nihil maxime, soluta quos sapiente autem magni sit. Veritatis eaque suscipit eligendi, dolore perspiciatis beatae autem sit debitis ut quae. Possimus similique odio temporibus cumque aut laboriosam error doloribus unde eius consequuntur? Consequatur, doloremque omnis. Commodi iusto sint neque, nisi totam quis reprehenderit quaerat dignissimos perferendis, quae dolorum? Nemo eius rerum, assumenda recusandae at fuga corporis dolorem deserunt vero sunt, similique dolor tempore incidunt non magni! Quibusdam ex sapiente, tempore inventore quaerat architecto amet voluptatibus optio beatae recusandae veniam suscipit officia accusamus, natus fuga dicta ad corporis facere. Saepe beatae quibusdam, enim quam sed in nesciunt adipisci illum reprehenderit quod debitis, corrupti temporibus voluptates quas rerum, <b>placeat dolorum fugiat nostrum culpa mollitia</b> pariatur iste maiores quia. Distinctio molestias aliquam doloremque libero explicabo, assumenda aspernatur nisi maxime odio delectus velit, laborum nemo rerum, ipsam architecto nulla. Voluptatibus minima, dolores enim necessitatibus harum exercitationem iste quaerat doloribus quasi praesentium libero mollitia voluptate, cupiditate corrupti magni sed dolorum magnam et amet deserunt quia sint id impedit! Autem vel mollitia repudiandae esse placeat, ut nostrum dolores eum beatae expedita exercitationem laudantium porro in, a quibusdam ex modi veniam ratione blanditiis fuga id quam alias. Enim sit maiores asperiores in, excepturi repellendus debitis similique cum molestias voluptatibus exercitationem laborum. Ipsa fugiat possimus ratione optio? Numquam ex laboriosam temporibus quisquam voluptate minima labore ipsa repellat odit quae, velit facilis quas, aliquam nesciunt sequi ullam praesentium!</p>
+
+
+
+
+
+</body>
+</html>

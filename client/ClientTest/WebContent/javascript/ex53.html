@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //프로터피 초기화 단축, Property Initializer Shorthand
+
+        //생성자 함수
+        function createPerson(name, age) {
+            // return {
+            //     name: name,
+            //     age: age
+            // };
+            
+            //객체를 만들 때 프로퍼티의 이름과 변수의 이름이 같으면 한번만 써도 됨...
+            return {
+                name,
+                age
+            };
+        }
+
+        var p = createPerson("홍길동", 20);
+        console.log(p); //Object
+
+
+        //간결한 메소드, Concise Method
+        var cat = {
+            sound: "야옹",
+            // soundPlay: function() {
+            //     console.log(this.sound);
+            // }
+
+            //반복되는 부분 없애도 됨..
+            soundPlay() {
+                console.log(this.sound);
+            }
+        }
+        cat.soundPlay();
+
+
+        //Class 표현식
+        // - 생성자 함수와 유사..
+
+        function Person(name, age) {    //생성자 함수
+            this.name = name;
+            this.age= age;
+            this.hi = function() {
+                console.log(this.name);
+            }
+        }
+        var p1 = new Person("홍길동", 20);  //객체 생성
+        console.log(p1);    
+
+        class User {    //class 표현식
+            constructor(name, age) {    //생성자
+                this.name = name;
+                this.age = age;
+            }
+            hi() {
+                console.log(this.name)
+            }
+            minfo() {
+                return this.name + ", " + this.age;
+            }
+            get info() {    //Getter!!
+                //함수인데 변수처럼 쓸 쑤 있음!! 
+                return this.name + ", " + this.age;
+            }
+        }
+        var p2 = new User("아무개", 27);    //객체 생성
+        console.log(p2);
+        console.log(p2.minfo());
+        console.log(p2.info);   //함수인데 변수처럼 사용 가눙
+
+
+        //자바스크립트에서의 상속
+        class Animal {
+            constructor(name) {
+                this.name = name;
+            }
+            info() {
+                console.log(this.name);
+            }
+        }
+
+        class Dog extends Animal {
+            bow() {
+                console.log("멍멍");
+            }
+        }
+
+        var dog = new Dog("멍멍이");
+        dog.info(); //부모클래스에서 구현한 메소드
+        dog.bow();  //자식클래스에서 구현한 메소드
+
+
+
+    </script>
+</body>
+</html>

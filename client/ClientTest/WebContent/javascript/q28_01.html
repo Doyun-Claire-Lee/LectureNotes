@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question :: javascript 클릭카운트</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <style>
+        #txtNum {
+            font-size: 11em;
+            text-align: center;
+            font-weight: bold;
+            width: 210px;
+            border: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main m800">
+        <div class="mainHeader">
+            <h1>클릭 카운트</h1>
+            <div>화면을 클릭하면 숫자를 증가시키시오.</div>
+            <ul>
+                <li>이미지 : 1.png ~ 9.png</li>
+                <li>전역 마우스 이벤트 : window.onmouedown</li>
+                <li>마우스 왼쪽 버튼에만 반응하도록 구현</li>
+                <li>최대 클릭 횟수 : 99</li>
+            </ul>
+            <div class="code">document.images, event.buttons, event.keyCode, parseInt()</div>
+        </div>
+        <div style="text-align: center;"><input type="text" name="txtNum" id="txtNum" readonly value="00"></div>
+        <div style="text-align: center; margin-top: 0px; display: block;">
+            <img src="../images/0.png" name="num01">
+            <img src="../images/0.png" name="num02">
+        </div>
+    </div>
+
+    <script>
+
+        //미리 찾아놓기 
+        var num01 = document.images["num01"];
+        var num02 = document.images["num02"];
+        var txtNum = document.all.txtNum;
+
+        //0부터 시작
+        var i = 0;
+        
+        window.onmousedown = function() {
+            // console.log(event.buttons);
+            
+            
+            //마우스 왼쪽 버튼 누를 경우 
+            if (event.buttons == 1) {
+                //숫자값 증가
+                i++;
+                
+                //100이 넘어가는 값을 확인하기 위해 총 자릿수를 구해줌
+                var zeroNum = (i+"").length; 
+                
+                // console.log(zeroNum);
+
+                //만약 3자리 이상인 경우
+                if (zeroNum >2) {
+                    //i 에서 10의 자릿수-1제곱을 빼줌. 
+                    i = i-Math.pow(10, zeroNum-1);
+                }
+
+                //0~9일 경우 두자리로 맞춰주기 위함
+                if (i < 10) {
+                    txtNum.value = "0" + i;
+                } else {
+                    txtNum.value = i;
+                }
+                
+                var ten = parseInt(i/10);
+                var one = i%10;
+                
+                console.log(i, ten, one);
+                num01.src = "../images/" + ten + ".png";
+                num02.src = "../images/" + one + ".png";
+
+            }
+            
+
+        }
+
+    </script>
+
+
+</body>
+</html>

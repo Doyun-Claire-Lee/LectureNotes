@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+	XML 파일의 특징
+	- 빈 XML이라도 태그 하나는 꼭 적어야 함.
+	- <!DOCTYPE 옆에 적힌 단어가 해당 XML의 루트 태그임.
+-->
+
+<!-- 
+	MyBatis의 특징
+	 - SQL을 *.java에서 작성하지 않고 별도의 *.xml에서 작성/관리한다.
+	 - SQL을 관리하는 XML을 매퍼(Mapper)라고 한다.
+-->
+
+
+<mapper namespace="board">
+	<select id="clist" resultType="cdto">
+		select * from tblCategory order by seq asc
+	</select>
+	<insert id="add" parameterType="bdto">
+		insert into tblCode (seq, subject, content, filename, regdate, cseq) values (seqCode.nextVal, #{subject}, #{content}, #{filename}, default, #{cseq})
+	</insert>
+	<select id="list" resultType="bdto">
+		select seq, subject, regdate, cseq, 
+			(select name from tblCategory where seq = c.cseq) as cname, 
+			(select type from tblCategory where seq = c.cseq) as ctype 
+				from tblCode c order by seq desc
+	</select>
+	<select id="get" parameterType="String" resultType="bdto">
+		select seq, subject, content, filename, regdate, cseq, 
+			(select name from tblCategory where seq = c.cseq) as cname, 
+			(select type from tblCategory where seq = c.cseq) as ctype 
+				from tblCode c where seq = #{seq}
+	</select>
+	<update id="edit" parameterType="bdto">
+		update tblCode set
+			subject = #{subject},
+			content = #{content},
+			cseq = #{cseq},
+			filename = #{filename}
+				where seq = #{seq}
+	</update>
+	<delete id="delete" parameterType="String">
+		delete from tblCode where seq = #{seq}
+	</delete>
+	
+</mapper>
+
+

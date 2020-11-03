@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            #box {
+                border: 10px solid #333;
+                width: 500px;
+                height: 800px;
+            }
+            #ball1 {
+                width: 100px;
+                height: 100px;
+                background-color: cornflowerblue;
+                border-radius: 50%;
+                position: absolute;
+                left: 50px;
+            }
+            #box:hover #ball1 {
+                animation-name: key1;
+                animation-duration: 0.5s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+                animation-timing-function: ease-in;
+            }
+            #ball2 {
+                width: 100px;
+                height: 100px;
+                background-color: gold;
+                border-radius: 50%;
+                position: absolute;
+                left: 200px;
+            }
+            #box:hover #ball2 {
+                animation-name: key1;
+                animation-duration: 0.6s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+                animation-timing-function: ease-in;
+                animation-delay: 0.3s;
+            }
+            #ball3 {
+                width: 100px;
+                height: 100px;
+                background-color: tomato;
+                border-radius: 50%;
+                position: absolute;
+                left: 350px;
+            }
+            #box:hover #ball3 {
+                animation-name: key1;
+                animation-duration: 0.7s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+                animation-timing-function: ease-in;
+                animation-delay: 0.2s;
+            }
+            @keyframes key1 {
+                from {
+                    transform: translate(0px, 0px);
+                }
+                to {
+                    transform: translate(0px, 700px);
+                }
+            }
+            /* ----------------------------------------------------------------------------- */
+            .btn:hover {
+                /* animation: keyBtn 0.1s 5 alternate; */
+                animation: keyBtn2 0.1s 5 alternate;
+            }
+            @keyframes keyBtn {
+                0% {
+                    transform: translate(0px, 0px);
+                }
+                25% {
+                    transform: translate(5px, 0px);
+                }
+                50% {
+                    transform: translate(0px, 0px);
+                }
+                75% {
+                    transform: translate(-5px, 0px);
+                }
+                100% {
+                    transform: translate(0px, 0px);
+                }
+            }
+            @keyframes keyBtn2 {
+                0% {
+                    box-shadow: 0px 0px 0px #fff;
+                }
+                100% {
+                    box-shadow: 2px 2px 2px #ddd;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <div id="ball1"></div>
+            <div id="ball2"></div>
+            <div id="ball3"></div>
+        </div>
+
+        <hr />
+
+        <input type="button" value="글쓰기" class="btn" />
+        <input type="button" value="목록보기" class="btn" />
+        <input type="button" value="삭제하기" class="btn" />
+    </body>
+</html>

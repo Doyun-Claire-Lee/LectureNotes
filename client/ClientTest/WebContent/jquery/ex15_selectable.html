@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <style>
+        #list1 .ui-selected {
+            background-color: orange;
+        }
+
+        #list2 {
+            list-style-type: none;
+            border: 1px solid gray;
+            padding: 0;
+            width: 100px;
+            border-radius: 3px;
+        }
+        #list2 li {
+            border-bottom: 1px solid gray;
+            text-align: center;
+            padding: 5px;
+            cursor: pointer;
+        }
+        #list2 li:last-child {
+            border-bottom: 0px;
+        }
+        #list2 .ui-selected {
+            background-color: tomato;
+            color: white;
+        }
+        #list3 img {
+            cursor: pointer;
+            opacity: .2;
+        }
+        #list3 img:hover {
+            opacity: .6;
+        }
+        #list3 img.ui-selected {
+            opacity: 1;
+        }
+        #list4 .item {
+            border: 2px solid gray;
+            border-radius: 4px;
+            width: 140px;
+            padding: 20px 5px;
+            cursor: pointer;
+            float: left;
+            margin-right: 5px;
+
+        }
+        #list4 .item img {
+            display: block;
+            margin: 0px auto;
+            margin-bottom: 15px;
+        }
+        #list4 .item div {
+            font-size: 14px;
+            color: #444;
+            margin-left: 25px;
+            line-height: 1.5em;
+        }
+        #list4 .item.ui-selected {
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>목록</h1>
+    <ul id="list1">
+        <li>강아지</li>
+        <li>고양이</li>
+        <li>거북이</li>
+        <li>병아리</li>
+        <li>토끼</li>
+    </ul>
+
+    <h1>목록2</h1>
+    <ul id="list2">
+        <li>강아지</li>
+        <li>고양이</li>
+        <li>거북이</li>
+        <li>병아리</li>
+        <li>토끼</li>
+    </ul>
+
+    <!-- ul 이외에도 selectable 사용 가능  -->
+    <h1>프로젝트 팀장 선택</h1>
+    <div id="list3">
+        <img src="../images/man_01.png" alt="" data-no="0">
+        <img src="../images/man_02.png" alt="" data-no="1">
+        <img src="../images/man_03.png" alt="" data-no="2">
+        <img src="../images/woman_01.png" alt="" data-no="3">
+        <img src="../images/woman_02.png" alt="" data-no="4">
+        <img src="../images/woman_03.png" alt="" data-no="5">
+    </div>
+
+    <h1>팀장 선출(객체)</h1>
+    <div id="list4">
+        <!-- <div class="item">
+            <img src="../images/man_01.png" alt="">
+            <div>[홍길동]</div>
+            <div>나이: 30</div>
+            <div>직급: 과장</div>
+        </div> -->
+    </div>
+
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script>
+
+        $("#list1").selectable();
+        //개발자 도구로 보면 선택된 항목에 ui-selected라는 클래스가 붙게 됨.(선택되지 않은 항목들은 selectee)
+        //이 클래스에 CSS를 주어 조작하면 됨!!
+
+        $("#list2").selectable();
+
+        //누구를 선택하는지?
+        $("#list3").selectable({
+            selected: function(event, ui) {
+                console.log(ui.selected.dataset["no"]);
+            }
+        });
+
+
+
+        //선택 작업을 위한 인덱스 생성
+        var selectedIndex = -1;
+        //객체가 들어있는 배열 생성(DB에서 받아왔다고 가정)
+        var list = [
+            {
+                no: 0,
+                name: "홍길동",
+                age: 30,
+                pos: "과장",
+                pic: "man_01.png"
+            },            
+            {
+                no: 1,
+                name: "박사원",
+                age: 26,
+                pos: "대리",
+                pic: "man_02.png"
+            },            
+            {
+                no: 2,
+                name: "김사원",
+                age: 27,
+                pos: "사원",
+                pic: "man_03.png"
+            },            
+            {
+                no: 3,
+                name: "정이름",
+                age: 48,
+                pos: "이사",
+                pic: "woman_01.png"
+            },            
+            {
+                no: 4,
+                name: "박이름",
+                age: 44,
+                pos: "부장",
+                pic: "woman_02.png"
+            },            
+            {
+                no: 5,
+                name: "김이름",
+                age: 28,
+                pos: "대리",
+                pic: "woman_03.png"
+            },
+        ];
+        
+        //향상된 for문 같은 존재, 배열탐색용 for문 : forEach(오브젝트, 인덱스)
+        list.forEach(function(obj, index) {
+            
+            // console.log(obj, index);
+            // console.log(obj.name);
+            
+            //ES6 -> 텍스트 보간법 지원(String.format같은 기능, 백쿼터 ` 와 ${0}로 사용함.
+            var ele = `<div class='item'>
+                            <img src='../images/${obj.pic}'>
+                            <div>[${obj.name}]</div>
+                            <div>나이: ${obj.age}</div>
+                            <div>직급: ${obj.pos}</div>
+                        </div>`;
+            $("#list4").append(ele);
+        });
+
+        //jQuery의 향상된 for문 
+        // $(list).each(function(index, obj) {
+        //     console.log(index, obj);
+        //     console.log(obj.name);
+        // });
+
+        $("#list4").selectable();
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" name="form1">
+        <a href="http://naver.com" name="link1">네이버</a>
+        <hr>
+        <input type="button" name="btn1" value="버튼 - 구글로 변경합니다.">
+
+    </form>
+    <script>
+        
+        var btn1 = document.form1.btn1;
+
+        // var link1 = document.link1; --> 요즘엔 지원하지 않는 형식
+        var link1 = document.links["link1"];
+
+        btn1.onclick = function() {
+            //a태그 조작 -> 속성 혹은 PCDATA 조작
+
+            //속성 조작(BOM)
+            link1.href = "http://google.com";
+            link1.target = "_blank";                //새창에서 열기
+            link1.title = "구글로 이동합니다."      //풍선도움말
+
+            //PCDATA 조작(DOM)
+            link1.innerText = "구글";
+
+            event.srcElement.value = "버튼-수정완료";
+        }
+
+        //잉벤트 함수 덮어쓰기 -> 하지 말기 
+        btn1.onclick = function() {
+            
+
+
+            if (link1.innerText == "네이버") {
+
+            link1.href = "http://google.com";
+            link1.target = "_blank";                //새창에서 열기
+            link1.title = "구글로 이동합니다."      //풍선도움말
+            link1.innerText = "구글";
+            event.srcElement.value = "버튼 - 네이버로 변경합니다.";
+
+            } else {
+            
+            link1.href = "http://naver.com";
+            link1.target = "_self";                //새창에서 열기
+            link1.title = "네이버로 이동합니다.";      //풍선도움말
+            link1.innerText = "네이버";
+            event.srcElement.value = "버튼 - 구글로 변경합니다.";
+
+            
+            }
+
+        }
+    </script>
+
+
+
+</body>
+</html>

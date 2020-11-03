@@ -1,0 +1,18 @@
+1598236992637	Rename type 'ModifyChecklistOk'
+1598238984865	Encapsulate field 'mseq'
+1598313785166	Move 'inc' to 'views'
+1598314156456	Rename package 'com.test.project'
+1598315015484	Encapsulate field 'description'
+1598315210790	Encapsulate field 'name'
+1598319655894	Delete element
+1598340038326	Delete element
+1598340056902	Delete element
+1598345243076	Rename type 'List'
+1598369907168	Rename compilation unit 'ChatDTO.java'
+1598406957998	Delete element
+1598423391010	Rename compilation unit 'ChatHistory.java'
+1598425454645	Encapsulate field 'list'
+1598431747326	Encapsulate field 'myflag'
+1598451665228	Encapsulate field 'cseq'
+1598508441790	Delete element
+1598547858291	Encapsulate field 'profilepic'

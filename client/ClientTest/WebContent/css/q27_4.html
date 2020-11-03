@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            border: 1px solid #dddddd;
+            width: 580px;
+            height: 185px;
+            padding: 20px 0px;
+        }
+        #title {
+            font-family: '맑은고딕';
+            font-size: 13px;
+            font-weight: bold;
+            color: #333333;
+            height: 30px;
+            margin-left: 20px;
+        }
+        #innerbox {
+            padding: 0px;
+        }
+        .content {
+            border-right: 1px solid #dddddd;
+            width: 115px;
+            height: 150px;
+            font-family: '돋움';
+            font-size: 13px;
+            float: left;
+        }
+        #innerbox .content .day span:first-child {
+            display: inline-block;
+            width: 45px;
+            text-align: right;
+        }
+        .day {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        .weather1, .weather2 {
+            /* text-align: center; */
+            font-size: 12px;
+            width: 115px;
+            height: 35px;
+            margin-top: 6px;
+            padding: 0px 20px;
+            letter-spacing: -1px;
+        }
+
+        .weather1 img {
+            /* border: 1px solid black; */
+            /* display: inline-block; */
+            width: 30px;
+            float: left;
+        }
+        .weather2 img {
+            /* display: inline-block; */
+            width: 30px;
+            float: left;
+        }
+        .rain {
+            /* border: 1px solid black; */
+            color: #41b5ee;
+            display: inline-block;
+            width: 20px;
+            height: 15px;
+            /* padding-bottom: 30px; */
+            padding: 10px
+        }
+        .normal {
+            /* border: 1px solid black; */
+            color: #888888;
+            display: inline-block;
+            width: 20px;
+            height: 15px;
+            padding: 10px;
+        }
+        .temp {
+            font-size: 12px;
+            text-align: center;
+            font-family: 'tahoma';
+            margin-top: 10px;
+            color: #333333;
+        }
+        .temp span {
+            font-weight: bold;
+        }
+        .day span:first-child {
+            font-size: 12px;
+            /* font-weight: bold; */
+            color: #333333;
+
+        }
+        .day span:last-child {
+            font-size: 11px;
+            color: #888888;
+        }
+        #content5 {
+            border-right: none;
+        }
+        #content1 .day span:last-child{
+            display: inline-block;
+            background-color: #00C73C;
+            color: white;
+            width: 40px;
+            height: 16px;
+            text-align: center;
+            padding-top: 2px;
+            font-weight: bold;
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <div id="box">
+        <div id="title">주간날씨</div>
+        <div id="innerbox">
+            <div class="content" id="content1">
+                <div class="day">
+                    <span>목</span> <span>오늘</span>
+                </div>
+                <div class="weather">
+                    <div class="weather1"><img src="../images/icon_wt_22.svg" alt=""><span class="rain">70%</span></div>
+                    <div class="weather2"><img src="../images/icon_wt_22.svg" alt=""><span class="rain">60%</span></div>
+                </div>
+                <div class="temp">
+                    <span>21</span>°/<span>25</span>°
+                </div>
+            </div>
+            <div class="content" id="content2">
+                <div class="day">
+                    <span>금</span> <span>내일</span>
+                </div>
+                <div class="weather">
+                    <div class="weather1"><img src="../images/icon_wt_22.svg" alt=""><span class="rain">60%</span></div>
+                    <div class="weather2"><img src="../images/icon_wt_07.svg" alt=""><span class="normal">30%</span></div>
+                </div>
+                <div class="temp">
+                    <span>21</span>°/<span>28</span>°
+                </div>
+            </div>
+            <div class="content" id="content3">
+                <div class="day">
+                    <span>토</span> <span>모레</span>
+                </div>
+                <div class="weather">
+                    <div class="weather1"><img src="../images/icon_wt_07.svg" alt=""><span class="normal">30%</span></div>
+                    <div class="weather2"><img src="../images/icon_wt_05.svg" alt=""><span class="normal">30%</span></div>
+                </div>
+                <div class="temp">
+                    <span>21</span>°/<span>29</span>°
+                </div>
+            </div>
+            <div class="content" id="content4">
+                <div class="day">
+                    <span>일</span> <span>6.28</span>
+                </div>
+                <div class="weather">
+                    <div class="weather1"><img src="../images/icon_wt_05.svg" alt=""><span class="normal">30%</span></div>
+                    <div class="weather2"><img src="../images/icon_wt_09.svg" alt=""><span class="rain">60%</span></div>
+                </div>
+                <div class="temp">
+                    <span>21</span>°/<span>31</span>°
+                </div>
+            </div>
+            <div class="content" id="content5">
+                <div class="day">
+                    <span>월</span> <span>6.29</span>
+                </div>
+                <div class="weather">
+                    <div class="weather1"><img src="../images/icon_wt_05.svg" alt=""><span class="normal">30%</span></div>
+                    <div class="weather2"><img src="../images/icon_wt_09.svg" alt=""><span class="rain">60%</span></div>
+                </div>
+                <div class="temp">
+                    <span>21</span>°/<span>29</span>°
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

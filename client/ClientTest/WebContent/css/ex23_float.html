@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 웹 프로젝트 진행 시 초반에 진행해야 할 작업?
+            1. 화면 해상도 결정
+                - 주요 고객의 모니터 평균 해상도가 얼마나 될지..?
+                - 1000px내외???..1200~1400? */
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        #main {
+            /* 화면이 줄어들어 float 성질로 인해 콘텐츠가 밑으로 내려가는 현상을 방지하기 위해 큰 상자로 내용물 전체를 묶어 너비를 지정해줌 */
+            width: 800px;
+        }
+        #menu{
+            background-color: rgb(252, 201, 209);
+            width: 800px;
+            height: 80px;
+        }
+        #submenu{
+            background-color: rgb(253, 248, 221);
+            width: 200px;
+            height: 600px;
+            float: left;
+        }
+        #content{
+            background-color: lightsteelblue;
+            width: 600px;
+            height: 600px;
+            float: left;
+        }
+        #footer{
+            background-color: rgb(231, 231, 231);
+            width: 800px;
+            height: 80px;
+            clear: both;
+        }
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <!-- 
+        레이아웃 만들기
+        1. 표 
+        2. div + float
+            a. <div>
+            b. simantic -> header, section ...
+
+    
+    -->
+    <div id="main">
+        <div id="menu">주메뉴</div>
+        <div id="submenu">보조메뉴</div>
+        <div id="content">내용</div>
+        <div id="footer">하단</div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

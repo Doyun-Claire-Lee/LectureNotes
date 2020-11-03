@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #box1 {
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h1>CSS 조작</h1>
+
+    <input type="button" value="버튼1-쓰기" id="btn1">
+    <input type="button" value="버튼2-읽기" id="btn2">
+    <hr>
+    <div id="box1">상자</div>
+    <hr>
+
+    <h1>글자 조작</h1>
+    <input type="button" value="  +  " id="big">
+    <input type="button" value="  -  " id="small">
+    <p id="p1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus nostrum laborum nam sed quam fugiat natus id eligendi exercitationem! Sequi delectus necessitatibus, molestias, et modi asperiores blanditiis nesciunt, reprehenderit atque illum id incidunt rerum veritatis suscipit iste officiis voluptatem ab odit quam nulla eius culpa laboriosam totam. Molestiae tempore officiis dolorem, doloremque porro culpa, saepe vero, delectus aliquam eos ea. Dicta hic cumque amet reiciendis cupiditate, dolorem et nisi, quis dolor id asperiores tenetur, labore corrupti quia. Ea, nulla quasi perferendis qui maiores pariatur odio doloremque sequi deleniti libero totam animi molestias magni reprehenderit! Quo quaerat quae officiis labore consectetur rerum officia a inventore ab aperiam, facere libero expedita provident sint nemo. Laboriosam assumenda dolorem nobis animi corporis ipsum sunt rem veniam eligendi tenetur blanditiis laudantium quas cupiditate, aut dolorum fuga at tempore minima quod quisquam? Nesciunt eveniet voluptates voluptatibus nisi, voluptatem vitae aut quam facere suscipit soluta cumque, quo iure eaque atque, itaque a dicta maxime fuga. Deserunt eaque repudiandae incidunt quidem. Eveniet numquam quidem repellendus qui ipsa, expedita id vitae eos architecto ab animi et libero, doloremque cumque voluptates. Labore aut, facilis quisquam voluptatum officia doloribus accusantium laboriosam voluptas libero explicabo quo nisi sequi mollitia fuga provident ducimus.</p>
+    
+    <script>
+
+        var btn1 = document.getElementById("btn1");
+        var box1 = document.getElementById("box1");
+
+        btn1.addEventListener("click", function() {
+            
+            //CSS 조작하기
+            //1. 읽기
+            //2. 쓰기
+
+            //속성명 패턴
+            //1. CSS의 속성명을 그대로 사용한다.
+            //2. '-'이 포함된 속성명 -> 캐멀 표기법으로 전환
+            //3. '-'이 포함된 속성명 -> 맵 형식으로 사용 가능
+
+            //속성값 패턴
+            //1. 숫자(단위) -> 문자열로
+            //2. 열거형 -> 문자열로
+            //3. 색상 -> 문자열로
+            //4. 함수 -> 문자열로
+
+            box1.style.width = "400px";
+
+            // box1.style.background-color = "tomato";
+            box1.style.backgroundColor = "tomato";
+            box1.style["background-color"] = "cornflowerblue";
+
+            box1.style.textAlign = "center";
+            box1.style.backgroundImage = "url(../images/catty01.png)"
+
+            // => 모든 스타일 속성이 인라인 스타일로 적용됨!!!
+        });
+
+        var btn2 = document.getElementById("btn2");
+
+        btn2.addEventListener("click", function() {
+
+            //CSS읽기
+            // - JavaScript를 사용하여 CSS의 속성값을 읽을 때
+            //  1. 임베디드 스타일시트 or 외부 스타일시트로 정의된 값은 읽을 수 없다.
+            //      -> 자바스크립트는 임베디드 혹은 외부스타일시트를 조작할 능력이 없기 때문에
+            //  2. 인라인 스타일 시트의 값은 읽을 수 있다. 
+
+            // console.log(box1.style.width); 
+
+            //상자 키우기
+            
+            // box1.style.width = box1.style.width + 50;   //동작 안됨..
+            // console.log(box1.style.width + 50); //200px50
+            // box1.style.width = parseInt(box1.style.width) + 50 + "px";   //동작은 되지만 불편, 인라인으로 초기화해줘야함.
+
+            // getComputedStyle - 해당 태그가 가지고있는 모든 css값(인라인, 임베디드, 외부, 초기값까지)
+            // console.log(getComputedStyle(box1)); 
+            console.log(getComputedStyle(box1).width);
+            // box1.style.width = parseInt(getComputedStyle(box1).width) + 50 + "px";
+
+            console.log(getComputedStyle(box1).display);
+            console.log(getComputedStyle(box1).position);
+
+        });
+
+        var big = document.getElementById("big");
+        var small = document.getElementById("small");
+        var p1 = document.getElementById("p1");
+
+        big.addEventListener("click", function() {
+            p1.style.fontSize = parseInt(getComputedStyle(p1).fontSize) + 2 + "px"; 
+        });
+        small.addEventListener("click", function() {
+            p1.style.fontSize = parseInt(getComputedStyle(p1).fontSize) - 2 + "px";
+        });
+
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            #box {
+                width: 900px;
+                margin: 30px auto;
+            }
+            #text {
+                border-left: 3px dotted gray;
+                padding: 0px 10px;
+                margin-bottom: 20px;
+            }
+            #outer::after {
+                content: " ";
+                display: block;
+                clear: both;
+            }
+            #outer:hover div {
+                transform: rotate(180deg);
+                background-color: cornflowerblue;
+            }
+            #outer div {
+                border: 10px solid black;
+                width: 100px;
+                height: 100px;
+                margin: 1px;
+                float: left;
+                transition: all 0.5s;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <div id="title">
+                <h1>:hover + transform + transition</h1>
+            </div>
+            <div id="text">
+                마우스가 올라간 상자를 회전시키고 배경색을 변화시키시오.
+            </div>
+            <div id="outer">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </body>
+</html>

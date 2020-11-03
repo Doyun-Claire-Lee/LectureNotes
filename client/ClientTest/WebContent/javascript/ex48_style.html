@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .drag {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- **** 다량의 객체를 drag & drop **** -->
+
+    <img src="../images/catty01.png" alt="" class="drag">
+    <img src="../images/catty02.png" alt="" class="drag">
+    <img src="../images/catty03.png" alt="" class="drag">
+    <img src="../images/catty04.png" alt="" class="drag">
+    <img src="../images/catty05.png" alt="" class="drag">
+    <img src="../images/catty06.png" alt="" class="drag">
+    <img src="../images/catty07.png" alt="" class="drag">
+    <h1 class="drag">고양이들</h1>
+    <input type="button" name="" id="" class="drag" value="버튼">
+    <script>
+
+        var isDown = false; //
+        var oldX, oldY;     //객체 내에서 클릭된 위치
+        var obj;            //현재 드래그되는 객체
+        var zindex = 1;
+        
+        window.onmousedown = function() {
+            
+            //드래그 대상(.drag)를 눌렀는지 판단
+            if (event.srcElement.className == "drag") {
+                
+                isDown = true;
+                obj = event.srcElement;
+                oldX = event.offsetX;
+                oldY = event.offsetY;
+                
+                event.srcElement.style.zIndex = zindex;
+                zindex++;
+            }
+      
+      
+        };
+        window.onmouseup = function() {
+            isDown = false;
+        };
+        window.onmousemove = function() {
+            if (isDown) {
+                obj.style.left = event.clientX - oldX + "px";
+                obj.style.top = event.clientY - oldY + "px";
+
+                event.preventDefault();
+                return false;
+            }
+        };
+    </script>
+
+</body>
+</html>

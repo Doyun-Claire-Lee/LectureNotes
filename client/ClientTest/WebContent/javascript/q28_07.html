@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+	<link rel="stylesheet" href="basic.css">
+</head>
+<style>
+	
+	img { border: 10px solid #A9A9A9; margin: 10px; }
+	input { border: 10px solid #A9A9A9; padding: 5px 70px; font-size: 1.7em;  margin: 10px 5px; }
+
+</style>
+<body>
+    
+    <div class="main m600">
+        <div class="mainHeader">
+            <h1>Pattern Lock</h1>
+            <div>패턴을 그리고 입력 버튼을 누르시오.</div>
+            <ul>
+                <li>password : 'L'</li>
+            </ul>
+            <div class="code">document.images, img.onmouseover, dataset, location.href</div>
+        </div>
+        <div style="text-align: center;">
+            <img src="../images/rect_icon01.png" data-index="1">
+            <img src="../images/rect_icon02.png" data-index="2">
+            <img src="../images/rect_icon03.png" data-index="3"><br>
+            <img src="../images/rect_icon04.png" data-index="4">
+            <img src="../images/rect_icon05.png" data-index="5">		
+            <img src="../images/rect_icon06.png" data-index="6"><br>
+            <img src="../images/rect_icon07.png" data-index="7">
+            <img src="../images/rect_icon08.png" data-index="8">
+            <img src="../images/rect_icon09.png" data-index="9">
+        </div>
+        <div style="text-align: center;">
+            <input type="button" value="RESET" onclick="reset();">
+            <input type="button" value="INPUT" onclick="input();">
+        </div>
+    </div>
+
+    <script>
+        
+        var pattern = "";
+        
+        function reset() {
+            for (var i=0; i<document.images.length; i++) {
+                var img = document.images[i]
+                img.src = "../images/rect_icon0" + img.dataset["index"] + ".png";
+                pattern = "";
+            }
+        }
+
+        for (var i=0; i<document.images.length; i++) {
+                var img = document.images[i]
+
+                img.onmouseover = function() {
+                    event.srcElement.src = "../images/rect_icon10.png";
+                    if (pattern.indexOf(event.srcElement.dataset["index"]) == -1) {
+                        pattern += event.srcElement.dataset["index"];
+                    }
+                }
+            }
+        
+        function input() {
+
+            console.log(pattern);
+            
+            if (pattern == "14789") {
+                    //구글로 이동
+                    window.open("http://google.com", "_self");
+            } else {
+                alert("Error!")
+            }
+        }
+
+    </script>
+
+</body>
+</html>

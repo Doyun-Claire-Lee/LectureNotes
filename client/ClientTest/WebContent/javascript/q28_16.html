@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+	<link rel="stylesheet" href="basic.css">
+    <style>
+        #timer {
+            border: 1px solid gray;
+            width: 640px;
+            /* margin: 50px auto 20px auto; */
+            padding: 25px;
+        }
+        #timer:after {
+            content: " ";
+            display: block;
+            clear: both;
+        }
+        #timer img, #timer span {
+            float: left;
+            font-size: 7em;
+        }
+        #timer img {
+            width: 95px;
+            height: 139px;
+            border: 0px;
+            outline: none;
+        }
+        #timer span {
+            margin-top: -10px;
+        }
+        #btns {
+            width: 440px;
+            /* margin: 20px auto; */
+            /* text-align: center; */
+            margin-top: 20px;
+        }
+        #btns input {
+            border: 1px solid #aaa;
+            background-color: white;
+            width: 30%;
+            height: 50px;
+            outline: none;
+            cursor: pointer;
+        }
+        #btns input:disabled {
+            background-color: #eee;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="main m800">
+        <div class="mainHeader">
+            <h1>스톱워치(이미지버전)</h1>
+            <div>각 버튼의 활성화/비활성화 제어</div>
+            <div class="code">setTimeout() or setInterval() / clearTimeout() or clearInterval()</div>
+        </div>
+        <div id="timer">
+            <img name="img1">
+            <img name="img2">
+            <span>:</span>
+            <img name="img3">
+            <img name="img4">
+            <span>:</span>
+            <img name="img5">
+            <img name="img6">
+        </div>
+        <div id="btns">
+            <input type="button" value="시작" name="btn1">
+            <input type="button" value="멈춤" name="btn2" disabled>
+            <input type="button" value="종료" name="btn3" disabled>
+        </div>
+        <div class="script script42_2" style="left: 400px; top: 300px;">
+            <div style="left: 35px; top: 105px;">				
+                &lt;input type='text'&gt; 대신<br>
+                &lt;img&gt; 6개를 사용했습니다.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var img1 = document.images["img1"];
+        var img2 = document.images["img2"];
+        var img3 = document.images["img3"];
+        var img4 = document.images["img4"];
+        var img5 = document.images["img5"];
+        var img6 = document.images["img6"];
+        var btn1 = document.all.btn1;
+        var btn2 = document.all.btn2;
+        var btn3 = document.all.btn3;
+
+        var ms = 0;
+        var sec = 0;
+        var min = 0;
+
+        var timer = 0;
+
+        //초기 이미지 설정
+        for(var i=0; i<document.images.length; i++) {
+            document.images[i].src = "../images/0.png";
+        }
+
+        btn1.onclick = function() {
+            timer = setInterval(function() {
+                ms++;
+                if (ms > 99) {
+                    ms = 0;
+                    sec++;
+                }
+                if (sec > 59) {
+                    sec = 0;
+                    min++;
+                }
+                img1.src = "../images/" + parseInt(min/10) + ".png";
+                img2.src = "../images/" + (min%10) + ".png";
+                img3.src = "../images/" + parseInt(sec/10) + ".png";
+                img4.src = "../images/" + (sec%10) + ".png";
+                img5.src = "../images/" + parseInt(ms/10) + ".png";
+                img6.src = "../images/" + (ms%10) + ".png";
+
+                btn1.disabled = true;
+                btn2.disabled = false;
+                btn3.disabled = false;
+
+            }, 10);
+        }
+    
+        btn2.onclick = function() {
+            clearInterval(timer);
+            timer = 0;
+
+            btn1.disabled = false;
+            btn2.disabled = true;
+            btn3.disabled = false;
+        }
+
+        btn3.onclick = function() {
+            if (timer != 0) {
+                clearInterval(timer)
+                timer = 0;
+
+                ms = 0;
+                sec = 0;
+                min = 0;
+
+                for(var i=0; i<document.images.length; i++) {
+                    document.images[i].src = "../images/0.png";
+                }
+
+                btn1.disabled = false;
+                btn2.disabled = true;
+                btn3.disabled = true;
+            }
+        } 
+
+
+    </script>
+</body>
+</html>

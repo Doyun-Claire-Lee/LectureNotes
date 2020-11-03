@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+            width: 714px;
+            margin: 0px auto;
+            text-align: justify;
+        }
+        #main label {
+            width: 100px;
+            height: 40px;
+            border: 1px solid #333;
+            display: block;
+            float: left;
+            text-align: center;
+            padding-top: 20px;
+            margin-bottom: 20px;
+        }
+        #main input:checked + label {
+            background-color: #333;
+            color: white;
+        }
+        #cb1:checked ~ #txt {
+            font-weight: bold;
+        }
+        #cb2:checked ~ #txt {
+            font-style: italic;
+        }
+        #cb3:checked ~ #txt {
+            text-decoration: underline;
+        }
+        #cb4:checked ~ #txt {
+            font-size: large;
+        }
+        #cb5:checked ~ #txt {
+            font-size: small;
+        }
+        #cb6:checked ~ #txt {
+            text-shadow: 1px 1px 1px #888;
+        }
+        #cb7:checked ~ #txt {
+            font-variant: small-caps;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h1>Text</h1>
+        <input type="checkbox" id="cb1" hidden><label for="cb1">두껍게</label>
+        <input type="checkbox" id="cb2" hidden><label for="cb2">이탤릭</label>
+        <input type="checkbox" id="cb3" hidden><label for="cb3">밑줄</label>
+        <input type="checkbox" id="cb4" hidden><label for="cb4">크게</label>
+        <input type="checkbox" id="cb5" hidden><label for="cb5">작게</label>
+        <input type="checkbox" id="cb6" hidden><label for="cb6">그림자</label>
+        <input type="checkbox" id="cb7" hidden><label for="cb7">꾸미기</label>
+        <div style="clear:both;"></div>
+    
+        <div id="txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt minus dicta tenetur fugit repellat nihil commodi. Ex dignissimos quas esse quasi non sunt voluptatum facilis ipsam, accusantium nobis? Quod vitae cumque optio magni dolor, dolores
+            similique ipsa porro doloremque quia inventore architecto nobis debitis nam. Voluptas molestias esse quibusdam facere nemo incidunt temporibus dolor! Molestiae ipsum rerum a veritatis voluptas odio exercitationem perspiciatis recusandae corrupti,
+            excepturi harum dolorem quos aliquam fugit nostrum suscipit! Aliquid corrupti dolorum, pariatur officia facere culpa? Repellat asperiores ad mollitia, temporibus consequatur tempora quia aliquid modi deserunt saepe dignissimos distinctio id
+            iste blanditiis a labore ullam quas suscipit. Doloribus, dolor alias eveniet iusto explicabo sint reprehenderit dolorum perferendis beatae quae error provident in maxime, temporibus rerum, nam praesentium. Iure asperiores modi magni repellendus
+            laudantium eveniet laboriosam placeat ratione totam quo animi, voluptate labore hic, blanditiis ea. Minus rem culpa qui ad consequatur facere corporis at fuga temporibus et sunt, nam eveniet! Facere reprehenderit deserunt possimus atque consequatur
+            ipsum numquam dolorem magni. Alias fugit voluptas inventore esse accusamus? Eligendi nihil accusantium assumenda accusamus porro perferendis perspiciatis quis, itaque inventore commodi, odit culpa tempore enim iure expedita totam exercitationem
+            magni suscipit praesentium nostrum recusandae possimus eaque aut at. Quisquam nostrum excepturi dignissimos, sequi facere alias laudantium perferendis quibusdam, earum commodi quam explicabo ut non temporibus facilis velit fugiat accusamus.
+        </div>
+    </div>	
+        
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #btnList, #imgView {
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            /* 제목을 이미지 왼쪽 끝에 맞추고 싶은 경우 */
+            /* border: 1px solid black; */
+            width: 1024px;  /* 이미지 너비랑 같게 맞추기 */
+            margin: 20px auto;
+        }
+
+        #btnList input {
+            border: 1px solid #ccc;
+            outline: none;
+            background-color: white;
+            width: 80px;
+            height: 45px;
+        }
+
+        #imgView img {
+            border: 1px solid #999;
+        }
+
+        #btnList #btnStart {
+            background-color: tomato;
+            color: white;
+        }
+        
+
+    </style>
+<body>
+    
+    <h1>Image Viewer</h1>
+
+    <div id="btnList">
+        <input type="button" name="btnStart" id="btnStart" value="▷">
+        <input type="button" name="btn" data-no="wall01.jpg" value="1">
+        <input type="button" name="btn" data-no="wall02.jpg" value="2">
+        <input type="button" name="btn" data-no="wall03.jpg" value="3">
+        <input type="button" name="btn" data-no="wall04.jpg" value="4">
+        <input type="button" name="btn" data-no="wall05.jpg" value="5">
+        <input type="button" name="btn" data-no="wall06.jpg" value="6">
+        <input type="button" name="btn" data-no="wall07.jpg" value="7">
+        <input type="button" name="btn" data-no="wall08.jpg" value="8">
+        <input type="button" name="btn" data-no="wall09.jpg" value="9">
+        <input type="button" name="btn" data-no="wall10.jpg" value="10">
+    </div>
+    <div id="imgView">
+        <img src="../images/wall01.jpg" alt="" name="img1">
+    </div>
+
+    <script>
+
+        var img1 = document.images["img1"];
+
+        var btn = document.all.btn;
+        for (var i=0; i<btn.length; i++) {
+            btn[i].onclick = function() {
+                
+                //누른 버튼에 연결된 이미지 출력
+                img1.src = "../images/" + event.srcElement.dataset["no"];
+                
+                //이전 선택된 버튼에 [] 없애기 위해 그냥 일괄 처리
+                for(var j=0; j<btn.length; j++) {
+                    btn[j].value = j+1;
+                }
+                
+                //누른 버튼의 값을 n에 가져오기 
+                n = event.srcElement.value;
+
+                //누른 버튼의 텍스트에 [] 붙이기
+                event.srcElement.value = "[" + event.srcElement.value + "]";
+
+                //이동버튼을 누르면 기존에 동작중이던 타이머 멈추기
+                if (timer != 0) {
+                    btnStart.click();
+                }
+            } 
+        }
+
+        var btnStart = document.all.btnStart;
+        var n = 1;      //타이머 + 이미지 번호
+        var timer = 0;  //타이머 아이디
+        
+        btnStart.onclick = function() {
+            if (btnStart.value == "▷") {
+                //시작
+                btnStart.value = "||";
+                timer = setInterval(function() {
+                    
+                    img1.src = "../images/wall" + addZero(n) + ".jpg";
+
+                    //버튼 숫자에 표시하기
+                    for(var j=0; j<btn.length; j++) {
+                    btn[j].value = j+1;
+                    }
+                    //누른 버튼의 텍스트에 [] 붙이기
+                    btn[n-1].value = "[" + btn[n-1].value + "]";
+
+                    n++;
+                    if (n > 10) n = 1;
+
+                }, 1000);
+
+            } else {
+                //멈춤
+                btnStart.value = "▷";
+                clearInterval(timer);
+                timer = 0;
+            }
+        
+        }
+        function addZero(n){
+            if (n < 10) {
+                return "0" + n;
+            } else {
+                return n;
+            }
+        }
+
+    </script>
+</body>
+</html>

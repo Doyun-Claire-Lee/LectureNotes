@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            border: 10px solid #333;
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>jQuery Effect - 애니메이션 효과(transition, animate)</h1>
+
+    <input type="button" id="btn1" value="버튼1">
+    <input type="button" id="btn2" value="버튼2">
+    <input type="button" id="btn3" value="버튼3">
+    <input type="button" id="btn4" value="버튼4">
+    <input type="button" id="btn5" value="버튼5">
+    <hr>
+    <div id="box1">상자</div>
+    <!-- 확인용텍스트 -->
+
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        
+        //jQuery Effect Function
+        //1. ★★★★ hide(), show(), toggle()
+        //2. fadeOut(), fadeIn(), fadeToggle()
+        //3. slideDown(), slideUp(), slideToggle()
+        //4. ★★★★ animate() 
+
+
+        //$ = jQuery
+        $("#btn1").click(function() {
+            // $("#box1").hide("slow");  //display : none
+            // $("#box1").hide(1000);      //1초
+            // $("#box1").fadeOut(1000);      
+            $("#box1").slideUp(1000);      
+
+        });
+        $("#btn2").click(function() {
+            // $("#box1").show("fast");
+            // $("#box1").fadeIn(1000);      
+            $("#box1").slideDown(1000);      
+
+        });
+        $("#btn3").click(function() {
+            // $("#box1").toggle();        //감췄다 보였다 반복
+            // $("#box1").fadeToggle(1000);      
+            $("#box1").slideToggle(1000);      
+
+        });
+        $("#btn4").click(function() {
+
+            //애니메이션 효과가 끝난 후 무언가를 해야 하는 경우
+            // $("#box1").fadeOut(2000);      
+            // setTimeout(function() {
+            //     $("#btn4").css("color", "gold");      
+            // }, 2000);
+
+            //위의 경우를 콜백함수로 제공
+            // $("#box1").fadeOut(2000, function() {
+            //     $("#box1").fadeIn(2000, function() {
+            //         $("#box1").slideUp(2000, function() {
+            //             $("#box1").slideDown(2000);
+            //         });
+            //     });
+            // })
+
+            //줄이기! (동일 객체의 이벤트만 연속적으로 할 경우)
+            $("#box1")
+                .fadeOut(2000)
+                .fadeIn(2000)
+                .slideUp(2000)
+                .slideDown(2000);
+        });
+
+        $("#btn5").click(function() {
+
+            //animate()
+            // - 사용자 정의형, 모든 CSS 제어 가능
+
+            var obj = {
+                //단위를 안붙여도 동작함. 무조건 px로 계산
+                width: 0,
+                height: 0,
+                opacity: 0,
+                "margin-left": 500
+            };
+            // $("#box1").animate(obj, 1000);
+
+            // $("#box1").animate({
+            //     width: "toggle",     //toggle키워드 : 현재상태에서 0으로 -> 0에서 원래상태로 
+            //     height: "toggle",
+            //     opacity: "toggle"
+            // }, 1000);
+
+            $("#box1").animate({
+
+                //현재 크기에서 50을 더 늘리고 싶은 경우
+                width:  "+=50px"    //px는 안붙여도 동작함.
+
+            }, 1000);
+        });
+
+
+    </script>
+</body>
+</html>

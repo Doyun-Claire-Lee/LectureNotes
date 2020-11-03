@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+    </script>
+</head>
+<body>
+    <h1>JavaScript Event</h1>
+    <form action="" name="form1">
+        <div><input type="text" name="txt1"></div>
+        <div><input type="button" name="btn1" value="클릭"></div>
+        <hr>        
+        <div><input type="text" name="txt2"></div>
+        <!-- 이벤트 등록하기 - 정적 이벤트 등록 -->
+        <!-- <div><input type="button" name="btn2" value="클릭" onclick="window.document.form1.txt2.value=100"></div> -->
+        <div><input type="button" name="btn2" value="클릭" onclick="f1();"></div>
+    </form>
+    <script>
+        function f1() {
+            window.document.form1.txt2.value=100;
+        }
+        //자바스크립트 코딩 패턴
+        //1. 어떤 태그에서 어떤 이벤트가 발생되면 어떤 일을 할지 정의
+        //  a. 이벤트를 매핑할 태그를 검색한다.(BOM or DOM)
+        //  b. 태그에 매핑할 이벤트를 구현한다.
+        //  c. 매핑된 이벤트에 할일을 구현한다.
+
+        
+        //이벤트 등록하기 - 동적 이벤트 등록
+        //a. 태그 검색하기
+        var btn1 = window.document.form1.btn1; 
+        var txt1 = window.document.form1.txt1; 
+
+        //브라우저가 실행될 때 한번만 받아오는 값, 이후 새로고침 할 때까지 변동되지 않음. 
+        var now = new Date();
+
+        if (now.getSeconds() % 2 == 0) {
+        
+            //b. 이벤트 구현
+            // txt1.onClick = 함수;
+            btn1.onclick = function() {
+
+                //c. 할일 구현
+                txt1.value = new Date();
+                txt1.size = 50;
+            }
+        
+        } else {
+
+            btn1.onclick = function() {
+                txt1.value = "꽝";
+            }
+        }
+    </script>
+</body>
+</html>

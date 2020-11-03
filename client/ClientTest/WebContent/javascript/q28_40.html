@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            margin: 0px;
+        }
+        #box {
+            width: 800px;
+            height: 400px;
+            margin: 300px auto;
+        }
+        #bird {
+            width: 200px;
+            height: 140px;
+            background-image: url("../images/bird.png");
+            position: relative;
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="bird"></div>
+        <hr>
+        새의 속도: <select name="sel" id="sel">
+            <option value="0">느림</option>
+            <option value="1">보통</option>
+            <option value="2">빠름</option>
+            <option value="3">엄청빠름</option>
+        </select>
+    </div>
+
+    <script>
+
+        var sel = document.getElementById("sel");
+        sel.value = 1;
+
+        var bird = document.getElementById("bird");
+        var speed = 100;
+
+        var timer = 0;
+        var x = 0;
+        var topY = 0;
+
+        sel.onchange = function() {
+          
+            clearInterval(timer);
+            timer = 0;
+            topY = 0;
+
+            if (sel.value == 0) {
+                speed = 200;
+            } else if (sel.value == 1) {
+                speed = 100;
+            } else if (sel.value == 2) {
+                speed = 50;
+            } else if (sel.value == 3) {
+                speed = 25;
+            }
+
+            if (timer == 0) {
+                timer = setInterval(function() {
+                    // console.log(sel.value);
+                    
+                    if (sel.value == 3) {
+                        topY -= 10;
+                    }
+
+                    bird.style.backgroundPosition = x + "px 0px";
+                    bird.style.top = topY + "px";
+                    x -= 200;
+                }, speed);
+            }
+
+        };
+
+
+        
+
+
+
+
+    </script>
+
+</body>
+</html>

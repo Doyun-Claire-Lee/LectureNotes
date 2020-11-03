@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;chapter11.Ch11_2_DateCalendar_book&apos; to &apos;Ch11_2_DateCalendar_Ex01&apos;&#x0D;&#x0A;- Original project: &apos;SelfStudyJavaBook&apos;&#x0D;&#x0A;- Original element: &apos;chapter11.Ch11_2_DateCalendar_book&apos;&#x0D;&#x0A;- Renamed element: &apos;chapter11.Ch11_2_DateCalendar_Ex01&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Ch11_2_DateCalendar_book&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;chapter11{Ch11_2_DateCalendar_book.java[Ch11_2_DateCalendar_book" matchStrategy="1" name="Ch11_2_DateCalendar_Ex01" qualified="false" references="true" similarDeclarations="false" stamp="1586864055287" textual="false" version="1.0"/>
+</session>

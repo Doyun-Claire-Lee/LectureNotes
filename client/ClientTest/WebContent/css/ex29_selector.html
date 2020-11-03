@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        
+        CSS 선택자 
+        
+        1. 태그
+        2. id
+        3. class
+        4. 자식
+        5. 자손
+        6. 형제
+        7. 인접형제
+        8. 그룹
+        9. 가상클래스
+        --------------------
+
+        CSS3 추가 선택자 -> 가상 클래스, 기존 선택자와 융합 가능
+        
+        1. :first-child
+        2. :last-child
+        3. :nth-child(n)
+        3. :nth-last-child(n)
+
+        
+        */
+
+        /* 주체가 부모가 아님, 자식에게 첫째인지 물어보는 것 -> 선택자가 반드시 자식이어야 함. */
+        #list1 li:first-child {
+            color: cadetblue;
+        }
+
+        #list1 li:last-child {
+            color: cornflowerblue;
+        }
+
+        #list1 li:nth-child(5) {
+            color: orange;
+        }
+
+        #list1 li:nth-last-child(3) {
+            color: tomato;
+        }
+
+        /* 
+        nth-child() 
+        - 수열을 지원한다. 
+            1. 숫자 하나 : 위치값(index)
+            2. 2n or even: 짝수
+            3. 2n+1 or odd: 홀수
+
+        */
+        #list1 li:nth-child(2n+1) {
+            text-decoration: underline;
+        }
+
+
+        #tbl1 {
+            border: 1px solid #ccc; 
+            border-collapse: collapse;
+            width: 700px;
+        }
+        #tbl1 td {
+            border: 1px solid #ccc;    
+        }
+        /* #tbl1 tr:first-child{
+            background-color: whitesmoke;
+        }
+        #tbl1 tr:last-child{
+            background-color: whitesmoke;
+        } */
+
+        /* #tbl1 td:first-child {
+            background-color: orange;
+        } */
+
+        /* #tbl1 tr:nth-child(even) {
+            background-color: #eee;
+        }
+        #tbl1 tr:hover { 
+            background-color: tomato;
+        }
+        #tbl1 td:hover {
+            background-color: red;
+        } */
+
+        #tbl1 tr:nth-child(even) td:nth-child(odd), #tbl1 tr:nth-child(odd) td:nth-child(even) {
+            background-color: antiquewhite;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <ul id="list1">
+        <li>강아지</li>
+        <li>고양이</li>
+        <li>병아리</li>
+        <li>송아지</li>
+        <li>망아지</li>
+        <li>거북이</li>
+        <li>뱀</li>
+        <li>이구아나</li>
+        <li>코알라</li>
+        <li>고슴도치</li>
+    </ul>
+
+    <h1>테이블</h1>
+    <table id="tbl1">
+        <tr>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+        </tr>
+        <tr>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+        </tr>
+        <tr>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+        </tr>
+        <tr>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+        </tr>
+        <tr>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+        </tr>
+        <tr>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+        </tr>
+        <tr>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+        </tr>
+        <tr>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+        </tr>
+        <tr>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+        </tr>
+        <tr>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+        </tr>
+        <tr>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+        </tr>
+        <tr>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+        </tr>
+        <tr>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+        </tr>
+        <tr>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+        </tr>
+        <tr>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+        </tr>
+        <tr>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+        </tr>
+        <tr>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+        </tr>
+        <tr>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+        </tr>
+        <tr>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+        </tr>
+        <tr>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+            <td>cell</td>
+        </tr>
+    </table>
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

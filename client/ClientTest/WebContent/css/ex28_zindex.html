@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* 
+        Z축의 좌표, z-index
+        - 요소가 겹친 경우 z-index에 큰 값을 줄수록 해당 요소가 앞으로 나오게 됨.
+        
+        
+        
+         */
+
+        
+        .cat {
+            position: absolute;
+            /* 포지션을 주면 좌표값을 무조건 주어야 한다, 다른 요소에 딸려가기 때문에(?) */
+        }
+        #cat1{ 
+            z-index: 1;
+            left: 0px; 
+            top: 0px;}
+        #cat2 {
+            left:125px; 
+            top: 90px;
+        }
+        #cat3 {
+            left:200px; 
+            top: 150px;
+            z-index: 2;
+        }
+
+
+        #box {
+            border: 1px solid black;
+            width: 1250px;
+        }
+
+        #box .cats {
+        
+        /* 인라인 요소 사이에 탭, 스페이스로 인해 나타나는 공백 없애기 */
+        
+        /* 1. 직접 태그 사이의 공백을 제거한다 */
+        
+        /* 2. display를 block으로 변경 후 float 속성을 준다. --> 원래 있던 자리가 소멸되면서 부모태그에서 해당 인라인 요소의 크기를 알 수 없게 됨...(부모 상자의 크기가 줄어든다) -> 막내 요소를 생성해서 clear:both 속성을 준다.*/
+        
+            display: block;
+            float: left;
+        
+        /* 불투명도, (0:투명 ~ 1:불투명) */
+        opacity: 0.5;
+        }
+
+        /* hover */
+        #box .cats:hover {
+
+            /* 이미지를 불투명하게 하기 */
+            opacity: 1;
+
+            /* 이미지를 살짝 들리게 하기 */
+            position: relative;
+            left: 0px;
+            top: -10px;
+        }
+
+        .content {
+            opacity: 0.7;
+        }
+
+        .content > span {
+            /* color: red; */
+            /* text-decoration: underline; */
+            /* border-bottom: 1px tomato dashed; */
+        }
+
+        .content > span:hover {
+            opacity: 1;
+            color: tomato;
+        }
+
+        /* FOCUS */
+        .data {
+            outline: none;
+            border: 1px solid #ccc;
+            margin: 3px;
+        }
+
+        .data:focus {
+            background-color: azure;
+            border-color: cadetblue;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    
+    <img src="../images/cat01.jpg" alt="" class="cat" id="cat1">
+    <img src="../images/cat02.jpg" alt="" class="cat" id="cat2">
+    <img src="../images/cat03.jpg" alt="" class="cat" id="cat3">
+
+    <hr style="margin-top: 400px;">
+    
+    <div id="box">
+        <img src="../images/cat01.jpg" alt="" class="cats">
+        <img src="../images/cat02.jpg" alt="" class="cats">
+        <img src="../images/cat03.jpg" alt="" class="cats">
+        <img src="../images/cat04.jpg" alt="" class="cats">
+        <img src="../images/cat05.jpg" alt="" class="cats">
+        <div style="clear:both;"></div>
+    </div>
+
+    <hr>
+
+    <h1>제목입니다.</h1>
+    <p class="content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum explicabo nemo pariatur accusamus aspernatur minima similique! Consequatur reiciendis laborum officiis <span>provident</span> ab veritatis at? Sapiente autem nam aliquam repudiandae eos incidunt architecto. Neque laudantium corporis tempora sapiente qui voluptatum quas rerum labore saepe facere repudiandae dicta consequatur dolore officiis dignissimos iusto molestiae, veniam ratione, repellat <span>provident</span> minus? Beatae non iure cum similique ratione mollitia aliquid ad architecto eius magnam dolorum adipisci molestiae rerum quidem ipsum, rem quae vel. Quibusdam rerum mollitia accusamus similique enim quas laborum vero cupiditate saepe? Quasi <span>provident</span> voluptatem vel quisquam quo, ipsam mollitia reprehenderit molestias rerum quae dolores?</p>
+
+    <hr>
+
+    <h1>입력 화면</h1>
+    <div>데이터: <input type="text" class="data"></div>
+    <div>짧은 데이터: <input type="text" class="data" size="10"></div>
+    <div>긴 데이터: <input type="text" class="data" size="50"></div>
+    <div>데이터: <input type="text" class="data"></div>
+    <div>짧은 데이터: <input type="text" class="data" size="10"></div>
+    <div>긴 데이터: <input type="text" class="data" size="50"></div>
+    <div>데이터: <input type="text" class="data"></div>
+    <div>짧은 데이터: <input type="text" class="data" size="10"></div>
+    <div>긴 데이터: <input type="text" class="data" size="50"></div>
+    <div>데이터: <input type="text" class="data"></div>
+    <div>짧은 데이터: <input type="text" class="data" size="10"></div>
+    <div>긴 데이터: <input type="text" class="data" size="50"></div>
+    <div>데이터: <input type="text" class="data"></div>
+    <div>짧은 데이터: <input type="text" class="data" size="10"></div>
+    <div>긴 데이터: <input type="text" class="data" size="50"></div>
+    <div>데이터: <input type="text" class="data"></div>
+    <div>짧은 데이터: <input type="text" class="data" size="10"></div>
+    <div>긴 데이터: <input type="text" class="data" size="50"></div>
+    <div>데이터: <input type="text" class="data"></div>
+    <div>짧은 데이터: <input type="text" class="data" size="10"></div>
+    <div>긴 데이터: <input type="text" class="data" size="50"></div>
+    <div>데이터: <input type="text" class="data"></div>
+    <div>짧은 데이터: <input type="text" class="data" size="10"></div>
+    <div>긴 데이터: <input type="text" class="data" size="50"></div>
+
+</body>
+</html>

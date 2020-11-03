@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #p1 {
+            /* text-shadow: h-shadow v-shadow blur color*/
+
+            /* text-shadow: 2px 2px 2px #999; */
+            /* text-shadow: 0px 5px 2px #999; */
+            text-shadow: 3px 3px 3px #999; /* 가장 자연스러운 느낌*/
+        }
+
+        /* 동적인 상태에서 그림자를 주면 사용자에게 더 잘보임. */
+        #p2 {
+            border: 1px solid white;
+        }
+
+        #p2:hover {
+            /* box-shadow: h-shadow v-shadow blur color*/
+            border: 1px solid #777;
+            box-shadow: 3px 3px 3px #999;
+        }
+
+        .icon:hover {
+            box-shadow: 0px 5px 5px #777;
+            transform: translate(0px, -5px);
+        }
+        #list li {
+            /* hover로 인해 생긴 테두리(border)로 인해 밀려나는 것을 방지하기 위해 미리 테두리를 줌! */
+            border: 1px solid white;
+        }
+
+        #list li:hover {
+            color: tomato;
+            border: 1px solid red;
+
+            /* outline은 border와 달리 면적을 차지하지 않고 다른 요소와 겹쳐서 나타나게 됨. */
+            /* outline은 위, 아래, 좌우를 따로 줄 수 없음!, 특수 상황에서만 사용 */
+            /* outline: 1px solid red; */
+        }
+
+        #box1, #box2 {
+            border: 1px solid black;
+            width: 300px;
+            
+            /* 한줄로 튀어나오는것을 방지하고자 높이를 설정했는데 튀어나오게(overflow) 됨. */
+            /* height: 20px; */
+            
+            /* 튀어나간 부분을 안보이게 하기 위해 overflow 속성을 줌. */
+            overflow: hidden;
+
+            /* 자동개행 속성을 없앰. (강제로 개행을 막음) */
+            white-space: nowrap;
+
+            margin-bottom: 50px;
+        }
+
+        /* 
+        1. width를 설정하고, 
+        2. overflow를 hidden으로 한 상태에서, 
+        3. white-space를 nowrap으로 설정한 이후 
+        4. text-overflow 설정을 주면 됨! */
+        #box1 {
+            /* 생략된 부분을 안보이게 함 */
+            text-overflow: clip;
+        }
+        #box2 {
+            /* 생략된 부분을 말줄임표로 표시 */
+            text-overflow: ellipsis;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <p id="p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi maxime natus repudiandae consectetur itaque a, earum delectus aliquam magni nisi harum nesciunt illum expedita, quam, obcaecati placeat amet accusantium blanditiis?</p>
+    <p id="p2">Est dolores atque quos odit cupiditate totam hic, obcaecati rerum, quo quisquam temporibus quibusdam error ex debitis aut pariatur? Repellendus beatae aut reiciendis libero accusamus nihil quidem et, nulla sint!</p>
+    <p id="p3">Perferendis porro consequatur quae non illum incidunt fugiat, alias asperiores dolores laboriosam eos? Quo sapiente esse laborum consectetur voluptatum, magnam delectus, totam provident numquam beatae sunt, dolorum ab explicabo illum?</p>
+
+    <hr>
+
+    <img src="../images/rect_icon01.png" alt="" class="icon">
+    <img src="../images/rect_icon02.png" alt="" class="icon">
+    <img src="../images/rect_icon03.png" alt="" class="icon">
+    <img src="../images/rect_icon04.png" alt="" class="icon">
+    <img src="../images/rect_icon05.png" alt="" class="icon">
+
+    <hr>
+
+    <h1>오늘의 할일</h1>
+    <ul id="list">
+        <li>빨리 집에가기</li>
+        <li>밥먹기</li>
+        <li>잠자기</li>
+        <li>쪼끔 공부하기</li>
+    </ul>
+
+    <hr>
+
+    <div id="box1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, ipsam.</div>
+    <div id="box2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, dignissimos?</div>
+
+</body>
+</html>

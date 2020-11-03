@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+	<link rel="stylesheet" href="basic.css">
+    <style>
+        fieldset {
+            border: 1px solid #999;
+            line-height: 2em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main m600">
+        <div class="mainHeader">
+            <h1>텍스트 박스 복사하기</h1>
+            <div>주문하시는 분 정보를 받으시는 분으로 복사하시오.</div>
+            <div class="code">checkbox.checked, text.value</div>
+        </div>
+        
+        <h3>주문하기</h3>
+        <fieldset>
+            <legend>주문하시는 분</legend>
+            이름 : <input type="text" name="txtName1" /><br />
+            주소 : <input type="text" name="txtAddress1" />
+        </fieldset>
+        
+        <div style="margin: 15px;">
+            <input type="checkbox" name="cb1" id="cb1" onclick="copy();" /> <label for="cb1">주문하시분과 정보과 동일합니다.</label>
+        </div>
+        
+        <fieldset>
+            <legend>받으시는 분</legend>
+            이름 : <input type="text" name="txtName2" /><br />
+            주소 : <input type="text" name="txtAddress2" />
+        </fieldset>
+
+    </div>
+
+    <script>
+
+        function copy() {
+
+            if (document.all.cb1.checked) {
+                
+                document.all.txtName2.value = document.all.txtName1.value;
+                document.all.txtAddress2.value = document.all.txtAddress1.value;
+
+            } else {
+
+                document.all.txtName2.value = "";
+                document.all.txtAddress2.value = "";
+
+            }
+        }
+
+
+
+
+
+
+    </script>
+</body>
+</html>

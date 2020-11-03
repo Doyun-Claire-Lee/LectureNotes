@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.test.spring.di.one.Util"/>
+<fullyQualifiedTypeName name="com.test.spring.di.two.Util"/>
+<fullyQualifiedTypeName name="com.test.spring.di.three.MyDB"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.test.spring.di.six.Service"/>
+<fullyQualifiedTypeName name="com.test.spring.di.six.User"/>
+<fullyQualifiedTypeName name="org.springframework.context.support.ClassPathXmlApplicationContext"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+</qualifiedTypeNameHistroy>

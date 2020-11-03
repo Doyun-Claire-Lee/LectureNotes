@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 태그 선택자 - 일괄 적용*/
+        h1 { font-style: italic; }
+
+        /* id 선택자 */
+        h1#title1 { color: mediumaquamarine; }
+        h1#title2 { color: lightcoral; }
+        /*태그명 생략 가능*/
+        #title2 { background-color: lightblue;}
+
+        /* 클래스 선택자 */
+        div.content { color: dimgray; }
+        /* 앞에 태그명을 생략하면 클래스명이 content인 모든 태그를 찾아 변경해줌.*/
+        .content { font-style: italic; }
+
+    </style>
+
+</head>
+<body>
+    
+    <h1 id="title1">회사 소개</h1>
+    <div id="content1" class="content">대표: 홍길동</div>
+    <div id="content2" class="content">위치: 역삼동</div><br>
+
+    <hr>
+
+    <h1 id="title2">대표 소개</h1>
+    <div>인삿말입니다. blah blah</div>
+
+    <p class="content">클래스 선택자 생략 테스트 문단입니다.</p>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #frame { 
+            width: 700px;
+            margin: 10px auto;
+        }
+        #eye {
+            width: 500px;
+            margin: 10px auto;
+        }
+        #back {
+            background-color: bisque;
+            width: 500px;
+            height: 280px;
+            padding-top: 10px;
+        }
+        #white {
+            width: 400px;
+            height: 260px;
+            background-color: white;
+            margin: 0px auto;
+            border-radius: 50%;
+            position: relative;
+            top: 0px;
+            left: 0px;
+            overflow: hidden;
+        }
+        .lid {
+            width: 400px;
+            height: 130px;
+            background-color: cornsilk;
+            transition: transform 2s;
+            /* 포지션이 없으면 z인덱스도 소용 없음!! */
+            z-index: 3;
+        }
+        #upper {
+            transform: translate(0px, -130px);
+        }
+        #lower {
+            transform: translate(0px, 130px);
+        }
+        #retina {
+            width: 200px;
+            height: 200px;
+            background-color: cornflowerblue;
+            border-radius: 50%;
+            position: absolute;
+            top: 5px;
+            left: 100px;
+            /* 흰자의 중앙에 원점주기 어떻게 하는지... */
+            transform-origin: 50% 62%;
+            transition: transform 3s;
+            /* z-index: 2; */
+            
+            /* 떼었을때 딜레이주기, 돌아가는것도 하나의 트랜지션?*/
+            transition-delay: 2s;
+        }
+        #black {
+            width: 100px;
+            height: 100px;
+            background-color: #555;
+            border-radius: 50%;
+            position: absolute;
+            top: 5px;
+            left: 50px;
+            /* z-index: 1; */
+        }
+
+        #back:hover #retina {
+            transform: rotate(720deg);
+            transition-delay: 0s;
+        }
+        #back:hover #upper {
+            transform: translate(0,0);
+            transition-delay: 3s;
+        }
+        #back:hover #lower {
+            transform: translate(0,0);
+            transition-delay: 3s;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="frame">
+        <h1>transition + transition-duration + transition-origin + position(absolute)</h1>
+        <p>눈알..</p>
+
+        <div id="eye">
+            <div id="back">
+                <div id="white">
+                    <div id="retina">
+                        <div id="black"></div>
+                    </div>
+                    <div id="upper" class="lid"></div>
+                    <div id="lower" class="lid"></div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+</body>
+</html>

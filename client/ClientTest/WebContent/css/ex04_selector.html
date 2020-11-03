@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+        /*   * { color: lightsalmon; }  -- 모든 태그에 동일한 스타일 적용하기, 쓸일 없음! */
+       
+        /* 그룹 선택자 */
+        /* h1, li, div { color: orange; } */
+        /* h1, .complete, #regdate { color: cornflowerblue; } */
+
+        /* 
+        자손 선택자, Descendant Selector
+        - 조상으로 <li>태그를 가지는 <span>태그만을 찾으라는 뜻
+        */
+
+        /* li span { color: orange; } 조상으로 <li>태그를 가지는 <span>태그만을 찾으라는 뜻 */
+        /* span span {color: orchid;} */
+        
+        /* 자식 선택자, Child Selector*/
+        /* - span 태그 중에서 li태그를 부모로 가지는 span 태그만을 찾으라는 뜻 */
+        /* span > span {color:palevioletred;}  */
+
+        /* #tbl1 td { color: palevioletred; } */
+        #tbl1 > tbody > tr > td { color: indianred; }
+
+    </style>
+</head>
+<body>
+    
+    <h1><span>오늘</span>의 할일</h1>
+
+    <ul>
+        <li class="complete">마트 <span><span>장</span>보기</span></li>
+        <li>시험 <span>공부</span>하기</li>
+        <li>자바 정리하기</li>
+        <li class="complete">가방 정리하기</li>
+        <li>시험 자료 복사하기</li>
+        <li class="complete">친구랑 약속</li>
+        <li>노트북 포맷하기</li>
+    </ul>
+
+    <div id="regdate">작성일: 2020-06-23</div>
+
+    <hr>
+
+    <h1>주소록</h1>
+
+    <table border="1" width="500" id="tbl1">
+        <tr>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>남자</td>
+            <td>서울시 강남구 역삼동</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>아무개</td>
+            <td>여자</td>
+            <td>서울시 강남구 세곡동</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>하하하</td>
+            <td>여자</td>
+            <td>서울시 강남구 반포동</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>홍길동</td>
+            <td>남자</td>
+            <td>서울시 강남구 역삼동</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>아무개</td>
+            <td>여자</td>
+            <td>서울시 강남구 세곡동</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>하하하</td>
+            <td>여자</td>
+            <td>서울시 강남구 반포동</td>
+        </tr>
+        
+    </table>
+
+    <h1>사원 명단</h1>
+
+    <table border="1" width="500">
+        <tr>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>남자</td>
+            <td>서울시 강남구 역삼동</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>아무개</td>
+            <td>여자</td>
+            <td>서울시 강남구 세곡동</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>하하하</td>
+            <td>여자</td>
+            <td>서울시 강남구 반포동</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>홍길동</td>
+            <td>남자</td>
+            <td>서울시 강남구 역삼동</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>아무개</td>
+            <td>여자</td>
+            <td>서울시 강남구 세곡동</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>하하하</td>
+            <td>여자</td>
+            <td>서울시 강남구 반포동</td>
+        </tr>
+        
+    </table>
+
+
+
+<hr>
+<!-- 원래 테이블의 생김새  -->
+<!-- thead, tbody, tfoot의 기능상의 차이는 전혀 없음. 논리적으로 tr들을 구분하기 위한 중간 상자, 굳이 코딩할 때 안써도 됨. -->
+    <table>
+        <thead> <!-- 헤더용 -->
+            <tr>
+                <td>머릿말</td>
+            </tr>
+        </thead>
+        <tbody> <!-- 데이터용 -->
+            <tr>
+                <td>데이터</td>
+            </tr>
+            <tr>
+                <td>데이터</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>바닥글</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+</html>

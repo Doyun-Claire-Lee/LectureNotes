@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    
+    <div id="box1" class="box">상자</div>
+    <div id="box2" class="box">상자</div>
+    <div id="box3" class="box">상자</div>
+    <div id="box4" class="box">상자</div>
+    <div id="box5" class="box">상자</div>
+
+    <ul id="ul1">
+        <li>빨강</li>
+        <li>노랑</li>
+        <li>파랑</li>
+        <li>검정</li>
+    </ul>
+    
+
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+
+        //★★★★★★★★★ jQuery() 함수의 반환값은 jQuery 객체이다. ★★★★★★★★★
+        // console.log(jQuery("div").constructor);
+
+        var box1_1 = document.getElementById("box1");
+        var box1_2 = jQuery("#box1");
+
+        console.log(box1_1 == box1_2);  //false
+
+        box1_1.style.color = "black";
+        box1_2.css("color", "red");
+
+        // 에러남!!
+        // box1_1.css("color", "red");
+        // box1_2.style.color = "black";
+
+
+
+
+
+        //jQuery함수 + CSS 선택자
+        //1. 태그선택자
+
+        //list1 -> HTML Collection
+        var list1 = document.getElementsByTagName("div");
+        for (var i=0; i<list1.length; i++) {
+            list1[i].style.color = "cornflowerblue";
+        }
+
+        //list2 -> jQuery객체(배열X)
+        var list2 = jQuery("div")
+        //배열처럼 동작하는 기능을 내장하고 있음, 유사배열
+        for (var i=0; i<list2.length; i++) {
+            list2[i].style.backgroundColor = "gold";
+        }
+
+        // jQuery("div").css("font-size", "3em");  //배열을 찾아서 통채로 css를 적용시킬 수 있음. 반복문이 내장되어 있음(?)
+        // document.getElementsByTagName("div").style.fontSize = "5em"; --> 에러남! 배열에는 css를 적용시킬 수 없음. 반복문 사용 필수
+
+        //jQuery는 거의 프로퍼티가 없고 함수로만 조작이 이루어짐.
+        //연쇄작업이 쉽도록 구성되어있음.
+        // jQuery("div")
+        //     .css("font-style", "italic")
+        //     .css("font-size", "3em");
+
+        //2. id 선택자
+        jQuery("#box3").css("text-decoration", "underline");
+
+        //3. class 선택자
+        jQuery(".box").css("float", "left");
+
+        //4. 그룹 선택자
+        jQuery("#box1, #box2, #box5").css("font-family", "궁서체");
+
+        //5. 자식 선택자
+        jQuery("#ul1 > li").css("color", "tomato");
+
+        //6. 자손 선택자
+        jQuery("#ul1 li").css("font-size", "2em");
+
+        //7. 형제 선택자
+        jQuery("li + li").css("font-weight", "bold");
+        
+        //8. 인접 형제 선택자
+        jQuery("li ~ li").css("font-weight", "bold");
+
+        //9. CSS3 선택자
+        jQuery("li:nth-child(odd)").css("background-color", "green");
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!-- <frameset rows="150,*">
+    <frame src="ex17_form.html"></frame>
+    <frame src="ex18_form.html"></frame>
+</frameset> -->
+
+<!-- 하나의 프레임을 쓰고 있는 상태 -->
+<body>
+    <!-- 
+        HTML프레임
+        1. <frameset> + <frame>: 예전에 자주 쓰던 방식.. 요즘엔 잘 안씀.
+        2. <iframe>
+            - inner frame
+            - inline frame
+        
+        프레임을 사용하는 이유
+        1. 여러 페이지에서 반복되는 페이지 일부를 모듈화 시킨다.(조각 페이지 만들기)
+        2. 불필요한 소스나 리소스를 반복해서 다운로드하지 않는다.(변화가 필요한 부분만 가져온다. -> 프레임)
+        3. 클라이언트 <-> 서버간의 불필요한 트래픽이 발생하지 않는다.(****)(=돈)
+        4. 클라이언트: 인터넷 속도가 빠르다고 체감
+
+     -->
+
+     <h1>iframe</h1>
+     <!-- 문서 일부에 다른 문서를 삽입할 때 주로 쓰였었음. 현재는 여러 용도로 사용됨. -->
+     <iframe src="ex18_form.html"></iframe>
+     <iframe src="http://coupang.com" width="100%" height="400" frameborder="no" scrolling="no"></iframe>
+
+     <hr>
+
+     <h1>쇼핑몰</h1>
+     <table border="1" width="100%" height="500">
+         <tr>
+             <td width="200" valign="top">
+                 <h2>국내 쇼핑몰</h2>
+                 <ul>
+                     <li><a href="http://coupang.com" target="iframe1">쿠팡</a></li>
+                     <li><a href="http://11st.co.kr" target="iframe1">11번가</a></li>
+                     <li><a href="http://gmarket.co.kr" target="iframe1">지마켓</a></li>
+                </ul>
+             </td>
+             <td width="auto">
+                 <iframe name="iframe1" width="100%" height="500" src="" frameborder="0"></iframe>
+             </td>
+         </tr>
+     </table>
+
+</body>
+</html>

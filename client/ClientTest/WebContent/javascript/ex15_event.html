@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>이벤트</h1>
+    <form name="form1">
+        <div>이름: <input type="text" name="txt1" size="10"></div>
+        <div>나이: <input type="text" name="txt2" size="10"></div>
+        <div>주소: <input type="text" name="txt3" size="10"></div>
+        <div>
+            <input type="button" value="long" name="btnLong">
+            <input type="button" value="short" name="btnShort">
+        </div>
+    </form>
+
+    <script>
+
+        var txt1 = window.document.form1.txt1;
+        var txt2 = window.document.form1.txt2;
+        var txt3 = window.document.form1.txt3;
+        var btnShort = window.document.form1.btnShort;
+        var btnLong = window.document.form1.btnLong;
+
+        //개수가 많지 않은 경우 - 배열로 만들기
+        var list = [txt1, txt2, txt3];
+
+        btnLong.onclick = function() {
+            // txt1.size = 100;
+            // txt2.size = 100;
+            // txt3.size = 100;
+
+            // for (var i=0; i<list.length; i++){
+            //     list[i].size = 30;
+            // }
+
+            // 가장 안좋은 방법... 
+            // for (var i=1; i<=3; i++) {
+            //     window.document.form1["txt" + i].size = 15;
+            // }
+
+           console.log(window.document.form1.elements);
+           
+           //elements값 : 배열로 받아올 수 있음.
+           var els = window.document.form1.elements;
+
+           for (var i=0; i<els.length; i++) {
+               if (els[i].type == "text") {
+                    els[i].size = 50;
+               }
+           }
+
+         };
+        btnShort.onclick = function() {
+            txt1.size = 10;
+            txt2.size = 10;
+            txt3.size = 10;
+        };
+
+        //그냥 스크립트 영역 - 아무짓도 안해도 브라우저 실행 시 실행됨.
+        for (var i=0; i<list.length; i++) {
+
+            //해당 객체가 포커스를 얻는 경우
+            list[i].onfocus = function() {
+                // event.srcElement.size = 50;    
+                
+            }
+            //해당 객체가 포커스를 잃는 경우
+            list[i].onblur = function() {
+                //event.srcElement: 이벤트를 발생시킨 객체라는 뜻   
+                // event.srcElement.size = 10;   
+                
+                //무언가 입력된 경우
+                if (event.srcElement.value.length > 0) {
+                    //한번 입력 후 포커스를 이동한 경우 수정 할 수 없음.
+                    event.srcElement.readOnly = true;
+
+                //아무것도 입력되지 않은 경우
+                } else { }
+            }
+
+            //더블클릭 하는 경우
+            list[i].ondblclick = function() {
+                
+                //컨트롤키를 누르고 있는 상태인지?
+                if (event.ctrlKey) {
+                    event.srcElement.readOnly = false;
+                }
+            }
+        }
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

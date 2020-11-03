@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            border: 5px solid gray;
+            width: 150px; height: 150px;
+            background-color: gold;
+            position: absolute;
+            left: 0; top: 0;
+        }
+        #cat {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="box"></div>
+    <img src="../images/catty01.png" alt="" id="cat">
+
+    <script>
+
+        //Drag & Drop
+        var box = document.getElementById("box");
+        var cat = document.getElementById("cat");
+
+        var isDown = false; //버튼이 눌렸는지 안눌렸는지를 판단할 수 있는 변수
+        var oldX, oldY;
+
+        //동작은 되나 부자연스러운 부분이 있음.
+        // box.onmousedown = function() {
+        //     isDown = true;
+        // };
+        // box.onmouseup = function() {
+        //     isDown = false;
+        // };
+        // box.onmousemove = function() {
+        //     if (isDown) {
+        //         box.style.left = event.clientX - 80 + "px";
+        //         box.style.top = event.clientY - 80 + "px";
+        //     }
+        // };
+
+        var temp;
+        
+        window.onmousedown = function() { 
+
+            console.log(event.srcElement.nodeName); //마우스로 무엇을 클릭했는지 확인용
+            if (event.srcElement.id == "box" || event.srcElement.id == "cat") {     //박스를 눌렀을 경우에만 true값을 준다.
+                isDown = true; 
+                //상자의 어디를 찍었는지 좌표를 변수에 저장
+                oldX = event.offsetX;
+                oldY = event.offsetY;        
+                temp = event.srcElement;
+            }
+        };
+        window.onmouseup = function() { isDown = false; };
+        window.onmousemove = function() {  
+            if (isDown) {
+                
+                temp.style.left = event.clientX - oldX + "px";
+                temp.style.top = event.clientY - oldY + "px";
+
+                //브라우저의 고스트 이미지 현상 제거하기
+                event.preventDefault(); //현재 발생하는 기본적인 행동을 하지 말라는 뜻
+                return false;           //위와 같은 뜻, 브라우저마다 되는 메소드가 다름
+                
+            }
+        };
+    </script>
+
+</body>
+</html>

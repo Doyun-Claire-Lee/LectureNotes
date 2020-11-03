@@ -1,0 +1,21 @@
+#주소록 제작하기(***여러번 연습해서 외우기)
+
+- CRUD
+- MVC기반
+- Oracle	
+
+
+1. 주소록 쓰기
+	a. 쓰기 폼 페이지
+		- com.test.address.Add.java
+		- views > add.jsp
+	b. 쓰기 DB 페이지
+		- com.test.address.AddOk.java
+		- views > addok.jsp
+	c. web.xml
+		- 가상 경로 등록
+		- /add.do
+		- /addok.do
+2. 주소록 읽기
+3. 주소록 수정하기
+4. 주소록 삭제하기

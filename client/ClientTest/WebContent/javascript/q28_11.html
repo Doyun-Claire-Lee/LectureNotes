@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+	<link rel="stylesheet" href="basic.css">
+    <style type="text/css">
+        #tbl1 {
+            border: 1px solid gray;
+            width: 500px;
+            margin: 10px auto;
+            border-collapse: collapse;
+        }
+    
+        input {
+            display: block;
+            margin: 10px auto;
+            padding: 5px;
+        }
+        
+        #tbl1 td {
+            border: 1px solid gray;
+            text-align: center;
+            padding: 15px;
+        }
+    
+        h4 {
+            margin: 0;
+        }
+        
+        select {
+            width: 150px;
+            margin: 15px;
+            height: 340px;
+        }
+    
+        select option {
+            padding: 5px;
+        }
+    
+        .btn {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="main m600">
+        <div class="mainHeader">
+            <h1>셀렉트 박스 항목 관리</h1>
+            <div>셀렉트 박스의 항목을 좌,우 이동시키시오.(더블클릭도 가능)</div>
+            <div class="code">select.options, select.options.add, select.options.remove</div>
+        </div>
+        <table id="tbl1">
+            <tr>
+                <td>
+                    <h4>차단된 친구</h4>
+                    <select name="leftList" size="10" ondblclick="add2();">
+                        <option value="1">권예진</option>
+                        <option value="2">권준혁</option>
+                        <option value="3">김동식</option>
+                        <option value="4">김세진</option>
+                        <option value="5">김여정</option>
+                        <option value="6">노형준</option>
+                        <option value="7">박민선</option>
+                        <option value="8">백강현</option>
+                        <option value="9">변기현</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="button" value="Add ▷" onclick="add2();" class="btn" />
+                    <input type="button" value="◁ Remove" onclick="remove2();" class="btn" />
+                    <input type="button" value="Add All ▷▷" onclick="addAll();" class="btn" />
+                    <input type="button" value="◁◁ Remove All" onclick="removeAll();" class="btn" />
+                </td>
+                <td>
+                    <h4>허용된 친구</h4>
+                    <select name="rightList" size="10" ondblclick="remove2();"></select>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <script>
+
+        var leftList = document.all.leftList;
+        var rightList = document.all.rightList;
+
+        function add2() {
+
+            var op = new Option();
+            op.value = leftList.options[leftList.selectedIndex].value;
+            op.text = leftList.options[leftList.selectedIndex].text;
+            rightList.options.add(op);
+
+            // console.log(leftList.selectedIndex);
+
+            leftList.options.remove(leftList.selectedIndex);
+        }
+
+        function remove2() {
+
+            var op = new Option();
+            op.value = rightList.options[rightList.selectedIndex].value;
+            op.text = rightList.options[rightList.selectedIndex].text;
+            leftList.options.add(op);
+
+            // console.log(leftList.selectedIndex);
+            rightList.options.remove(rightList.selectedIndex);
+
+        }
+
+        function addAll() {
+            
+            for (var i=0; i<leftList.length; i++) {
+                var op = new Option();
+                op.value = leftList.options[i].value;
+                op.text = leftList.options[i].text;
+                rightList.options.add(op);
+            }
+            for (var j=leftList.length-1; j>=0; j--) {
+                console.log(leftList.length);
+                leftList.options.remove(j);  
+            }
+
+        }
+
+        function removeAll() {
+            for (var i=0; i<rightList.length; i++) {
+                var op = new Option();
+                op.value = rightList.options[i].value;
+                op.text = rightList.options[i].text;
+                leftList.options.add(op);
+            }
+            for (var j=rightList.length-1; j>=0; j--) {
+                console.log(rightList.length);
+                rightList.options.remove(j);  
+            }
+        }
+
+    </script>
+
+
+
+</body>
+</html>

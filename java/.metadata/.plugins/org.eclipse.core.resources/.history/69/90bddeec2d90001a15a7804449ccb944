@@ -1,0 +1,22 @@
+package com.test.collection;
+
+public class Ex41_Stack_question {
+	
+	public static void main(String[] args) {
+		
+		testStack();
+		testQueue();
+		
+	}
+
+	private static void testQueue() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void testStack() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.test.collection;
+
+public class MyQueue {
+
+	private String[] list;
+	private int index;
+	
+	
+	
+}

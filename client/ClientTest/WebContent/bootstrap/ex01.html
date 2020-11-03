@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <style>
+        .container {
+            width: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        Bootstrap
+        - 디자인 프레임워크
+        - CSS 제공 + 자바스크립트 
+        - jQuery UI와 유사
+        - jQuery 기반 
+
+        http://getbootstrap.com     //공식홈페이지, 현재 버전 v4.5.0
+        http://bootstrapk.com       //한국어 버전, 현재 v3.3.2
+        => 두 버전의 문법이 달라 호환이 안됨..
+
+        - 반응형 웹?
+        - 화면 크기에 따라 레이아웃이 자동으로 변경되는 것
+     -->
+
+    <!-- 부트스트랩에서 만들어진 클래스명들 -->
+    <div class="container">
+        <h1>Bootstrap</h1>
+        <p>부트스트랩입니다.</p>  
+
+        <h2>버튼 디자인</h2>
+        <input type="button" value="버튼입니다.">
+        <!-- 클래스 여러개 주기 -->
+        <input type="button" value="버튼입니다." class="btn">
+        <input type="button" value="버튼입니다." class="btn btn-default">
+        <input type="button" value="버튼입니다." class="btn btn-warning">
+        <input type="button" value="버튼입니다." class="btn btn-info">
+        <input type="button" value="버튼입니다." class="btn btn-danger">
+        <input type="button" value="버튼입니다." class="btn btn-success">
+        <input type="button" value="버튼입니다." class="btn btn-primary">
+
+        <h2>버튼의 크기</h2>
+        <input type="button" value="버튼입니다." class="btn btn-primary btn-xs">
+        <input type="button" value="버튼입니다." class="btn btn-primary btn-sm">
+        <input type="button" value="버튼입니다." class="btn btn-primary">
+        <input type="button" value="버튼입니다." class="btn btn-primary btn-lg">
+
+        <hr>
+
+        <h2>테이블 디자인</h2>
+        <!-- <table class="table" style="width: 600px;"> -->
+        <!-- <table class="table table-bordered" style="width: 600px;"> -->
+        <!-- <table class="table table-striped" style="width: 600px;"> -->
+        <!-- <table class="table table-condensed" style="width: 600px;"> -->
+        <!-- <table class="table table-hover" style="width: 600px;"> -->
+        <!-- 클래스이기 때문에 조합을 할 수 있음! -->
+        <table class="table table-bordered table-hover" style="width: 600px;">
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>나이</th>
+                <th>성별</th>
+                <th>주소</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>20</td>
+                <td>남자</td>
+                <td>서울시 강남구 역삼동</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>김이름</td>
+                <td>20</td>
+                <td>여자</td>
+                <td>서울시 강남구 역삼동</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>김이름</td>
+                <td>20</td>
+                <td>여자</td>
+                <td>서울시 강남구 역삼동</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>김이름</td>
+                <td>20</td>
+                <td>여자</td>
+                <td>서울시 강남구 역삼동</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>김이름</td>
+                <td>20</td>
+                <td>여자</td>
+                <td>서울시 강남구 역삼동</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>김이름</td>
+                <td>20</td>
+                <td>여자</td>
+                <td>서울시 강남구 역삼동</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>김이름</td>
+                <td>20</td>
+                <td>여자</td>
+                <td>서울시 강남구 역삼동</td>
+            </tr>
+        </table>
+
+        <h2>폼</h2>
+
+        <table class="table table-bordered" style="width: 600px;">
+            <tr>
+                <th style="width: 150px;">텍스트박스</th>
+                <td style="width: 450px;">
+                    <!-- form-control 클래스는 요소를 블럭태그로 만들어 버림(너비가 100%로 잡히게 됨, 디자인 시 유의) -->
+                    <!-- 부모의 너비를 조절해서 요소의 크기를 조정하려는 성격이 강함 -->
+                    <input type="text" class="form-control">
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 150px;">암호</th>
+                <td style="width: 450px;">
+                    <input type="password" class="form-control">
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 150px;">다중 라인</th>
+                <td style="width: 450px;">
+                    <!-- 높이는 잡혀있지 않아 따로 주어야 함 -->
+                    <textarea class="form-control" style="height: 200px;"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 150px;">셀렉트 박스</th>
+                <td style="width: 450px;">
+                    <select class="form-control">
+                        <option>하나</option>
+                        <option>둘</option>
+                        <option>셋</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 150px;">체크박스</th>
+                <td style="width: 450px;">
+                    <!-- 체크박스와 라디오버튼은 원래부터 CSS가 잘 적용되지 않음. 부트스트랩을 적용하면 이상하게 되기 때문에 적용시키지 않고 기본으로 씀. -->
+                    <input type="checkbox" class="form-control">
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 150px;">파일 첨부</th>
+                <td style="width: 450px;">
+                    <input type="file" class="form-control">
+                </td>
+            </tr>
+            <tr>
+                <th style="width: 150px;">HTML5</th>
+                <td style="width: 450px;">
+                    <input type="color" class="form-control">
+                </td>
+            </tr>
+        </table>
+
+        <h2>텍스트 관련</h2>
+        
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur accusantium sed minima ut, laudantium illo! Magnam iste natus, debitis, laborum id est tempore quidem aliquam nam laudantium sit fuga repellendus expedita alias nemo excepturi, reiciendis quos accusamus! Hic, minus? Vero sequi tempore rerum non, vitae delectus temporibus quod natus nesciunt nam, quis fugit officia eveniet repudiandae porro corrupti earum perspiciatis. Tempore omnis ratione ipsa praesentium molestias voluptas qui? Veniam qui vel voluptates magnam adipisci vitae expedita consequuntur distinctio eius at. Suscipit numquam beatae voluptatibus animi, deserunt quos laborum nemo iusto sequi exercitationem? Minus obcaecati blanditiis pariatur quaerat quas at quisquam!</p>
+        <p>Optio dolore mollitia voluptatum dicta amet cumque sint. Iure facere dolores odio eaque debitis, molestiae nostrum inventore ratione veniam voluptatibus? Non ratione hic, obcaecati nobis neque illum maxime aperiam qui natus! Labore aperiam nemo quas illo! Ex enim quam autem consequatur aspernatur alias laboriosam, dolore inventore, blanditiis odit quidem illo tempore. Numquam, dolorum. Accusantium magni, pariatur totam nisi assumenda eum, sit id voluptates sed, necessitatibus nulla quo fugit voluptate rem atque consequatur vero saepe. Dolorem corporis iure expedita error inventore saepe odit ut cum ipsa omnis hic explicabo, consequatur molestiae tempora nihil eaque commodi ducimus illo doloremque quam harum ea.</p>
+
+        <blockquote>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus delectus ipsum minus debitis eos velit, veritatis expedita aliquid, reprehenderit quaerat nobis non dolorum voluptates cum maxime consequatur ad! Id, eum?</blockquote>
+
+        <h2>프로그래밍 코드</h2>
+        <p>JavaScript 수업중입니다. <code>window.open()</code>은 새창을 엽니다.</p>
+
+        <h2>키보드 단축키</h2>
+        <p>이클립스의 실행은 <kbd>Ctrl + F11</kbd>입니다.</p>
+
+        <h2>preformatted text, 'pre'</h2>
+        <!-- 공백을 인식하는 태그, 외부 텍스트를 가져와 출력할 때 자주 쓰임 -->
+        <!-- pre 태그 안에 태그를 넣어도 동작을 함. -->
+        <pre>
+<span style="color: cornflowerblue;">class</span> Test {
+    <span style="color: cornflowerblue;">public static void</span> main(String[] args) {
+        System.out.println("Hello");
+    }
+}</pre>
+        <div>   <!--div 태그는 공백을 없앰-->
+class Test {
+    public static void main(String[] args) {
+        System.out.println("Hello");
+    }
+}</div>
+        
+        <h2>텍스트 색상</h2>
+        <!-- 전체적인 분위기를 맞추기 위해서 기본적으로 제공하는 색상들 -->
+        <p class="text-primary bg-primary">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem quis ab quisquam tempore quia saepe voluptas pariatur non laborum consequatur, maxime quidem exercitationem amet. Iusto dicta labore reprehenderit. Ullam, molestias.</p>
+        <p class="text-warning bg-warning">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem quis ab quisquam tempore quia saepe voluptas pariatur non laborum consequatur, maxime quidem exercitationem amet. Iusto dicta labore reprehenderit. Ullam, molestias.</p>
+        <p class="text-info bg-info">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem quis ab quisquam tempore quia saepe voluptas pariatur non laborum consequatur, maxime quidem exercitationem amet. Iusto dicta labore reprehenderit. Ullam, molestias.</p>
+        <p class="text-danger bg-danger">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem quis ab quisquam tempore quia saepe voluptas pariatur non laborum consequatur, maxime quidem exercitationem amet. Iusto dicta labore reprehenderit. Ullam, molestias.</p>
+        <p class="text-success bg-success">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem quis ab quisquam tempore quia saepe voluptas pariatur non laborum consequatur, maxime quidem exercitationem amet. Iusto dicta labore reprehenderit. Ullam, molestias.</p>
+        <p class="text-muted">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem quis ab quisquam tempore quia saepe voluptas pariatur non laborum consequatur, maxime quidem exercitationem amet. Iusto dicta labore reprehenderit. Ullam, molestias.</p>
+
+        <h2>이미지</h2>
+        <img src="../images/cat01.jpg" alt="" class="img-thumbnail">
+        <img src="../images/cat02.jpg" alt="" class="img-circle">
+        <img src="../images/cat03.jpg" alt="" class="img-rounded">
+
+
+        <h2>Wells</h2>
+        <div class="well">소규모의 독립된 영역을 만들 때 사용</div>
+        <div class="well well-sm">소규모의 독립된 영역을 만들 때 사용</div>
+        <div class="well well-lg text-primary">소규모의 독립된 영역을 만들 때 사용</div>
+
+        <h2>Alerts</h2>
+        <!-- well과 비슷함. 색을 넣어서 강조하는 Well -->
+        <div class="alert alert-success">
+            <strong>Java</strong>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quidem aliquid consectetur veniam nulla voluptatum necessitatibus amet, provident adipisci neque expedita ut fugiat rerum officia doloribus culpa perspiciatis corrupti optio?
+        </div>
+
+        <!-- 엑스버튼을 누르면 사라지게 됨 -->
+        <div class="alert alert-danger alert-dismissable fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>주의사항!!</strong>
+            반드시 사진은 20cm 미만으로 첨부해야 합니다.
+        </div>
+
+        <h2>아이콘</h2>
+        <div>
+            <!-- 보통 span태그로 이용, 부트스트랩 사이트에서 아이콘 이름(?)을 복사해서 클래스로 넣으면 됨. -->
+            <span class="glyphicon glyphicon-cloud"></span>
+            <span class="glyphicon glyphicon-fire"></span>
+            <hr>
+            <button class="btn btn-success">
+                <span class="glyphicon glyphicon-tag"> hash tag</span>
+            </button>
+            <style>
+            /* span.glyphicon {
+                font-size: 5em;
+                color: gold;
+            } */
+            </style>
+
+            <h2>배지, Badges</h2>
+            <!-- 색은 지정할 수 없다. -->
+            <ul>
+                <li>Java <span class="badge">5</span></li>
+                <li>Oracle <span class="badge">11</span></li>
+                <li>JDBC <span class="badge">4</span></li>
+                <li>HTML <span class="badge">7</span></li>
+            </ul>
+
+            <button class="btn btn-danger">
+                <span class="glyphicon glyphicon-trash"></span>
+                Remove Items
+                <span class="badge">3</span>
+            </button>
+
+            <h2>Label</h2>
+            <!-- 색을 지정할 수 있다.(클래스로 나뉨) -->
+            <p>안녕하세요. 홍길동입니다. <span class="label label-default">new</span></p>
+
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+</body>
+</html>

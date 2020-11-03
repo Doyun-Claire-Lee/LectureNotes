@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tbl {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .tbl td {
+            border: 1px solid black;
+            padding: 5px 15px;
+            text-align: center;
+        }
+        .sel {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>목록</h1>
+    <ul id="list1">
+        <li title="Keyboard">키보드</li>
+        <li>마우스</li>
+        <li>모니터</li>
+        <li>노트북</li>
+    </ul>
+    <hr>
+    <input type="button" value="버튼1-생성" id="btn1">
+    <input type="button" value="버튼2-생성" id="btn2">
+    <input type="button" value="버튼4-수정" id="btn4">
+    <input type="button" value="버튼5-추가" id="btn5">
+
+    <h1>링크</h1>
+    <div id="links"></div>
+    <input type="button" value="버튼3-생성" id="btn3">
+
+
+    <script>
+
+        var list1 = document.getElementById("list1");
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+
+        btn1.onclick = function() {
+            
+            //동적으로 태그 생성하기
+            //1. innerHTML 속성 사용하기
+            // - 간단 방식
+            // - 복잡한 업무에는 적합하지 않음. -> 추가하려는 태그를 텍스트로 취급하기 때문에
+            //2. DOM 메소드 사용하기
+            // - 태그 생성 메소드가 제공됨.
+            // - 복잡한 업무에 적합 -> 모든 구성요소(태그, 속성, PCDATA)를 각각의 객체로 제공, 조작 가능
+            // - 코드량이 많아짐
+
+
+            //<li>태그 추가하기
+
+            //1. innerHTML
+            var name = "태블릿";
+            var item = "<li>" + name + "</li>";
+
+            list1.innerHTML += item;
+
+            var name = "신형 노트북";
+            var img = "1.jpg";
+            var item = "<li><img src='../images/" + img + "' style='width: 100px'>" + name + "</li>"    //지저분해짐..
+            
+            list1. innerHTML += item;
+
+        };
+
+        btn2.onclick = function() {
+
+            //2. DOM메소드
+            // - 태그, 속성, PCDATA를 독립된 객체로 취급
+
+            var li = document.createElement("li");   // <li></li>를 생성하여 반환함.
+            console.log(li.nodeName, li.nodeType);
+
+            var name = "태블릿";
+            var txt = document.createTextNode(name);    //태블릿이라는 PCDATA를 생성하여 반환함.
+            console.log(txt.nodeName, txt.nodeType);
+
+            li.appendChild(txt);    //<li>태블릿</li>
+            console.log(li);
+
+            list1.appendChild(li);
+
+            //다른 방식으로 다시 
+            var li = document.createElement("li");
+            li.innerText = "펜";
+            list1.appendChild(li);
+
+
+            //-------------------------------------------------------------------------
+            //조금 더 복잡한 업무
+            var li = document.createElement("li");
+            var img = document.createElement("img");
+
+            //이미지의 속성 설정하기 - setAttribute
+            img.setAttribute("src", "../images/1.jpg");
+            
+            li.appendChild(img);
+            // li.innerHTML += 노트북;
+            var txt = document.createTextNode("노트북")
+            li.appendChild(txt);
+
+            list1.appendChild(li);
+
+        };
+
+        var links = document.getElementById("links");
+        var btn3 = document.getElementById("btn3");
+
+        btn3.onclick = function() {
+
+            //<a href="http://google.com" target="_blank" title="구글로 이동합니다.">구글</a>
+            var a = document.createElement("a");
+            a.setAttribute("href", "http://google.com");
+            a.setAttribute("target", "_blank");
+            a.setAttribute("title", "구글로 이동합니다.")
+            a.innerText = "구글";
+
+            links.appendChild(a);
+            // document.body.appendChild(a);    //맨밑에 추가됨.
+
+            //테이블 만들기(10행 5열);
+            var table = document.createElement("table");
+            table.className = "tbl";
+
+            for (var i=0; i<10; i++) {
+                
+                var tr = document.createElement("tr");
+
+                for (var j=0; j<5; j++) {
+                    
+                    var td = document.createElement("td");
+                    td.innerText = i + ", " + j;
+                    tr.appendChild(td);
+                }
+
+                table.appendChild(tr);
+            }
+
+            links.appendChild(table);
+        }
+
+        var btn4 = document.getElementById("btn4");
+
+        btn4.onclick = function() {
+
+            //태그 수정
+            // 1. 속성 생성/추가/삭제
+            // 2. 텍스트 생성/추가/삭제
+            
+            // list1.children[2].innerText = "Monitor";
+            // list1.children[2].innerText = "";
+            // list1.children[2].innerText += "(Monitor)";
+            // list1.children[2].setAttribute("title", "Monitor");
+
+            //이미 있는 속성을 제거하기 - removeAttribute
+            // list1.children[0].removeAttribute("title");
+            
+            //태그 삭제
+            // - innerHTML으로는 조작 불편
+            // list1.removeChild(list1.children[2]);   //삭제하고싶은 태그 자체를 넣어줘야 함.
+
+
+
+
+
+        };
+
+        var temp;
+
+        for (var i=0; i<list1.children.length; i++) {
+
+            list1.children[i].onclick = function() {
+                // console.log(event.srcElement.innerText);
+                
+                if (temp != null) {
+                    temp.className = ""; //이전에 선택된 li태그를 초기화
+                }
+              
+                temp = event.srcElement;
+                // list1.removeChild(temp);
+                event.srcElement.className = "sel";
+            }
+
+        }
+
+        var btn5 = document.getElementById("btn5");
+        
+        btn5.onclick = function() {
+
+            //li태그 추가
+            var li = document.createElement("li");
+            li.innerText = "책"
+
+            //리스트의 끝에 추가하기
+            list1.appendChild(li);
+
+            //중간 혹은 처음에 추가하기
+            list1.insertBefore(li, list1.children[0]);
+        }
+
+    </script>
+
+</body>
+</html>

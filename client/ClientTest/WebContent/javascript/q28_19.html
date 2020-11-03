@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tbl1 {
+            border: 1px solid gray;
+            border-collapse: collapse;
+        }
+        #tbl1 td {
+            border: 1px solid gray;
+            width: 100px;
+            height: 100px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 70px;
+            font-weight: bold;
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+    <table id="tbl1">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <script>
+
+        var tr = document.getElementById("tbl1").children[0].children;
+
+        for (var i=0; i<tr.length; i++) {
+            
+            var td = tr[i].children;
+
+            for (var j=0; j<td.length; j++) {
+                td[j].innerText = 0;
+            }
+            
+            for (var j=0; j<td.length; j++) {
+                td[j].onmousedown = function() {
+                    
+                    if (event.buttons == 1) {
+                        event.srcElement.innerText = parseInt(event.srcElement.innerText) + 1;
+                    } else if (event.buttons == 2) {
+                        event.srcElement.innerText = parseInt(event.srcElement.innerText) - 1;
+
+                        //마우스 오른쪽버튼눌러 0이되면 이벤트 죽이기
+                        if (event.srcElement.innerText == 0) {
+                            event.srcElement.onmousedown = null;
+                            event.srcElement.bgColor = "#BBB";
+
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

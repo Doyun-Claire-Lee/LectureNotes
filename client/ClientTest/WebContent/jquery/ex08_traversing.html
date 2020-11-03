@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid black;
+            margin: 15px;
+            padding: 15px;
+        }
+        #me {
+            border: 10px solid cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <div>
+            <div></div>
+            <div></div>
+            <div id="me">
+                <div class="child"></div>
+                <div class="child">
+                    <div class="child"></div>
+                </div>
+                <div id="third"></div>
+            </div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    
+
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+
+        //자식 검색(1촌만 찾아줌) - .children()
+        // $("#me").children().css("border","10px solid tomato");
+
+        //손자 검색 - .children().children()
+        // $("#me").children().children().css("border","10px solid gold");
+
+        //모든 자손 중 특정 자손만 찾기(자식 + 자손)
+        // $("#me").find("#third").css("border", "10px solid violet");
+        // $("#me").find(".child").css("border", "10px dotted lightpink");
+        // $("#me").find("div").css("border", "10px solid gray");
+        // $("#me").find("div:eq(0)").css("border", "10px solid gray"); //첫번째 자식
+        // $("#me").find("div:last").css("border", "10px solid gray");  //마지막 자식
+
+        //부모 검색
+        // $("#me").parent().css("border", "10px solid orange");
+        // $("#me").parents().css("border", "10px solid orange");  //조상들을 다 찾아줌(body, html 포함)
+        // $("#me").parentsUntil("body").css("border", "10px solid orange");   //body전까지만 찾아주기 (body 미포함)
+
+        //형제 검색
+        // $("#me").prev().css("border", "10px solid pink");
+        // $("#me").next().css("border", "10px solid purple");
+        // $("#me").prevAll().css("border", "10px solid pink");
+        // $("#me").nextAll().css("border", "10px solid purple");
+        // $("#me").siblings().css("border", "10px solid skyblue");
+
+        //Document에서 꼭 확인하기!!
+        //1. Selector
+        //2. Manipulation
+        //3. Traversing
+
+    </script>
+</body>
+</html>

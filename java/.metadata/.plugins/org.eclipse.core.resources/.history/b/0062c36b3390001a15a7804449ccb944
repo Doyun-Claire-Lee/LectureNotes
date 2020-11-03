@@ -1,0 +1,116 @@
+package com.test.collection;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
+public class Ex41_Stack_basic {
+	
+	public static void main(String[] args) {
+		
+		//Stack, 스택
+		// - 후입선출
+		// - LIFO, Last Input First Output
+		//ex) 출입문이 하나인 구조, 히스토리 구조(?) ->Ctrl Z 혹은 Ctrl Y
+		
+		
+		//Queue, 큐
+		// - 선입선출
+		// FIFO, First Input First Output
+		//ex) 줄서기, 운영체제의 message queue
+		
+		
+		m1();	//Stack
+//		m2();	//Queue
+		
+	}
+
+	private static void m2() {
+		
+		//Queue
+		Queue<String> queue = new LinkedList<String>();	//Queue는 interface임.. -> 객체를 못만듬, 자식클래스로 new 객체 생성.
+		
+		//★★★★객체명에 점 찍었을때 Method에 collection이라 붙은 것들은 보통 사용하지 않음.
+		
+		queue.add("빨강");
+		queue.add("파랑");
+		queue.add("노랑");
+		
+		System.out.println(queue.size());
+		
+		System.out.println(queue.poll());
+		System.out.println(queue.poll());
+		System.out.println(queue.poll());
+		System.out.println(queue.poll()); // null값 반환.. 
+		
+		System.out.println(queue.size());
+		
+		queue.add("빨강");
+		queue.add("파랑");
+		queue.add("노랑");
+
+		System.out.println(queue.peek());
+		System.out.println(queue.peek());
+		System.out.println(queue.peek());
+		System.out.println();
+	
+		while (queue.size() > 0) {
+			System.out.println(queue.poll());
+			
+		}
+	}
+
+	private static void m1() {
+		
+		//Stack
+		Stack<String> stack = new Stack<String>();
+		
+		//★★★★객체명에 점 찍었을때 Method에 Vector라 붙은 것들은 보통 사용하지 않음.
+
+		//데이터 저장 -> push down
+		stack.push("강아지");
+		stack.push("고양이");
+		stack.push("병아리");
+		
+		System.out.println(stack.size());
+	
+		//데이터 인출 -> pop up
+//		System.out.println(stack.pop());
+//		System.out.println(stack.pop());
+//		System.out.println(stack.pop());
+//		System.out.println(stack.pop()); //java.util.EmptyStackException 
+		
+		//모든 요소 꺼내기
+		while(stack.size() > 0) {
+			System.out.println(stack.pop());
+		}
+//		System.out.println(stack.peek()); //java.util.EmptyStackException 
+		
+		stack.push("강아지");
+		stack.push("고양이");
+		stack.push("병아리");
+		stack.push("병아리");	//index로 나타나진 않지만 순서가 있기 때문에 중복값 저장 가능
+		stack.push("병아리");
+		
+		//하나만 꺼내기
+		if (!stack.isEmpty()) {
+			System.out.println(stack.pop());
+		}
+		
+		stack.clear();
+		System.out.println(stack);
+		
+		System.out.println(stack.size());
+		
+		stack.push("강아지");
+		stack.push("고양이");
+		stack.push("병아리");
+		
+		System.out.println(stack.peek());	//읽기만	
+		System.out.println(stack.pop());	//읽기 + 삭제
+		
+		System.out.println(stack.contains("강아지"));
+				
+	}
+
+}

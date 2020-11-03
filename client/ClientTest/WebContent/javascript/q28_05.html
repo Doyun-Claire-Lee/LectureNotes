@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+	<link rel="stylesheet" href="basic.css">
+    
+</head>
+<body>
+    <style type="text/css">
+        #list {
+            display: inline-block;
+            border: 1px solid #DEDEDE;
+            padding: 5px;
+        }
+        
+        #label {
+            border: 0px solid #DEDEDE;
+            font-size: 30px;
+            font-weight: bold;
+            width: 600px;
+            color: #333;
+            margin: 10px;
+        }
+    </style>
+    <div class="main m600">
+        <div class="mainHeader">
+            <h1>롤오버 이미지 + 텍스트 박스</h1>
+            <div>이미지에 반응해 아래의 텍스트를 같이 변경하시오.</div>
+            <ul>
+                <li>img01.jpg, img02.jpg, img03.jpg, img04.jpg, img05.jpg, img06.jpg</li>
+            </ul>
+            <div class="code">img.mouseover, img.mouseout, txt.value</div>
+        </div>
+        <div id="list">
+            <img src="../images/img01.jpg" name="img1" data-index="1"/>
+            <img src="../images/img02.jpg" name="img2" data-index="2"/>
+            <img src="../images/img03.jpg" name="img3" data-index="3"/>
+        </div>
+        <input type="text" name="label" id="label" readonly="readonly" />
+    </div>
+
+    <script>
+
+        var label = document.all.label;
+
+        for (var i=1; i<=document.images.length; i++) {
+            var img = document.images["img"+i]
+
+            img.onmouseover = function() {
+
+                console.log(event.srcElement.dataset["index"]);
+                
+                event.srcElement.src = "../images/img0" + (parseInt(event.srcElement.dataset["index"]) + 3) + ".jpg";
+                
+                if (event.srcElement.dataset["index"] == 1) {
+                    label.value = "\'스키\'타는 사람이 \'당근\'으로 변했습니다."
+                } else if (event.srcElement.dataset["index"] == 2) {
+                    label.value = "\'해바라기\'가 \'피망\'으로 변했습니다."
+                } else if (event.srcElement.dataset["index"] == 3){
+                    label.value = "\'나무\'가 \'개\'가 됐습니다." 
+                }
+            }
+
+            img.onmouseout = function() {
+                event.srcElement.src = "../images/img0" + event.srcElement.dataset["index"] + ".jpg";
+                label.value="";
+            }
+        }
+
+        
+
+
+        
+    </script>
+</body>
+</html>

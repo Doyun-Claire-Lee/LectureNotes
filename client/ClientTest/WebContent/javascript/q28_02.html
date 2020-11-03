@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main m1400">
+        <div class="mainHeader">
+            <h1>롤오버 이미지</h1>
+            <div>마우스를 이미지에 올리거나 내리면 그에 반응하여 이미지를 바꾸시오.</div>
+            <ul>
+                <li>고양이 &lt;-&gt; 강아지</li>
+                <li>cat01.jpg <-> dog01.jpg</li>
+                <li>..</li>
+                <li>cat05.jpg <-> dog05.jpg</li>
+            </ul>
+            <div class="code">document.images, img.src, onmouseover, onmouseout</div>
+        </div>
+        <div>
+            <img src="../images/cat01.jpg" name="img1" data-index="0">
+            <img src="../images/cat02.jpg" name="img2" data-index="1">
+            <img src="../images/cat03.jpg" name="img3" data-index="2">
+            <img src="../images/cat04.jpg" name="img4" data-index="3">
+            <img src="../images/cat05.jpg" name="img5" data-index="4">
+        </div>
+    </div>
+
+    <script>
+
+        var list = 
+        [
+            ["cat01.jpg", "dog01.jpg"],
+            ["cat02.jpg", "dog02.jpg"],
+            ["cat03.jpg", "dog03.jpg"],
+            ["cat04.jpg", "dog04.jpg"],
+            ["cat05.jpg", "dog05.jpg"]
+        ];
+            
+        for (var i=0; i<document.images.length; i++) {
+
+            var img = document.images[i];
+
+            img.onmouseover = function() {
+                var index = event.srcElement.dataset["index"]
+                event.srcElement.src = "../images/" + list[index][1];
+            }
+
+            img.onmouseout = function() {
+                var index = event.srcElement.dataset["index"]
+                event.srcElement.src = "../images/" + list[index][0];
+            }
+        }
+
+    </script>
+</body>
+</html>

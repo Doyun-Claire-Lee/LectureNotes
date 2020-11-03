@@ -1,0 +1,9 @@
+
+# Ajax, Asynchronous JavaScript and XML
+	- 비동기 자바스크립트 & XML
+	- 자바스크립트와 XML을 사용해서 비동기 통신을 하는 기술
+	- 브라우저와 웹서버와 데이터를 주고 받는 기술 (Background 동작)
+	
+# 동기 vs 비동기
+	- 차이점
+	

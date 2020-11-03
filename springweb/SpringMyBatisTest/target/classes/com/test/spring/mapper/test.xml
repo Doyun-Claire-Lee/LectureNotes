@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+	XML 파일의 특징
+	- 빈 XML이라도 태그 하나는 꼭 적어야 함.
+	- <!DOCTYPE 옆에 적힌 단어가 해당 XML의 루트 태그임.
+-->
+
+<!-- 
+	MyBatis의 특징
+	 - SQL을 *.java에서 작성하지 않고 별도의 *.xml에서 작성/관리한다.
+	 - SQL을 관리하는 XML을 매퍼(Mapper)라고 한다.
+-->
+
+
+<mapper namespace="test">
+
+	<insert id="m1">
+		insert into tblMyBatis (seq, name, age, etc) values (seqMyBatis.nextVal, '홍길동', 20, '테스트용')
+	</insert>
+	
+	<update id="m2" parameterType="String"> <!-- java.lang.String -->
+		<!-- 넘겨받은 매개변수 : #{변수명} -->
+		update tblMyBatis set age = age + 1 where seq = #{seq} 
+	</update>
+	
+	<insert id="m3" parameterType="java.util.HashMap">
+		insert into tblMyBatis (seq, name, age, etc) values (seqMyBatis.nextVal, #{name}, #{age}, #{etc})	<!-- map의 키값을 넣어줌 -->
+	</insert>
+	
+	<insert id="m4" parameterType="com.test.spring.MyBatisDTO">
+		insert into tblMyBatis (seq, name, age, etc) values (seqMyBatis.nextVal, #{name}, #{age}, #{etc})	<!-- DTO의 멤버변수 이름을 넣어줌 -->
+	</insert>
+	
+	<select id="m5" resultType="String">
+		select name from tblMyBatis where age = (select max(age) from tblMyBatis) and rownum = 1
+	</select>
+	
+	<select id="m6" parameterType="String" resultType="com.test.spring.MyBatisDTO">
+		select * from tblMyBatis where seq = #{seq}
+	</select>
+	
+	<select id="m7" resultType="String">	<!-- 왜 반환값이 List가 아닌 String인지?? -> resultType은 반환값의 단일 레코드의 자료형이기 때문!! -->
+		select name from tblMyBatis
+	</select>
+	
+	<select id="m8" resultType="com.test.spring.MyBatisDTO">
+		select * from tblMyBatis
+	</select>
+	
+</mapper>
+
+

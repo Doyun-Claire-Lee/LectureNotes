@@ -1,0 +1,73 @@
+
+STS - 개발자가 스프링을 사용해서 개발할 때 여러가지 편의를 제공
+
+#Spring MVC Project 구조
+
+	1. 소스 폴더
+	
+		a. 업무용 소스 폴더
+			- src/main/java			: 클래스 집합, 핵심
+			- src/main/resources	: 클래스 이외의 파일 (xml등)
+			
+		b. 테스트용 소스 폴더
+			- src/test/java			
+			- src/test/resources
+	
+	2. JRE System Library
+		- JRE jar
+	
+	3. Maven Dependencies
+		- 메이븐(프로그램)이 관리하는 라이브러리 폴더
+	
+	4. src 
+		- 1~3까지의 경로를 실제 물리적인 계층으로 보여주는 폴더
+		- src > main > webapp : WebContent 폴더와 동일한 폴더, 웹루트폴더
+		- src > main > webapp > resources: 정적인 웹 자원을 넣는 폴더(img, css, js 등) 
+		- src > main > webapp > WEB-INF: 환경 설정
+		- src > main > webapp > WEB-INF > classes: 자바 파일의 컴파일결과
+		- src > main > webapp > WEB-INF > spring: 스프링의 모든 환경설정을 하는 폴더(*******)
+			- servlet-context.xml 	: 클라이언트 요청/응답에 관련된 환경 설정
+			- root-context.xml 		: 스프링 전역 환경 설정
+		- src > main > webapp > WEB-INF > views: JSP만 관리하는 전용 폴더
+
+
+#Spring 버전 지정
+ - pom.xml : 메이븐 설정 파일
+ 	a. 자바 버전 : 1.6 -> 1.8
+ 	b. 스프링 버전 : 3.1.1 -> 4.3.8
+ - 프로젝트에서 오른쪽버튼 - property - project fecet : Java 1.6 -> 1.8
+
+
+#Maven 프로그램
+- pom.xml 설정에 따라서 필요한 모든 *.jar를 자동으로 다운로드 + 버전 관리
+- C:\Users\Doyun Lee\.m2\repository 
+
+
+
+#스프링의 컨트롤러 조작법
+ - 이전의 서블릿 조작법
+ - src > main > webapp > WEB-INF > spring > appServlet > servlet-context.xml : <bean> 선언 or 스프링 설정
+
+ - MVC (자바 & JSP)
+ - 자바 : Java Resources > src/main/java > com.test.spring
+ - JSP : /src/main/webapp/WEB-INF/views
+
+
+#게시판 생성(Servlet/JSP 로 생성)	1:1방식
+ - List.java
+ - Add.java
+ - AddOk.java
+ - View.java
+ 
+ - list.jsp
+ - add.jsp
+ - view.jsp
+ 
+#게시판 생성(Spring으로 생성)		1:n방식
+ - BoardController.java
+ 
+ - list.jsp
+ - add.jsp
+ - new.jsp
+ 
+

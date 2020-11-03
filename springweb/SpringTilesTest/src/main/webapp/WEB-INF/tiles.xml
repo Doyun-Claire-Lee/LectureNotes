@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2._1.dtd">
+
+<tiles-definitions>
+	
+	<!-- 타일즈 레이아웃 정의 -->
+	
+	<!-- 굉장히 노가다 코드...
+	<definition name="info" template="/WEB-INF/views/layout/main.jsp">								
+		<put-attribute name="asset" value="/WEB-INF/views/inc/asset.jsp"></put-attribute>			
+		<put-attribute name="mainmenu" value="/WEB-INF/views/inc/mainmenu.jsp"></put-attribute>		
+		<put-attribute name="membermenu" value="/WEB-INF/views/inc/membermenu.jsp"></put-attribute>	
+		<put-attribute name="info" value="/WEB-INF/views/member/info.jsp"></put-attribute>			
+	</definition>
+	
+	<definition name="point" template="/WEB-INF/views/layout/main.jsp">								
+		<put-attribute name="asset" value="/WEB-INF/views/inc/asset.jsp"></put-attribute>			
+		<put-attribute name="mainmenu" value="/WEB-INF/views/inc/mainmenu.jsp"></put-attribute>		
+		<put-attribute name="membermenu" value="/WEB-INF/views/inc/membermenu.jsp"></put-attribute>	
+		<put-attribute name="info" value="/WEB-INF/views/member/point.jsp"></put-attribute>		
+	</definition>
+	
+	<definition name="board" template="/WEB-INF/views/layout/main.jsp">								
+		<put-attribute name="asset" value="/WEB-INF/views/inc/asset.jsp"></put-attribute>			
+		<put-attribute name="mainmenu" value="/WEB-INF/views/inc/mainmenu.jsp"></put-attribute>		
+		<put-attribute name="membermenu" value="/WEB-INF/views/inc/membermenu.jsp"></put-attribute>	
+		<put-attribute name="info" value="/WEB-INF/views/member/board.jsp"></put-attribute>		
+	</definition>
+	-->
+	
+	<!-- 
+		board 			-> *
+		member.board 	-> *.*
+	 -->
+	
+	<definition name="*.*" template="/WEB-INF/views/layout/main.jsp">								
+		<put-attribute name="asset" value="/WEB-INF/views/inc/asset.jsp"></put-attribute>			
+		<put-attribute name="mainmenu" value="/WEB-INF/views/inc/mainmenu.jsp"></put-attribute>		
+		<put-attribute name="submenu" value="/WEB-INF/views/inc/{1}menu.jsp"></put-attribute>	
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"></put-attribute>		<!-- {1} : 컨트롤러 요청 메소드의 반환값을 받아옴. -->
+	</definition>
+	
+	
+</tiles-definitions>

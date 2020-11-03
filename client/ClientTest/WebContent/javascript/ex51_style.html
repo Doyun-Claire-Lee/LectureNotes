@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #menu {
+            width: 664px;
+            height: 133px;
+            margin: 0px auto;
+        }
+        #menu img {
+            border: 5px solid white;
+            float: left;
+            cursor: pointer;
+            transform: translate(0px, -115px);
+            transition: all 1s;
+            margin-left: -5px;
+        }
+        body {
+            transition: all 1s;
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <nav id="menu">
+            <img src="../images/rect_icon01.png" alt="" class="item" data-no="1">
+            <img src="../images/rect_icon02.png" alt="" class="item" data-no="2">
+            <img src="../images/rect_icon03.png" alt="" class="item" data-no="3">
+            <img src="../images/rect_icon04.png" alt="" class="item" data-no="4">
+            <img src="../images/rect_icon05.png" alt="" class="item" data-no="5">
+        </nav>
+    </header>
+
+    <script>
+        var color = ["#A67F62", "#BE4F3B", "#E7C758", "#666666", "#63AFD1"];
+        var item = document.getElementsByClassName("item");
+        
+        for (var i=0; i<item.length; i++) {
+            
+            item[i].onclick = function() {
+
+                //튀어나올 메뉴 빼고 다 집어넣기
+                for (var j=0; j<item.length; j++) {
+                    if (item[j] != event.srcElement) {
+                        item[j].style.transform = "translate(0px, -115px)";
+                    }
+                }
+
+                // console.log(event.srcElement.style.transform);
+
+                //튀어나온걸 다시 클릭하면 집어넣기 
+                if (event.srcElement.style.transform != "translate(0px, -15px)") {
+                    event.srcElement.style.transform = "translate(0px, -15px)";
+                    document.body.style.backgroundColor = color[event.srcElement.dataset["no"]-1];
+                } else {
+                    event.srcElement.style.transform = "translate(0px, -115px)";
+                    document.body.style.backgroundColor = "white";
+                }
+
+            };
+        }
+        
+        
+        
+    </script>
+
+</body>
+</html>

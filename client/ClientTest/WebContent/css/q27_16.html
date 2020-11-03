@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #frame {
+            width: 650px;
+            height: 650px;
+            margin: 10px auto;
+            border: 30px dashed gray;
+            position: relative;
+            top: 0px;
+            left: 0px;
+        }
+        #frame div {
+            width: 60px;
+            border: 20px solid #555;
+            border-radius: 60px 60px;
+            position: absolute;
+            bottom: 50%;
+            right: 42%;
+            color: white;
+            font-variant: small-caps;
+            transform-origin: center bottom;
+            text-align: center;
+            padding-top: 50px;
+        }
+        #frame:hover .niddle {
+            animation-name: clock;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+        #h {
+
+            height: 150px;
+            background-color: tomato;
+            animation-duration: 3600s;
+        }
+        #m {
+            height: 200px;
+            background-color: gold;
+            animation-duration: 60s;
+        }
+        #s {
+            height: 250px;
+            background-color: cornflowerblue;
+            animation-duration: 1s;
+        }
+
+        @keyframes clock {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div id="frame">
+        <div id="h" class="niddle">Hour</div>
+        <div id="m" class="niddle">Minute</div>
+        <div id="s" class="niddle">Second</div>
+    </div>
+</body>
+</html>

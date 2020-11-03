@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            border: 1px solid gray;
+            width: 1000px;
+            /* 최소높이주기! min-height */
+            min-height: 200px;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="box1"></div>
+
+    <script>
+
+        var box1 = document.getElementById("box1") 
+
+        window.onkeydown = function() {
+
+
+            //48~57, 96~105
+            if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105)) {
+
+                var temp ="<img src='../images/";
+
+                for (var i=0; i<10; i++) {
+                    if (event.keyCode == (48+i) || event.keyCode == (96+i) ) {
+                        temp += i;
+                    }
+                }
+
+                temp += ".png'>";
+
+                box1.innerHTML += temp;
+            }
+
+
+
+
+
+
+
+
+
+
+        }
+
+
+
+
+
+    </script>
+
+</body>
+</html>

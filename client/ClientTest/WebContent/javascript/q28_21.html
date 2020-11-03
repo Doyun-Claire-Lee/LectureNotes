@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style>
+	div, span, input, th, td, fieldset {
+		font-size: 14px;
+	}
+
+	#add {
+		border: 1px solid gray;
+		padding: 10px;
+		width: 300px;
+	}
+	
+	#add > div {
+		margin-bottom: 5px;
+	}
+	
+	#add > div > label:first-child {
+		display: inline-block;
+		width: 50px;
+		text-align: right;
+		margin-right: 10px;
+	}
+	
+	#btnadd {
+		margin-top: 10px;
+		margin-left: 15px;
+	}
+
+	#tbl1 {
+		border: 1px solid gray;
+		border-collapse: collapse;
+		width: 500px;
+		margin-top: 20px;
+	}
+	#tbl1 th {
+		background: #ddd;
+	}
+	#tbl1 th, #tbl1 td {
+		border: 1px solid gray;
+		padding: 4px;
+		text-align: center;
+	}
+	#tbl1 th:nth-child(1) { width: 50px; }
+	#tbl1 th:nth-child(2) { width: 70px; }
+	#tbl1 th:nth-child(3) { width: 50px; }
+	#tbl1 th:nth-child(4) { width: 120px; }
+	#tbl1 th:nth-child(5) { width: 210px; }
+	
+	
+	
+</style>
+</head>
+<body>
+
+	<div class="main m600">
+	
+	<h1>데이터 추가하기</h1>
+	
+	<fieldset id="add">
+		<legend>입력 항목</legend>
+		<div><label for="txtname">이름 : </label><input type="text" id="txtname" autofocus></div>
+		<div><label for="selage">나이 : </label><select id="selage"></select></div>
+		<div><label for="rbgener">성별 : </label><label><input type="radio" name="rbgender" id="rbgender1" value="m" checked> 남자</label><label><input type="radio" name="rbgender" id="rbgender2" value="f"> 여자</label></div>
+		<div><label for="txtaddress">주소 : </label><input type="text" id="txtaddress"></div>
+		<div><input type="button" id="btnadd" value="추가하기"></div>
+	</fieldset>
+	
+	
+	<table id="tbl1">
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>이름</th>
+				<th>나이</th>
+				<th>성별</th>
+				<th>주소</th>
+			</tr>
+		</thead>
+		<tbody id="tbody1">
+			<tr>
+				<td colspan="5">등록된 항목이 없습니다.</td>
+			</tr>
+		</tbody>
+	</table>
+    </div>
+    
+
+    <script>
+        var selage = document.getElementById("selage");
+        var btnadd = document.getElementById("btnadd");
+        var tbody1 = document.getElementById("tbody1");
+        var txtname = document.getElementById("txtname");
+        var rbgender1 = document.getElementById("rbgender1");
+        var rbgender2 = document.getElementById("rbgender2");
+        var txtaddress = document.getElementById("txtaddress");
+
+        //나이 선택박스에 항목 추가하기
+        for(var i=20; i<=60; i++) {
+            selage.innerHTML += "<option>" + i + "</option>";
+        }
+
+        var num = 1; //번호 지정하기 
+        
+        btnadd.onclick = add;
+        txtaddress.onkeyup = function() {
+            if (event.keyCode == 13) add();
+        }
+        
+        function add() {
+
+            var td = tbody1.children[0].children;
+            // console.log(td.length);
+
+                if (txtname.value.length > 0 && txtaddress.value.length > 0) {
+                    
+                    //"등록된 항목이 없습니다" 삭제하고 추가
+                    if (td.length == 1) {
+                        tbody1.innerHTML = "";
+                    }
+
+                    var temp ="";
+
+                    temp += "<tr>";
+                    temp += "<td>" + num++; + "</td>";
+                    temp += "<td>" + txtname.value + "</td>";
+                    temp += "<td>" + selage.value +  "</td>";
+
+                    if (rbgender1.checked) {
+                        temp += "<td><img src='../images/gender_m.png'></td>";
+                    } else if (rbgender2.checked) {
+                        temp += "<td><img src='../images/gender_f.png'></td>";
+                    }
+                    temp += "<td>" + txtaddress.value + "</td>";
+                    temp += "</tr>";
+
+                    tbody1.innerHTML += temp;
+                    console.log(temp);
+
+                }
+        }
+
+        
+        
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

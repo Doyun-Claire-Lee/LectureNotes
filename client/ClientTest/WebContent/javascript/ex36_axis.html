@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid gray;
+            padding: 15px;
+            margin: 15px;
+        }
+        #n7 { border: 10px solid #555; }
+        
+        /* 동적으로 줄 예정 */
+        .check { background-color: cornflowerblue; }    
+
+    </style>
+</head>
+<body>
+    
+    <h1>HTML Traversing</h1>
+    <!-- 나를 중심축으로 하는 다른 태그를 찾는 탐색기  -->
+
+    <input type="button" value="버튼" id="btn">
+    <hr>
+    <div id="n1">
+        할아버지
+        <div id="n2">
+            큰아버지   
+            <div id="n5">사촌</div> 
+        </div>
+        <div id="n3">
+            아버지
+            <div id="n6">형</div>
+            <div id="n7">
+                <!-- 주석 -->
+                ★★★★나★★★★
+                <div id="n10">첫째 자식</div>
+                <div id="n11">
+                    둘째 자식
+                    <div id="n13">손자</div>
+                </div>
+                <div id="n12">셋째 자식</div>
+            </div>
+            <div id="n8">동생</div>
+        </div>
+        <div id="n4">
+            작은아버지 
+            <div id="n9">사촌</div>
+        </div>
+    </div>
+
+    <script>
+
+        //Axis검색
+        // - 나를 중심으로 다른 노드를 검색하는 도구
+        // - 트리 구조 + 촌수 -> 다른 노드의 식별자를 알 필요가 없음.
+        var me = document.getElementById("n7");
+
+        //me.childNodes : 자식 노드
+        //me.parentNode : 부모 노드
+        //me.children   : 자식 노드
+
+        // DOM은 PCDATA와 주석, 공백까지 자식으로 인식한다.
+        // console.log(me.childNodes.length);
+
+        //DOM Node
+        //1. nodeName
+        //  - 태그 : 태그명 반환(********)
+        //  - PCDATA : #text 반환
+        //  - 주석 : #comment 반환
+        //  - 속성: 속성명 반환(**)
+        //2. nodeType
+        //  - 1 : 태그(***)
+        //  - 2 : 속성(***)
+        //  - 3 : PCDATA(***)
+        //  - 8 : 주석
+        //  - 13 : 선언문(<!DOCTYPE)
+        //3. nodeValue
+        //  - 태그 : null
+        //  - 속성 : 속성값 반환
+        //  - PCDATA : 문자열 반환
+
+
+        for (var i=0; i<me.childNodes.length; i++) {
+
+            var node = me.childNodes[i];
+
+            //DOM에서 Node를 구성하는 프로퍼티가 있음.
+            console.log(node.nodeName);            
+            console.log(node.nodeType);            
+            console.log(node.nodeValue);
+            console.log("--------------");            
+            
+        }
+
+        console.clear();
+
+        //나를 중심으로 자식 탐색하기
+        // - firstChild
+        // - lastChild
+        // - childNodes
+        // - children
+
+        console.log(me.firstChild.nodeType);
+        //선생님꺼 복사하기
+
+        console.clear();
+
+        //childNodes : 모든 타입
+        //children : 태그만
+        console.log(me.childNodes.length);
+        console.log(me.children.length);
+        console.log(me.children[0]);
+
+        //DOM에서 HTML속성 접근
+        // 자식
+        // me.children[0].className = "check";
+        // me.children[2].className = "check";
+        // 자손
+        // me.children[1].children[0].className = "check";
+        // 부모 노드
+        // me.parentNode.className = "check";
+        // console.log(me.parentNode.id);
+        // 할아버지
+        // me.parentNode.parentNode.className = "check";
+        console.log(me.parentNode.parentNode.parentNode.nodeName);  //BODY
+        console.log(me.parentNode.parentNode.parentNode.parentNode.nodeName);   //HTML
+        console.log(me.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName);   //#document, 가장 상위
+
+
+        console.clear();
+
+        //형제 노드 탐색하기
+        //부모를 통해서 탐색
+        // me.parentNode.children[0].className = "check";
+        // me.parentNode.children[2].className = "check";
+        
+        //형제 탐색이 이미 구현된 프로퍼티
+        //바로 전 형제(형)
+        me.previousSibling          //모든 노드 대상,
+        me.previousElementSibling.className = "check";   //태그만 대상
+        //바로 다음 형제(동생)
+        me.nextSibling
+        me.nextElementSibling.className = "check";
+
+
+        /*
+        
+        Axis
+        1. 자식 탐색
+         - firstChild
+         - lastChild
+         - childNodes
+         - firstElementChild
+         - lastElementChild
+         - children
+        2. 부모
+         - parentNode
+         - perentElement -> 쓰지 않음, 자식을 가질 수 있는 부모는 무조건 태그이기 때문에        
+        3. 형제
+         - previousSibling
+         - nextSibling
+         - previousElementSibling
+         - nextElementSibling
+        
+        */
+
+    </script>
+
+</body>
+</html>

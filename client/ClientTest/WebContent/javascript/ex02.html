@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // alert('하나');
+        // alert('둘');
+
+        // 프로그램 순서 때문에 밑의 코드는 동작하지 못함, 에러남
+        // 브라우저가 태그를 읽고 난 뒤에 동작하도록 작성해야 함. 
+        document.all.txt1.value = new Date();
+    </script>
+</head>
+<body>
+    <h1>★★★자바스크립트의 실행 순서★★★</h1>
+    <input type="text" name="txt1" size="50">
+    <script>
+        // alert('셋');
+        // document.all.txt1.value = new Date();
+    </script>
+</body>
+</html>

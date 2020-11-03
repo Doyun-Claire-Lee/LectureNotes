@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+        /* CSS 표 서식 */
+        #tbl1 {
+            border: 1px grey solid;                                
+            /* 셀과 셀 사이의 간격을 없애는 속성, 테두리 병합?? */
+            border-collapse: collapse;
+            width: 800px;
+            /* 테이블은 높이 지정을 하지 않는다. --> 자동 계산하도록 냅둠 */
+            /* height:500px; */
+            
+            /* border-left: 0px;
+            border-right: 0px; */
+        }
+
+        #tbl1 td, #tbl1 th {
+            border: 1px grey solid;
+            /* border-left: 0px;
+            border-right: 0px; */
+            padding: 5px;
+        }
+
+        #tbl1 th {
+            background-color: #eee;
+        }
+
+        #tbl1 td {
+            text-align: center;
+        }
+
+        #tbl1 td.cell2 {
+            text-align: left;
+            padding-left: 10px;
+        }
+
+        #tbl1 #col1 {width: 60px;}
+        #tbl1 #col2 {width: 500px;}
+        #tbl1 #col3 {width: 80px;}
+        #tbl1 #col4 {width: 100px;}
+        #tbl1 #col5 {width: 80px;}
+
+    </style>
+
+</head>
+<body>
+    
+    <h1>참고 자료</h1>
+    <table id="tbl1">
+        <tr>
+            <th id="col1">번호</th>
+            <th id="col2">제목</th>
+            <th id="col3">작성자</th>
+            <th id="col4">날짜</th>
+            <th id="col5">참고</th>
+        </tr>
+        <tr>
+            <td class="cell1">001</td>
+            <td class="cell2">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, voluptatum!</td>
+            <td class="cell3">Lorem.</td>
+            <td class="cell4">2020-06-01</td>
+            <td class="cell5">없음</td>
+        </tr>
+        <tr>
+            <td class="cell1">002</td>
+            <td class="cell2">Aperiam necessitatibus eligendi ipsam voluptas!</td>
+            <td class="cell3">Veniam?</td>
+            <td class="cell4">2020-06-02</td>
+            <td class="cell5">없음</td>
+        </tr>
+        <tr>
+            <td class="cell1">003</td>
+            <td class="cell2">Nemo nostrum magnam dolore a?</td>
+            <td class="cell3">Doloremque?</td>
+            <td class="cell4">2020-06-03</td>
+            <td class="cell5">없음</td>
+        </tr>
+        <tr>
+            <td class="cell1">004</td>
+            <td class="cell2">Illo cupiditate cumque odit amet!</td>
+            <td class="cell3">Quasi.</td>
+            <td class="cell4">2020-06-04</td>
+            <td class="cell5">없음</td>
+        </tr>
+        <tr>
+            <td class="cell1">005</td>
+            <td class="cell2">Provident ratione temporibus nisi ipsum!</td>
+            <td class="cell3">Perspiciatis?</td>
+            <td class="cell4">2020-06-05</td>
+            <td class="cell5">없음</td>
+        </tr>
+        <tr>
+            <td class="cell1">006</td>
+            <td class="cell2">Voluptatibus rem voluptatem distinctio beatae?</td>
+            <td class="cell3">Vel!</td>
+            <td class="cell4">2020-06-06</td>
+            <td class="cell5">없음</td>
+        </tr>
+        <tr>
+            <td class="cell1">007</td>
+            <td class="cell2">Eum voluptatem debitis ipsam saepe.</td>
+            <td class="cell3">Tempora!</td>
+            <td class="cell4">2020-06-07</td>
+            <td class="cell5">없음</td>
+        </tr>
+        <tr>
+            <td class="cell1">008</td>
+            <td class="cell2">Illum, optio. Nostrum, culpa sapiente.</td>
+            <td class="cell3">Aperiam!</td>
+            <td class="cell4">2020-06-08</td>
+            <td class="cell5">없음</td>
+        </tr>
+        <tr>
+            <td class="cell1">009</td>
+            <td class="cell2">Perferendis quaerat modi eligendi quo.</td>
+            <td class="cell3">Autem.</td>
+            <td class="cell4">2020-06-09</td>
+            <td class="cell5">없음</td>
+        </tr>
+        <tr>
+            <td class="cell1">010</td>
+            <td class="cell2">Nostrum debitis voluptatum quas beatae?</td>
+            <td class="cell3">Nesciunt.</td>
+            <td class="cell4">2020-06-10</td>
+            <td class="cell5">없음</td>
+        </tr>
+        <tr>
+            <td class="cell1">011</td>
+            <td class="cell2">Sit quia est dolor atque.</td>
+            <td class="cell3">Ratione?</td>
+            <td class="cell4">2020-06-11</td>
+            <td class="cell5">없음</td>
+        </tr>
+        <tr>
+            <td class="cell1">012</td>
+            <td class="cell2">Voluptate quisquam fuga necessitatibus sunt?</td>
+            <td class="cell3">Laudantium.</td>
+            <td class="cell4">2020-06-12</td>
+            <td class="cell5">없음</td>
+        </tr>
+        <tr>
+            <td class="cell1">013</td>
+            <td class="cell2">Mollitia excepturi cumque recusandae dolorem.</td>
+            <td class="cell3">Animi!</td>
+            <td class="cell4">2020-06-13</td>
+            <td class="cell5">없음</td>
+        </tr>
+        <tr>
+            <td class="cell1">014</td>
+            <td class="cell2">Facilis quidem quam a necessitatibus!</td>
+            <td class="cell3">Aut?</td>
+            <td class="cell4">2020-06-14</td>
+            <td class="cell5">없음</td>
+        </tr>
+        <tr>
+            <td class="cell1">015</td>
+            <td class="cell2">Tenetur officia amet dolorum maiores.</td>
+            <td class="cell3">Similique!</td>
+            <td class="cell4">2020-06-15</td>
+            <td class="cell5">없음</td>
+        </tr>
+
+
+    </table>
+
+
+
+
+
+
+
+</body>
+</html>

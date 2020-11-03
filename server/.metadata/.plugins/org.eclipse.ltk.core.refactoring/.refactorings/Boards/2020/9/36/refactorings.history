@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Encapsulate field &apos;com.test.boards.first.BoardDTO.mseq&apos; in &apos;com.test.boards.first.BoardDTO&apos;&#x0D;&#x0A;- Original project: &apos;Boards&apos;&#x0D;&#x0A;- Original element: &apos;com.test.boards.first.BoardDTO.mseq&apos;&#x0D;&#x0A;- Getter method name: &apos;getMseq&apos;&#x0D;&#x0A;- Setter method name: &apos;setMseq&apos;&#x0D;&#x0A;- Field visibility: &apos;public&apos;&#x0D;&#x0A;- Use getter and setter methods in declaring type" comments="false" declaring="true" description="Encapsulate field &apos;mseq&apos;" flags="589830" getter="getMseq" id="org.eclipse.jdt.ui.self.encapsulate" input="/src&lt;com.test.boards.first{BoardDTO.java[BoardDTO^mseq" insertion="11" setter="setMseq" stamp="1598972560664" version="1.0" visibility="1"/>
+</session>

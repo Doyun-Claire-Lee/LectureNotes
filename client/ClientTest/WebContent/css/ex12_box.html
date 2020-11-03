@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* 
+        
+        박스 모델, Box Model
+        - CSS(HTML)는 모든 태그를 렌더링의 결과로 사각형 형태로 출력한다.
+        
+        1. 테두리(Border)
+            - 모든 요소는 테두리를 가질 수 있다.
+            - 일부 요소는 이미 시각적으로 테두리를 가지고 있다.
+            - 
+        2. 너비, 높이(width, height)
+        3. 여백(padding, margin)
+
+
+         */
+
+        #box2 {
+
+            /* 선 색상 */
+            border-color: tomato;
+            /* 선 두께 */
+            border-width: 10px;
+            /* 선 종류(주로 solid, dashed, dotted, double) */
+            border-style: dotted;
+
+        }
+
+        #box1 {
+
+            border-left-color:pink;
+            border-right-color: salmon;
+            border-bottom-color: sandybrown;
+            border-top-color: rosybrown;
+
+            border-left-width: 10px;
+            border-top-width: 5px;
+            border-left-width: 3px;
+            border-bottom-width: 7px;
+
+            border-left-style: dashed;
+            border-right-style: double;
+            border-bottom-style: dotted;
+            border-top-style: solid;
+                
+        }
+
+        h1 {
+            /* 잘 쓰는 표현들, 밑줄을 그을 때 자주 사용 */
+            border-width: 0px;
+            border-bottom-width: 1px;
+            border-color: steelblue;
+            border-style: dashed;
+        }
+
+        #box3 {
+            /* border:lightcoral 3px dotted; */
+            /* border-bottom: lightseagreen 3px dotted; */
+           
+            border: 1px solid olivedrab;
+            
+            /* 12시 방향 먼저, 시계방향으로 지정 */
+            /* border-width: 10px 20px 30px 40px; */
+            /*  */
+            
+        }
+
+
+
+
+    </style>
+
+
+
+
+</head>
+<body>
+
+    <h1>박스 모델</h1>
+        
+    <div id="box1" class="box">상자1</div>
+    <div id="box2" class="box">상자2</div>
+    <div id="box3" class="box">상자3</div>
+
+    <hr>
+    가격: <input type="text" id="price" size="6" style="border: 0px; border-bottom: 1px solid palevioletred; outline: none; text-align:right ;">원
+
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="css/bootstrap.css" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css"
+        />
+
+        <!-- If you use the default popups, use this. -->
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="calendar/css/tui-calendar.css"
+        />
+        <!-- <link
+            rel="stylesheet"
+            type="text/css"
+            href="calendar/css/default.css"
+        /> -->
+        <link rel="stylesheet" type="text/css" href="calendar/css/icons.css" />
+
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"
+        ></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script src="https://uicdn.toast.com/tui.code-snippet/v1.5.2/tui-code-snippet.min.js"></script>
+        <script src="https://uicdn.toast.com/tui.time-picker/v2.0.3/tui-time-picker.min.js"></script>
+        <script src="https://uicdn.toast.com/tui.date-picker/v4.0.3/tui-date-picker.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/chance/1.0.13/chance.min.js"></script>
+        <script src="calendar/js/tui-calendar.js"></script>
+        <script src="calendar/js/data/calendars.js"></script>
+        <script src="calendar/js/data/schedules.js"></script>
+
+        <script src="js/jquery-1.12.4.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <style>
+            * {
+                outline: none !important;
+                /* border: 1px solid black !important; */
+            }
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+                    "Helvetica Neue", sans-serif;
+            }
+            #nav {
+                height: 70px;
+                font-size: 18px;
+                background-color: cornflowerblue;
+                color: white;
+                box-shadow: 3px 3px 3px #999;
+            }
+            .container {
+                width: 1200px;
+                height: 70px;
+                padding-top: 10px;
+            }
+            .nav-left {
+                width: 550px;
+                display: inline-block;
+                height: 70px;
+            }
+            .logo {
+                width: 150px;
+                height: 70px;
+                float: left;
+                background-image: url("images/Logo.png");
+                background-repeat: no-repeat;
+                font-size: 1.5em;
+            }
+            .logo label {
+                position: relative;
+                left: -5px;
+                top: 8px;
+                cursor: pointer;
+            }
+            #logo-img {
+                width: 50px;
+                height: 50px;
+                cursor: pointer;
+            }
+            .search {
+                width: 400px;
+                margin: 0px;
+                float: right;
+                margin-top: -5px;
+                padding-top: 15px;
+            }
+            .search > input {
+                margin-bottom: 0px;
+            }
+            .nav-right {
+                float: right;
+                width: 600px;
+                text-align: right;
+                padding-top: 15px;
+            }
+            .nav-menu {
+                /* display: inline-block; */
+                padding: 0px 15px;
+                /* margin-top: 25px; */
+                border-right: 1px solid white;
+                cursor: pointer;
+            }
+            #nav span:last-child {
+                border-right: none;
+            }
+            #container {
+                width: 1200px;
+                height: 1000px;
+                margin: 0px auto;
+                margin-top: 20px;
+            }
+            #notice {
+                width: 700px;
+                margin: 20px auto;
+                margin-top: 50px;
+                font-weight: bold;
+                color: #eb5837;
+                font-size: 15px;
+            }
+            #calendarArea {
+                width: 700px;
+                float: left;
+            }
+            #calendar {
+                width: 700px;
+                height: 400px;
+                margin: 0px auto;
+                position: relative;
+            }
+            #todo {
+                width: 400px;
+                float: left;
+                margin-left: 100px;
+            }
+            #projects {
+                width: 700px;
+                height: 200px;
+                margin: 20px auto;
+                /* padding: 0px 20px; */
+            }
+
+            #menu {
+                display: block;
+                text-align: center;
+                width: 700px;
+                margin: 0 auto;
+            }
+            #menu > span {
+                font-size: 3em;
+            }
+
+            .move-today {
+                float: right;
+                margin-top: 20px;
+            }
+            .glyphicon-menu-down {
+                font-size: 0.7em;
+            }
+        </style>
+    </head>
+    <body>
+        <nav id="nav">
+            <div class="container">
+                <div class="nav-left">
+                    <div class="logo">
+                        <img src="images/Logo.png" alt="Logo" id="logo-img" />
+                        <label for="logo-img">Orello</label>
+                    </div>
+                    <div class="search">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                </span>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="검색어를 입력하세요."
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <span class="nav-menu">
+                        <i class="glyphicon glyphicon-home"></i>
+                        &nbsp;Home</span
+                    >
+                    <span class="nav-menu">
+                        <i class="glyphicon glyphicon-bullhorn"></i>
+                        &nbsp; Notice</span
+                    >
+                    <span class="nav-menu">
+                        <i class="glyphicon glyphicon-folder-open"></i>
+                        &nbsp;Project</span
+                    >
+                    <span class="nav-menu">
+                        <i class="glyphicon glyphicon-question-sign"></i>
+                        &nbsp;QnA</span
+                    >
+                    <span class="nav-menu">
+                        <i class="glyphicon glyphicon-heart"></i>
+                        &nbsp;MyInfo
+                        <i class="glyphicon glyphicon-menu-down"></i>
+                    </span>
+                </div>
+            </div>
+        </nav>
+
+        <div id="container">
+            <div id="notice">
+                <i class="glyphicon glyphicon-exclamation-sign"></i>
+                <span
+                    >Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Facilis, laudantium.</span
+                >
+            </div>
+            <div id="calendarArea">
+                <div id="menu">
+                    <span id="menu-navi">
+                        <button
+                            type="button"
+                            class="btn btn-default btn-sm move-day"
+                            data-action="move-prev"
+                        >
+                            <i
+                                class="calendar-icon ic-arrow-line-left"
+                                data-action="move-prev"
+                            ></i>
+                        </button>
+                        <span id="renderRange" class="render-range"></span>
+                        <button
+                            type="button"
+                            class="btn btn-default btn-sm move-day"
+                            data-action="move-next"
+                        >
+                            <i
+                                class="calendar-icon ic-arrow-line-right"
+                                data-action="move-next"
+                            ></i>
+                        </button>
+                        <button
+                            type="button"
+                            class="btn btn-default btn-sm move-today"
+                            data-action="move-today"
+                        >
+                            Today
+                        </button>
+                    </span>
+                </div>
+                <div id="calendar" style="height: 800px;"></div>
+            </div>
+
+            <div id="todo">
+                <fieldset>
+                    <legend>
+                        <i class="glyphicon glyphicon-pushpin"></i>
+                        Todo
+                    </legend>
+                    <ul>
+                        <li>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Eius pariatur doloribus architecto alias
+                            soluta repellat?
+                        </li>
+                        <li>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Eius pariatur doloribus architecto alias
+                            soluta repellat?
+                        </li>
+                        <li>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Eius pariatur doloribus architecto alias
+                            soluta repellat?
+                        </li>
+                        <li>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Eius pariatur doloribus architecto alias
+                            soluta repellat?
+                        </li>
+                        <li>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Eius pariatur doloribus architecto alias
+                            soluta repellat?
+                        </li>
+                        <li>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Eius pariatur doloribus architecto alias
+                            soluta repellat?
+                        </li>
+                        <li>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Eius pariatur doloribus architecto alias
+                            soluta repellat?
+                        </li>
+                    </ul>
+                </fieldset>
+            </div>
+
+            <!-- <div id="projects">
+                    <div class="cards">
+                        <span>Lorem ipsum dolor</span>
+                    </div>
+                    <div class="cards">
+                        <span>Lorem ipsum dolor</span>
+                    </div>
+                    <div class="cards">
+                        <span>Lorem ipsum dolor</span>
+                    </div>
+                </div> -->
+        </div>
+
+        <script type="text/javascript" class="code-js">
+            var MONTHLY_CUSTOM_THEME = {
+                // month header 'dayname'
+                "month.dayname.height": "42px",
+                "month.dayname.borderLeft": "none",
+                "month.dayname.paddingLeft": "8px",
+                "month.dayname.paddingRight": "0",
+                "month.dayname.fontSize": "13px",
+                "month.dayname.backgroundColor": "inherit",
+                "month.dayname.fontWeight": "normal",
+                "month.dayname.textAlign": "left",
+                // month day grid cell 'day'
+                "month.holidayExceptThisMonth.color": "#f3acac",
+                "month.dayExceptThisMonth.color": "#bbb",
+                "month.weekend.backgroundColor": "#fafafa",
+                "month.day.fontSize": "16px",
+                // month schedule style
+                "month.schedule.borderRadius": "5px",
+                "month.schedule.height": "18px",
+                "month.schedule.marginTop": "2px",
+                "month.schedule.marginLeft": "10px",
+                "month.schedule.marginRight": "10px",
+                // month more view
+                "month.moreView.boxShadow": "none",
+                "month.moreView.paddingBottom": "0",
+                "month.moreView.border": "1px solid #9a935a",
+                "month.moreView.backgroundColor": "#f9f3c6",
+                "month.moreViewTitle.height": "28px",
+                "month.moreViewTitle.marginBottom": "0",
+                "month.moreViewTitle.backgroundColor": "#f4f4f4",
+                "month.moreViewTitle.borderBottom": "1px solid #ddd",
+                "month.moreViewTitle.padding": "0 10px",
+                "month.moreViewList.padding": "10px",
+            };
+            var cal = new tui.Calendar("#calendar", {
+                defaultView: "month",
+                theme: MONTHLY_CUSTOM_THEME, // set theme
+            });
+        </script>
+        <script src="calendar/js/default.js"></script>
+    </body>
+</html>

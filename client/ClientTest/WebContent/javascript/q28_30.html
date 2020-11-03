@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tbl {
+            border: 1px solid gray;
+            border-collapse: collapse;
+            margin: 0px auto;
+        }
+        #tbl td {
+            border: 1px solid gray;
+            width: 128px;
+            height: 128px;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <table id="tbl">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <script>
+
+        var td = document.getElementsByTagName("td");
+        var index = 0;
+        var timer = 0;
+
+        td[0].style.backgroundImage = "url('../images/beer.png')";
+        td[td.length-1].style.backgroundImage = "url('../images/catHome.png')";
+        
+        td[0].onclick = function() {
+            
+            timer = setInterval(function() {
+                    if (index == 0) {
+                        td[index].style.backgroundImage = "url('../images/beer.png')";
+                    } else {
+                        td[index].style.backgroundImage = "url()";
+                    }
+                    
+                    index++;
+                    td[index].style.backgroundImage = "url('../images/catty14.png')";
+                    
+                    if (index == td.length-1) {
+                        clearInterval(timer);
+                        timer = 0;
+                        index = 1;
+                    }
+                    
+                }, 100);    
+        }
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

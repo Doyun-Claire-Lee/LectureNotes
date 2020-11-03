@@ -1,0 +1,116 @@
+
+#스프링 게시판
+ - Spring MVC + MyBatis (+ Tiles + File Upload + log4j)
+ 
+ 
+#프로젝트 셋팅하기
+	1. 스프링 버전
+		- pom.xml
+	2. 라이브러리
+		- pom.xml
+		- JDBC			: jar 파일 붙여넣기 (WEB-INF > lib)
+		- MyBatis
+		- Tiles
+		- File Upload
+		- log4j
+		- lombok
+	3. web.xml
+		- 요청 확장자 지정(*.action)
+		- POST 인코딩 처리 필터 추가
+	4. root-context.xml
+		- MyBatis
+		- log4j
+		- 파일 업로드 
+	5. servlet-context.xml
+		- Tiles 설정
+			- 기존 ViewResolver 주석처리
+			- <bean> 2개 추가
+			- tile.xml 추가(WEB-INF)
+	
+---------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+스프링 게시판
+- Spring MVC + MyBatis + Tiles + File Upload + log4j
+- Spring MVC + MyBatis
+
+1. 프로젝트 생성
+	- New > Other > Spring > Spring Legacy Project + Spring MVC Project > "Spring Board" > "com.test.spring"
+
+2. 스프링 버전
+	- JAVA : 1.8
+	- Spring : 4.3.8
+	
+3. 라이브러리
+	- pom.xml
+	- JDBC(WEB-INF/lib)
+	- MyBatis(SpringMyBatis > 4개)
+	- Tiles(SpringTilesTest > 5개)
+	- File Upload
+	- log4j(SpringMyBatisTest > 1개)
+	- lombok(SpringTest > 1개)
+	
+4. web.xml
+	- 요청 확장자 지정(*.action)
+	- POST 인토딩 처리 필터 추가
+	
+5. root-context.xml
+	- MyBatis(<bean> x 3)
+	- log4j(<bean>) : src/main/resouces > log4j.xml 덮어쓰기
+	- 파일 업로드
+	
+6. servlet-context.xml
+	- Tiles 설정
+		-  기존 ViewResolver 주석 처리
+		- <bean> 2개 추가
+	
+---------------------------------------------- 설정완료
+
+7. 파일 생성
+	a. 부트스트랩
+		- webapp > resources > scc, fonts, js 폴더 복사
+		
+	b. BoardController.java
+	 	- 컨트롤러
+	 
+	c. IBoardDAO.java + BoardDAO.java
+		 - DAO
+	
+	d. BoardDTO.java
+		- DTO
+	
+	e. WEB-INF > views > layout > board.jsp		//타일즈 레이아웃 파일(바닥 + 전체 디자인 관리)
+	
+	f. WEB-INF > views > inc 	//조각페이지	
+		> asset.jap
+		> header.jsp
+		> footer.jsp
+		
+	g. WEB-INF > views > content 		//컨텐츠 페이지(타일즈 -> 주 업무 페이지도 조각 페이지로 관리)
+		> list.jsp
+		> add.jsp
+		> view.jsp
+		> edit.jsp
+		> del.jsp
+		> template.jsp
+
+
+
+
+
+
+

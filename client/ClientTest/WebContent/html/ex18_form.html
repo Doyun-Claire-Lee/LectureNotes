@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 
+        
+        <form> 하위 컨트롤
+        - 입력 양식
+
+        <input> 태그
+        - 인라인 태그
+        - 단독 태그
+        - input.type : 입력 컨트롤의 종류 지정
+        - input.name : 식별자, HTML, 서버에 전달하는 용도
+        - input.id : 식별자, CSS or JavaScript
+        - input.class : 식별자, CSS or JavaScript
+        - input.size : 길이(문자 개수)
+        - input.maxlength : 입력 가능한 최대 길이(글자수)
+        - input.value : 입력 컨트롤의 입력값(초기값?)
+        - input.readonly : 읽기 전용(기본값(value)을 가지고 있을때 사용), 전원 On + 서버 전송 됨
+        - input.disabled : 비활성화, 전원 OFF + 서버 전송 안됨
+        - input.accesskey : 바로가기(Alt + 속성값)
+        - input.autofocus : 자동 포커스
+        - input.autocomplete : 'on' or 'off'
+
+
+        바로가기 vs 단축키
+        - 바로가기(니모닉, Menomic): 보통 Alt와 조합을 함. -> 해당 항목이 눈에 보여야 실행됨.
+        - 단축키(ShortCut): 보통 Ctrl, Shift와 조합을 함. -> 해당 항목이 보이지 않아도 언제든지 실행 가능
+
+     -->
+
+     <h1>입력 컨트롤</h1>
+    
+     <form action="" method="POST">
+         <div>
+             <!-- form에서의 size : 대략 n글자정도 들어간다는 의미, 픽셀의 수 아님. -->
+            <label for="txt1">텍스트 박스(단일 라인):</label> <input type="text" name="txt1" id="txt1" class="txt1" size="50" maxlength="5" value="홍길동" accesskey="s" autofocus autocomplete="off">
+         </div>
+         <div>
+             <!-- 
+                암호상자, Password Box, Masked TextBox
+                - 모든 속성이 텍스트 박스와 동일
+                - value 사용 금지!!!!
+              -->
+              텍스트 박스(암호): <input type="password">
+         </div>
+         <div>
+            <!-- 
+                다중 라인 텍스트박스
+                - 시작 태그 + 끝 태그
+                - textarea.cols : 가로너비(컬럼수)
+                - textarea.rows : 세로높이(행수)
+                - 나머지 속성은 단일라인과 유사
+                - maxlength가 없음. 다량의 텍스트를 입력하기 위한 용도이기 때문
+                - value가 없음(***)
+                
+                속성값의 유형
+                1. Simple Type : 한줄짜리 데이터
+                2. Complex Type : 여러줄짜리 데이터
+             -->
+             텍스트 박스(다중 라인):
+            <textarea cols="50" rows="5">기본값은 여기에 작성한다.
+여러줄도 작성 가능하다.
+컨트롤 영역(텍스트박스 영역)이기 때문에 탭이 입력됨.
+성질이 다른 공간
+하나
+둘
+셋</textarea>
+         </div>
+         <div>
+            <!-- 
+                체크 박스
+                - 논리값 입력
+                - checkbox.checked : 체크 유무
+                - 단일 선택, 다중선택 둘다 사용 가능
+             -->
+             체크 박스: <input type="checkbox">
+             <hr>
+             <h1>약관</h1>
+             <p>내용...</p>
+             <!-- 이름(id)을 붙여주고 라벨을 붙여주면 텍스트를 눌러도 체크박스에 체크가 됨. -->
+             <input type="checkbox" id="cb1" checked><label for="cb1">약관에 동의합니다.</label>
+         </div>
+         <div>
+             <!-- 
+                 라디오 버튼
+                 - 체크 박스와 유사
+                 - 최소 2개 이상 사용헤야 함.
+                 - 세트로 사용하려면 이름으로 동일한 속성값을 주면 됨.(2개 이상도 가능)
+                 - 단일 선택에만 사용
+             -->
+              라디오 버튼: 
+              동의함 <input type="radio" name="rbAgree">
+              동의안함 <input type="radio" name="rbAgree" checked>
+              미정 <input type="radio" name="rbAgree">
+         </div>
+         <div>
+             <!-- 
+                 셀렉트 박스
+                 - 콤보 박스, 드랍 다운 리스트 등..
+                 - 단일 선택, 다중선택
+                
+              -->
+              셀렉트 박스:
+              <select>
+                  <option>강아지</option>
+                  <option>고양이</option>
+                  <option selected>병아리</option>
+              </select>
+              <br>
+              셀렉트 박스:
+              <select size="5" multiple> <!-- 한번에 다섯개 보여줄 수 있는 사이즈/ 다중선택/ -->
+                <option>강아지</option>
+                <option>고양이</option>
+                <option>병아리</option>
+            </select>
+            <br>
+            <select>
+                <option>--포유류--</option>
+                <option>강아지</option>
+                <option>고양이</option>
+                <option>병아리</option>
+                <option>--파충류--</option>
+                <option>뱀</option>
+                <option>이구아나</option>
+                <option>--어류--</option>
+                <option>붕어</option>
+                <option>피라미</option>
+                <option>상어</option>
+            </select>
+            <br>
+            <select>
+                <optgroup label="포유류">
+                    <option>강아지</option>
+                    <option>고양이</option>
+                    <option>병아리</option>
+                </optgroup>
+                <optgroup label="파충류">
+                    <option>뱀</option>
+                    <option>이구아나</option>
+                </optgroup>
+                <optgroup label="어류">
+                    <option>붕어</option>
+                    <option>피라미</option>
+                    <option>상어</option>
+                </optgroup>
+            </select>
+         </div>
+         <div>
+             <!-- 
+                 파일 업로드
+                 - 첨부 파일 선택하기
+                 - 열기창(Open Dialog Box) 호출해주는 컨트롤
+              -->
+              파일 선택: <input type="file">
+         </div>
+         <div>
+             <!-- 
+                 히든 태그
+                 - 개발자용
+                 - 눈에 보이지 않지만 속성값을 넘겨야 할 때(내부 개발용으로 전송하는 데이터들)
+                 - 화면에 출력되지 않지만 서버로 전송해야 할 경우
+              -->
+              히든 태그: <input type="hidden" name="id" value="hong">
+         </div>
+         <div>
+             <!-- 
+                 버튼류
+              -->
+              전송 버튼: <input type="submit" value="보내기"><br>
+              리셋 버튼: <input type="reset" value="초기화"><br> <!--요즘엔 잘 안씀-->
+              이미지 버튼: <input type="image" src="images/face01.png"><br> <!--요즘엔 잘 안씀-->
+              그냥 버튼: <input type="button" value="그냥 버튼" onclick="this.form.submit();"><br> <!-- 프로그래밍을 입힐 수 있어서 가장 많이 씀-->
+              그냥 버튼(디자인 추가): <button type="button"><img src="images/bullet01.png">글쓰기</button><br>
+              <!-- 버튼 라벨에 이미지를 넣을 수 있음! -->
+         </div>
+         <div>
+             <input type="submit" >
+         </div>
+     </form>
+
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            border: 10px solid #333;
+            width: 650px;
+            height: 800px;
+            margin: 10px auto;
+            /* absolute는 static이 아닌 부모 블럭을 원점으로 삼는다 -> static 상태를 벗어나게 해줘야 함. */
+            position: relative;
+            left: 0px;
+            top: 0px;
+        }
+        .ball {
+            border: 10px solid #333;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+        }
+        #ball1 {
+            background-color: tomato;
+            position: absolute;
+            left: 20px;
+            animation-duration: 1s;
+        }
+        #ball2 {
+            background-color: orange;
+            position: absolute;
+            left: 110px;
+            animation-duration: 0.5s;
+        }
+        #ball3 {
+            background-color: gold;
+            position: absolute;
+            left: 200px;
+            animation-duration: 0.7s;
+        }
+        #ball4 {
+            background-color: olivedrab;
+            position: absolute;
+            left: 290px;
+            animation-duration: 0.6s;
+        }
+        #ball5 {
+            background-color: cornflowerblue;
+            position: absolute;
+            left: 380px;
+            animation-duration: 0.65s;
+            
+        }
+        #ball6 {
+            background-color: mediumpurple;
+            position: absolute;
+            left: 470px;
+            animation-duration: 1.5s;
+        }
+        #ball7 {
+            background-color: palevioletred;
+            position: absolute;
+            left: 560px;
+            animation-duration: 1.2s;
+        }
+        .ball {
+            animation-name: balls;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in;
+        }
+        @keyframes balls {
+            0% {
+                transform: translate(0px, 0px);
+            }
+            100% {
+                transform: translate(0px, 730px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="ball1" class="ball"></div>
+        <div id="ball2" class="ball"></div>
+        <div id="ball3" class="ball"></div>
+        <div id="ball4" class="ball"></div>
+        <div id="ball5" class="ball"></div>
+        <div id="ball6" class="ball"></div>
+        <div id="ball7" class="ball"></div>
+    </div>
+</body>
+</html>

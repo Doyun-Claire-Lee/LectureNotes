@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;DBUtil.java&apos; to &apos;PET/src/com.test.pettoy&apos;&#x0D;&#x0A;- Original project: &apos;Orello_JSP&apos;&#x0D;&#x0A;- Destination element: &apos;PET/src/com.test.pettoy&apos;&#x0D;&#x0A;- Original element: &apos;com.test.orello.DBUtil.java&apos;" description="Copy compilation unit" destination="=PET/src&lt;com.test.pettoy" element1="/src&lt;com.test.orello{DBUtil.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1599582829332" units="1" version="1.0"/>
+</session>

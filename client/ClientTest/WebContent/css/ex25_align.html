@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        정렬, Alignment
+        - 수평 정렬
+        - 인라인 태그와 블럭 태그의 수평 정렬
+
+        1. 인라인 태그
+            - 내용물의 수평 정렬을 할 수 없다.
+            - 영역의 크기가 곧 내용물의 크기 -> 공간의 여유가 없어서 정렬이 불가능하다.
+            - 부모인 *블럭*태그를 통해서 text-align속성을 사용한다.(유일한 방법)
+            - float는 정렬 용도가 아님.(흐름을 깨버리기 때문에)
+
+        2. 블럭 태그
+            - 수평 정렬의 개념이 없다. (너비를 직접 주어도 실제로 본인이 사용하는 너비가 100%이기 때문에)
+            - 편법 사용하여 정렬 -> margin 사용
+
+        
+
+
+        */
+        b {
+            /* 인라인 태그는 내용물의 크기가 영역의 크기이다. 공간의 여유가 없기 때문에 수평 정렬이라는 개념 자체가 없음. */
+            text-align: center;
+            background-color: lavender;
+            /* float는 정렬 개념이 아님. 자기 혼자만 튀어나가기 때문에.. */
+            /* float: right; */
+        }
+        #box1 {
+            text-align: center;
+            background-color: lightblue;
+        }
+        #box2{
+            background-color: lightskyblue;
+            width: 100px;
+            height: 100px;
+            /* 상자 자체가 움직이는 것이 아닌 내용물이 움직임. */
+            /* text-align: center; */
+
+            /* 블럭태그를 가운데 정렬 할 때에는 margin을 쓴다. */
+            margin-left: auto;
+            margin-right: auto;
+
+            /* 그룹속성으로 margin 주기 */
+            margin: 0px auto;
+        }
+        #box3{
+            background-color: lightyellow;
+            padding: 10px;
+            /* 자식 상자의 내용물이 정렬됨... -> 속성이 상속되기 때문에! */
+            text-align: center;
+        
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div id="box1">
+        안녕하세요<b>홍길동</b>
+    </div>
+
+    <hr>
+    <div id="box3">
+        <div id="box2">상자2</div>
+    </div>
+
+
+
+
+
+
+
+
+</body>
+</html>

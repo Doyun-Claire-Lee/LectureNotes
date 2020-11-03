@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <style>
+        #box1 {
+            border: 1px solid gray;
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+        }
+        .helper {
+            border: 1px dotted gray;
+            background-color: cornflowerblue;
+            opacity: .3;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="box1"></div>
+    <h1 id="title1">제목입니다.</h1>
+    <img src="../images/catty01.png" alt="" id="cat1" class="cat">
+    <img src="../images/catty02.png" alt="" id="cat2" class="cat">
+    <img src="../images/catty03.png" alt="" id="cat3" class="cat">
+    <img src="../images/catty04.png" alt="" id="cat4" class="cat">
+    <img src="../images/catty05.png" alt="" id="cat5" class="cat">
+
+
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script>
+
+        // $("#box1, #title1, #cat1").resizable();
+
+        $("#box1").resizable({
+            animate: true,                  //애니메이션 효과를 줌
+            helper: "helper",               //helper라는 css를 참조함. 가이드라인 
+            maxWidth: 300, maxHeight: 300,  //최대크기
+            minWidth: 100, minHeight: 100,  //최소크기
+            grid: [50, 20],                 //한번에 늘릴 수 있는 칸(?)을 지정해줌
+            alsoResize: ".cat"             //같이 크기를 변경할 요소를 지정
+        });
+
+        $("#cat1").resizable({
+            aspectRatio: true               //종횡비 유지하기 
+        });
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>HTML 5</h1>
+
+    <h2> form 관련</h2>
+    <form action="ex21.jsp" method="POST">
+
+        <label for="name">이름: </label><input type="text" name="name" id="name">
+       
+        <hr>
+       
+        <!-- 미국의 웹디자인 영향을 받은 미니멀한 style, 라벨을 없앰. -->
+        <!-- 자바스프링을 입혀 클릭하면 내용이 지워지도록 함. -->
+        <input type="text" value="이름을 입력하세요." onfocus="this.value='';">
+        <!-- 패스워드는 이렇게 안됨... 마스킹이 되어 나옴. -->
+        <input type="password" value="패스워드를 입력하세요." onfocus="this.value='';">
+       
+        <hr>
+
+        <!-- placeholder -->
+        <!-- HTML 5에서 기본적으로 제공하는 기능이 됨. 입력하는 순간 기본 글자가 사라짐. -->
+        <input type="text" placeholder="이름을 입력하세요.">
+        <input type="password" placeholder="암호를 입력하세요.">
+        <textarea placeholder="자기소개를 하세요."></textarea>
+
+        <hr>
+
+        <!-- 필수값 입력 체크? -->
+        <!-- required : 입력하라는 알림 + 자동 포커스 -->
+        이름(필수): <input type="text" required value="홍"><br>
+        나이(필수): <input type="text" required value="0"><br>
+        <textarea required>기본값</textarea>
+        <hr>
+
+        <!-- 의미가 강조된 태그, 딱히 기본 text박스와 다른 기능은 없음. -->
+        <!-- 아직까지 어떻게 쓰이는지 딱히 사례가 없으나 잘 쓰임. -->
+        <!-- 모바일로 접근하면 숫자키보드가 뜸. -->
+        전화번호: <input type="tel">
+        <hr>
+
+        <!-- 유효성 검사를 해줌. -->
+        URL: <input type="url">
+        <hr>
+
+        <!-- 숫자를 텍스트 박스에 입력하면 글자도 넣을 수 있기 때문에 숫자 전용 컨트롤을 씀. -->
+        <!-- 유효성 검사를 할 필요가 없음!! -->
+        <!-- step: 증감치 -->
+        숫자: <input type="number" min="0" max="10" step="2">
+        <hr>
+        
+        <!-- 슬라이더, 숫자 입력 컨트롤 -->
+        <!-- 근사치 입력 용도  -->
+        범위: <input type="range" min="0" max="1000" onchange="document.getElementById('rtxt').value=this.value;">
+        <input type="text" id="rtxt">
+        <hr>
+
+        색상: <input type="color" onchange="document.getElementById('ctxt').value=this.value; document.body.bgColor=this.value;">
+        <input type="=text" id="ctxt">
+        <hr>
+
+        날짜시간(년월일): <input type="date"><br>
+        날짜시간(년월): <input type="month"><br>
+        날짜시간(주): <input type="week"><br>
+        시간: <input type="time"><br>
+        날짜시간(년월일시분초): <input type="datetime"><br>  <!--지원하는 브라우저가 없음..-->
+        날짜시간(년월일시분초): <input type="datetime-local">
+        <hr>
+
+        <!-- 의미만 있는 태그 -->
+        검색창: <input type="search">
+        <hr>
+
+        <!-- 사원명 입력받기 -->
+        <!-- 텍스트 박스는 최후의 수단이므로 최대한 사용하지 말기!! -->
+        사원명:
+        <select>
+            <option>직접 입력</option>
+            <option>홍길동</option>
+            <option>아무개</option>
+            <option>하하하</option>
+        </select><br>
+
+        <!-- 선택도 하고 직접 입력도 할 수 있게 하는 컨트롤 -->
+        사원명: <input type="text" size="5" list="list1">
+        <datalist id="list1">
+            <option value="홍길동"></option>
+            <option value="아무개"></option>    
+            <option value="하하하"></option>
+        </datalist>
+        <hr>
+
+        <!-- 진행률을 나타내는 컨트롤, value값에 0~1의 값을 넣을 수 있음.  -->
+        <progress></progress><br>
+        <progress value="0"></progress><br>
+        <progress value="0.5"></progress><br>
+        <progress value="1"></progress><br>
+        <!-- max값까지 value값을 넣을 수 있음. -->
+        <progress max="100" value="50" onmouseover="this.title=this.value + '%';"></progress>
+        <hr>
+
+        <!-- progress와 비슷함. -->
+        <meter></meter><br>
+        <meter value="0.5"></meter><br>
+        <meter value="1"></meter><br>
+        <meter min="-100" max="100" value="0"></meter><br><br>
+        <!-- high, low : 유효범위를 나타내줌, 범위를 벗어나면 다른 색상으로 표시해줌(시각적 효과) -->
+        <meter min="0" max="100" high="80" low="20" value="10"></meter><br>
+        <meter min="0" max="100" high="80" low="20" value="20"></meter><br>
+        <meter min="0" max="100" high="80" low="20" value="30"></meter><br>
+        <meter min="0" max="100" high="80" low="20" value="40"></meter><br>
+        <meter min="0" max="100" high="80" low="20" value="50"></meter><br>
+        <meter min="0" max="100" high="80" low="20" value="60"></meter><br>
+        <meter min="0" max="100" high="80" low="20" value="70"></meter><br>
+        <meter min="0" max="100" high="80" low="20" value="80"></meter><br>
+        <meter min="0" max="100" high="80" low="20" value="90"></meter><br>
+        <meter min="0" max="100" high="80" low="20" value="100"></meter><br>
+        <hr>
+
+        <!-- 내용 접기, 펼치기(더보기) -->
+        <!-- 보통 자바스크립트로 만들어서 씀. -->
+        <details>
+            <summary>Java?</summary>
+            <p>자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 자바는 어쩌구 저쩌구 </p>
+        </details>   
+        <hr>
+
+        <!-- 서식 만들 때 잘 쓰이는 컨트롤, 선 중간을 끊고 라벨(?)을 표시하여 만드는 상자 -->
+        <fieldset>
+            <legend align="center">로그인</legend>
+            아이디: <input type="text"><br>
+            암호: <input type="password"><br>           
+        </fieldset>
+        <hr>
+
+        <!-- 뉴스 서비스 -->
+        <!-- 요즘은 그냥 스크립트로 짬. -->
+        <marquee behavior="scroll" scrollamount="20">안녕하세요.....</marquee>
+        <hr>
+
+        <!-- GDI:그래픽 API -->
+        <!-- 수학적인 요소도 많이 포함되어있어 수업은 안함..(수학+물리) -->
+        <canvas></canvas>
+
+
+        <input type="submit" value="가입하기">
+
+    </form>
+
+
+
+
+</body>
+</html>

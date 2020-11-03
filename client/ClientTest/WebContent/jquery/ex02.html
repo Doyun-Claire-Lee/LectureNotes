@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <input type="button" value="버튼" id="btn1">    
+
+
+
+
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+
+        //버튼 찾기
+        //1. BOM
+        var btn1_1 = document.all.btn1;
+        btn1_1.title = "BOM"
+
+        //2. DOM
+        var btn1_2 = document.getElementById("btn1");
+        btn1_2.setAttribute("value" , "DOM");
+
+        //3. jQuery
+        var btn1_3 = jQuery("#btn1");
+        btn1_3.css("color", "yellow");
+
+
+
+        
+
+    </script>
+</body>
+</html>

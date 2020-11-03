@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            #box {
+                border: 10px solid black;
+                background-color: gold;
+                width: 200px;
+                height: 200px;
+
+                /* 적용할 속성명 */
+                transition-property: all;
+                /* 걸리는 시간 */
+                transition-duration: 60s;
+            }
+            #box:hover {
+                /*
+                transition, 전환
+                - 객체의 속성(상태)값이 변환되는 과정을 시간 순서대로 보여주는 제어
+                - 수치형 속성만 가능(숫자, 색상 등)
+                 */
+                /* width: 800px; */
+                /* height: 800px; */
+                /* font-size: 6em; */
+                /* background-color: indianred; */
+                /* box-shadow: 15px 15px 5px grey; */
+                /* opacity: 0.1; */
+
+                /* transition + transform */
+                /* transform: translate(100px, 100px); */
+                /* transform: scale(-1, 1); */
+                transform: rotate(360deg);
+            }
+
+            #cat img {
+                opacity: 0.2;
+                transition: opacity 1s;
+            }
+            #cat img:hover {
+                opacity: 1;
+            }
+            #search {
+                outline: none;
+                border: 1px solid #999;
+                padding: 4px;
+                width: 400px;
+                background-image: url(../images/hangame.png);
+                background-repeat: no-repeat;
+                background-position: center center;
+                transition: background-position, 0.5s;
+            }
+            #search:focus {
+                background-position: right center;
+            }
+
+            #list {
+                border: 1px solid black;
+                width: 800px;
+                height: 340px;
+            }
+
+            .box {
+                width: 100px;
+                height: 50px;
+                margin: 15px 0px;
+                transition: width 3s;
+            }
+
+            #list:hover .box {
+                width: 800px;
+            }
+            /* 
+            transition-timing-function, 전환 패턴
+            - 구간별 속도 제어
+            1. linear: 등속
+            2. ease: 시작(빠름) - 중간(느림) - 끝(빠름)
+            3. ease-in: 시작(느림) - 끝(빠름)
+            4. ease-out: 시작(빠름) - 끝(느림)
+            5. ease-in-out: 시작(느림) - 중간(빠름) - 끝(느림)
+            
+            
+            
+             */
+            #box1 {
+                background: tomato;
+                transition-timing-function: linear;
+            }
+
+            #box2 {
+                background: gold;
+                transition-timing-function: ease;
+            }
+
+            #box3 {
+                background: cornflowerblue;
+                transition-timing-function: ease-in;
+            }
+
+            #box4 {
+                background: orange;
+                transition-timing-function: ease-out;
+            }
+
+            #box5 {
+                background: olivedrab;
+                transition-timing-function: ease-in-out;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>transition + 모든 속성(수치값)</h1>
+        <div id="box">상자</div>
+
+        <h1>고양이</h1>
+        <div id="cat">
+            <img src="../images/catty01.png" alt="" />
+            <img src="../images/catty02.png" alt="" />
+            <img src="../images/catty03.png" alt="" />
+            <img src="../images/catty04.png" alt="" />
+            <img src="../images/catty05.png" alt="" />
+        </div>
+
+        <h1>검색어</h1>
+        <input type="text" id="search" autocomplete="off" />
+
+        <h1>transition + 모든 속성(수치값)</h1>
+        <div id="list">
+            <div id="box1" class="box">linear</div>
+            <div id="box2" class="box">ease(defualt)</div>
+            <div id="box3" class="box">ease-in</div>
+            <div id="box4" class="box">ease-out</div>
+            <div id="box5" class="box">ease-in-out</div>
+        </div>
+    </body>
+</html>

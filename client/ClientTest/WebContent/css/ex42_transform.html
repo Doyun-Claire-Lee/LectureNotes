@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            #menu {
+                width: 630px;
+                margin: 0px auto;
+                /* 화면에 이미지의 아랫부분만 보이도록 이동 */
+                transform: translate(0px, -105px);
+                cursor: pointer;
+            }
+            #menu::after {
+                content: " ";
+                display: block;
+                clear: both;
+            }
+            #menu img {
+                float: left;
+                transition: transform 0.5s;
+            }
+            #menu img:hover {
+                transform: translate(0px, 5px);
+            }
+
+            #submenu {
+                /* border: 1px solid black; */
+                width: 126px;
+                transform: translate(-105px, 0px);
+                cursor: pointer;
+            }
+
+            #submenu::after {
+                content: " ";
+                display: block;
+                clear: both;
+            }
+
+            #submenu img {
+                float: left;
+            }
+
+            #submenu img:hover {
+                transform: translate(5px, 0px);
+            }
+        </style>
+    </head>
+    <body>
+        <nav id="menu">
+            <img src="../images/rect_icon01.png" alt="" />
+            <img src="../images/rect_icon02.png" alt="" />
+            <img src="../images/rect_icon03.png" alt="" />
+            <img src="../images/rect_icon04.png" alt="" />
+            <img src="../images/rect_icon05.png" alt="" />
+        </nav>
+
+        <nav id="submenu">
+            <img src="../images/rect_icon01.png" alt="" />
+            <img src="../images/rect_icon02.png" alt="" />
+            <img src="../images/rect_icon03.png" alt="" />
+            <img src="../images/rect_icon04.png" alt="" />
+            <img src="../images/rect_icon05.png" alt="" />
+        </nav>
+    </body>
+</html>

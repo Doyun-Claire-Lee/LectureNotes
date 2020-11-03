@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tbl1 {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 500px;
+        }
+        #tbl1 td {
+            border: 1px solid black;
+            padding: 5px;
+            width: 100px;
+        }
+        #box1, #box2, #box3 {
+            border: 1px solid black;
+            padding: 100px;
+        }
+        #box1 {background-color: gold; width: 500px;}
+        #box2 {background-color: cornflowerblue;}
+        #box3 {background-color: lightpink;}
+    </style>
+</head>
+<body>
+    
+    <h1>테이블</h1>
+    <table id="tbl1">
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+    </table>
+
+    <hr>
+    <h1>이벤트 버블링(Bubbling) & 이벤트 터널링, 캡쳐링(Tunneling, Cauturing)</h1>
+    <!-- 태그가 부모/자식으로 겹쳐있을 때 발생하는 현상 -->
+
+    <div id="box1">
+        <div id="box2">
+            <div id="box3"></div>
+        </div>
+    </div>
+
+
+    <script>
+        // table
+        var tbl1 = document.getElementById("tbl1");
+        
+        // tr
+        // tbl1.children -> tbody
+        var tr = tbl1.children[0].children;
+        console.log(tr.length);
+
+        for(var i=0; i<tr.length; i++) {
+            
+            tr[i].onmouseover = function() {
+                // 행이 바뀌어야 하는데 셀만 바뀜!
+                //이벤트는 tr에 걸었지만 event.srcElement는 td임.. -> 마우스가 닿는 객체는 항상 가장 안쪽에 있는 객체이고, 그 부모에 이벤트를 걸어도 이벤트 터널링에 의해 가장 안쪽까지 들어오기 때문에...?
+                // event.srcElement.bgColor = "gold";
+                console.log(event.srcElement.nodeName);
+                event.srcElement.parentNode.bgColor = "tomato";
+            }
+
+            tr[i].onmouseout = function() {
+                event.srcElement.parentNode.bgColor = "transparent";
+            }
+        }
+
+        var box1= document.getElementById("box1");
+        var box3= document.getElementById("box2");
+        var box3= document.getElementById("box3");
+
+        //부모에게 걸린 이벤트는 자식 영역에서도 발생한다ㅣ
+        box1.onclick = function() {
+            // alert('할아버지');
+            console.log("box1.click", event.srcElement.id);
+        }
+        box2.onclick = function() {
+            // alert('아버지');
+            // event.cancelBubble = true;       
+            console.log("box2.click", event.srcElement.id);
+
+        }
+        box3.onclick = function() {
+            // alert('아들');
+
+            //이벤트버블링현상을 방지해준다.
+            //box3에서 발생한 click이벤트를 부모인 box2에게 전달하지 않는다.
+            // event.cancelBubble = true;
+
+            // console.log("box3.click", event.srcElement.id);
+
+        }
+
+    </script>
+
+
+</body>
+</html>

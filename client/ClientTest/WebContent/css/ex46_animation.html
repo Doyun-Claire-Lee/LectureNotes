@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .box {
+                border: 10px solid #444;
+                width: 150px;
+                height: 150px;
+                margin: 20px;
+            }
+
+            /* 
+            transition : 단순조작
+            animation : 세밀 조작, 옵션이 더 많음, 재사용이 가능해짐
+            
+             */
+
+            #box1 {
+                background-color: tomato;
+            }
+            body:hover #box1 {
+                /* transition property와 비슷한 역할 */
+                animation-name: key1;
+                /* transition duration과 비슷한 역할 */
+                animation-duration: 1s;
+                /* 끝날때 상태유지가 안되고 되돌아감, 옵션을 따로 설정해주어야 함 */
+                /* fill-mode: forwards : 끝난 상태로 그대로 멈춤 */
+                animation-fill-mode: forwards;
+            }
+            #box2 {
+                background-color: gold;
+            }
+            body:hover #box2 {
+                animation-name: key1;
+                animation-duration: 1s;
+                animation-fill-mode: forwards;
+            }
+            #box3 {
+                background-color: cornflowerblue;
+            }
+            body:hover #box3 {
+                animation-name: key2;
+                animation-duration: 3s;
+            }
+            #box4 {
+                background-color: rgb(137, 184, 45);
+                position: relative;
+                left: 0;
+                top: 0;
+            }
+            body:hover #box4 {
+                animation-name: key4;
+                animation-duration: 3s;
+            }
+            #box5 {
+                background-color: coral;
+            }
+            body:hover #box5 {
+                animation-name: key5;
+                animation-duration: 1s;
+                animation-timing-function: linear;
+                /* 반복횟수 */
+                animation-iteration-count: infinite;
+                /* 방향 지정, 기본값(normal) */
+                /* animation-direction: reverse; */
+                animation-direction: alternate; /* 정방향 + 역방향 반복*/
+                /* 움직임 전에 시간 두기 */
+                animation-delay: 3s;
+            }
+
+            @keyframes key1 {
+                /* 자세한 속성, 변화를 지정 가능 */
+                from {
+                    width: 150px;
+                    height: 150px;
+                }
+                to {
+                    width: 500px;
+                    height: 50px;
+                }
+            }
+            @keyframes key2 {
+                /* from to를 숫자로 표현할 수 있음, 0%~100% */
+                0% {
+                    width: 150px;
+                    background-color: cornflowerblue;
+                }
+                25% {
+                    width: 160px;
+                    background-color: yellow;
+                }
+                50% {
+                    width: 500px;
+                    background-color: tomato;
+                }
+                75% {
+                    width: 160px;
+                    background-color: gold;
+                }
+                100% {
+                    width: 150px;
+                    background-color: cornflowerblue;
+                }
+            }
+            @keyframes key4 {
+                0% {
+                    left: 0px;
+                    top: 0px;
+                }
+                25% {
+                    left: 0px;
+                    top: 300px;
+                }
+                50% {
+                    left: 300px;
+                    top: 300px;
+                }
+                75% {
+                    left: 300px;
+                    top: 0px;
+                }
+                100% {
+                    left: 0px;
+                    top: 0px;
+                }
+            }
+            @keyframes key5 {
+                0% {
+                    transform: translate(0px, 0px);
+                }
+                25% {
+                    transform: translate(0px, -300px);
+                }
+                50% {
+                    transform: translate(300px, -300px);
+                }
+                75% {
+                    transform: translate(300px, 0px);
+                }
+                100% {
+                    transform: translate(0px, 0px);
+                }
+            }
+            /* #cat {
+                border: 1px solid black;
+            } */
+
+            #cat:hover img {
+                animation-name: keyCat;
+                animation-duration: 0.5s;
+                animation-iteration-count: infinite;
+                animation-timing-function: ease-out;
+                animation-direction: alternate;
+            }
+            #cat img:nth-child(1) {
+                animation-delay: 0s;
+            }
+            #cat img:nth-child(2) {
+                animation-delay: 0.5s;
+            }
+            #cat img:nth-child(3) {
+                animation-delay: 1s;
+            }
+            #cat img:nth-child(4) {
+                animation-delay: 1.5s;
+            }
+            #cat img:nth-child(5) {
+                animation-delay: 2s;
+            }
+            @keyframes keyCat {
+                0% {
+                    transform: translate(0px, 0px);
+                }
+                100% {
+                    transform: translate(0px, -100px);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- animation 속성 -->
+        <div id="box1" class="box"></div>
+        <div id="box2" class="box"></div>
+        <div id="box3" class="box"></div>
+        <div id="box4" class="box"></div>
+        <div id="box5" class="box"></div>
+
+        <h1 style="margin-top: 500px;">고양이</h1>
+        <div id="cat">
+            <img src="../images/catty06.png" alt="" />
+            <img src="../images/catty07.png" alt="" />
+            <img src="../images/catty08.png" alt="" />
+            <img src="../images/catty09.png" alt="" />
+            <img src="../images/catty10.png" alt="" />
+        </div>
+    </body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tbl {
+            border: 1px solid gray;
+            border-collapse: collapse;
+            margin: 0px auto;
+        }
+        #tbl td {
+            border: 1px solid gray;
+            width: 128px;
+            height: 128px;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    
+    <table id="tbl">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <script>
+
+        var td = document.getElementsByTagName("td");
+        var index = 0;
+        var timer = 0;
+        var move = [1, 5];
+
+        td[0].style.backgroundImage = "url('../images/beer.png')";
+        td[td.length-1].style.backgroundImage = "url('../images/catHome.png')";
+
+        td[0].onclick = function() {
+            
+            index = 0;
+
+            timer = setInterval(function() {
+                
+                clear();      
+                if (index == 0) {
+                    move = [1, 5];
+                } else if (index == 4) {
+                    move = [-1, 5];
+                } else if (index == 20) {
+                    move = [-5, 1];
+                } else if (index == 1) {
+                    move = [1, 5];
+                } else if (index == 5) {
+                    move = [1, 5];
+                } else if (index < 5) {
+                    move = [-1, 1, 5];
+                } else if (index%5 == 4) {
+                    move = [-5, -1, 5];
+                } else if (index%5 == 0) {
+                    move = [-5, 1, 5];
+                } else if (index >= 20) {
+                    move = [-5, -1, 1];
+                } else {
+                    move = [-5, -1, 1, 5];
+                }
+            
+                index += move[parseInt(Math.random() * move.length)];
+                // console.log(index);
+                
+                td[index].style.backgroundImage = "url('../images/catty14.png')";
+
+                if (index == td.length-1) {
+                    clearInterval(timer);
+                    timer = 0;
+                }
+            }, 300);    
+        }
+
+        function clear() { 
+            td[0].style.backgroundImage = "url('../images/beer.png')";
+            td[td.length-1].style.backgroundImage = "url('../images/catHome.png')";
+            for (var i=1; i<td.length-1; i++) {
+                td[i].style.backgroundImage = "url()";
+            }
+        }
+
+    </script>
+
+</body>
+</html>

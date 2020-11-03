@@ -1,0 +1,31 @@
+
+#트랜잭션 처리
+
+#JDBC
+	- Connection conn;
+	- conn.autoCommit(false);
+	- conn.commit();
+	- conn.rollback();
+
+1. 버전 변경
+2. 라이브러리 
+	- JDBC
+	- MyBatis
+	- AOP : 스프링 트랜잭션 기능이 AOP 기반으로 동작함.
+3. web.xml
+	- 확장자 수정
+	- 인코딩 필터
+4. root-context.xml	
+	- MyBatis
+	- transaction
+5. servlet-context.xml
+	- AOP 설정
+	
+----------------------------------------------------------------------
+
+6. 파일 생성
+	
+
+
+
+

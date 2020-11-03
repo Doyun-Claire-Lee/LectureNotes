@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>아이디 중복검사</h1>
+	<form name="form1">
+		아이디: <input type="text" name="txtID">
+		<input type="button" value="중복 검사">
+		<hr>
+		<input type="button" value="이 아이디를 사용합니다." name="btnUse">
+		<input type="button" value="창닫기" name="btnCancel">
+	</form>
+	<script>
+		
+		//아이디 사용
+		window.document.form1.btnUse.onclick = function() {
+			//부모창 텍스트박스 = window.document.form1.txtID.value; -> 이런 작업을 해줘야 함!
+			//opener : 부모창의 윈도우객체
+			opener.document.form2.txtID.value = window.document.form1.txtID.value;
+			window.close();
+		};
+		
+		//아이디 사용X
+		window.document.form1.btnCancel.onclick = function() {
+			window.close();
+		};
+	</script>
+
+</body>
+</html>

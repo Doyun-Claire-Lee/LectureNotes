@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset {
+            width: 250px;
+            height: 100px;
+            border: 1px solid gray;
+        }
+        fieldset > div {
+            margin: 5px;
+        }
+        #tbl1 {
+            border : 1px solid gray;
+            border-collapse: collapse;
+            margin: 20px 0px;
+        }
+
+        #tbl1 td { 
+            border: 1px solid gray;
+            width: 60px;
+            height: 45px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h1>테이블</h1>
+    <fieldset>
+        <legend>행x열</legend>
+        <div>행: <select id="selRow"></select></div>
+        <div>열: <select id="selCol"></select></div>
+        <div><input type="button" value="생성하기" id="btnCreate"></div>
+    </fieldset>
+
+    <table id="tbl1">
+        <!-- 동적으로 행을 추가할때는 tbody를 미리 만들어서 사용해야 한다. 그렇지 않을 경우 tbody가 계속 누적되는 등 구조상 문제가 발생함.-->
+        <tbody id="tbody1">
+
+        </tbody>
+    </table>
+
+    <script> 
+
+        var selRow = document.getElementById("selRow");
+        var selCol = document.getElementById("selCol");
+        var btnCreate = document.getElementById("btnCreate");
+        var tbl1 = document.getElementById("tbl1");
+        var tbody1 = document.getElementById("tbody1");
+
+        //행 만들기(1~20)
+        for (var i=1; i<=20; i++) {
+            selRow.innerHTML += "<option value='" + i + "'>" + i + "</option>";
+        }
+        //열 만들기(1~5)
+        for (var i=1; i<=5; i++) {
+            selCol.innerHTML += "<option value='" + i + "'>" + i + "</option>";
+        }
+
+        //테이블 행 만들기
+        btnCreate.onclick = function() {
+            //사용자가 선택한 행과 열의 value값이 무엇인지? -> selRow.value, selCol.value
+
+            //tboby가 계속 누적되게 됨. tbody는 하나만 있어야 함.
+            // tbl1.innerHTML += "<tr><td>data</td><tr>"   
+            //tbody안에 td를 넣어주면 됨!
+            // tbody1.innerHTML += "<tr><td>data</td><tr>"   
+            
+            //초기화 하고 시작
+            tbody1.innerHTML = "";
+
+            //행추가
+            for (var i=0; i<selRow.value; i++) {
+                
+                var temp = "";  //누적하기 위한 변수
+                temp += "<tr>";
+
+                    //열추가
+                    for (var j=0; j<selCol.value; j++) {
+                        temp += "<td>데이터</td>";
+                    }
+
+                temp += "</tr>";
+        
+                //테이블추가
+                tbody1.innerHTML += temp;
+            }
+
+        }
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>

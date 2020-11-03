@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* 형제 선택자 */
+        /* 형이 span인 p태그만 스타일 적용 */
+        /* span ~ p {color:rosybrown;}  */
+
+        /* 인접형제선택자 */
+        /* 바로 윗 형이 span인 p태그만 스타일 적용 */
+        /* span + p {color:purple;} */
+        p + p { color: orange;}
+
+    </style>
+</head>
+<body>
+    <!-- 
+        형제선택자, Sibling Selector
+        - 선택자 ~ 선택자
+        - 자손 선택자와 유사
+        - 검색률이 높지만 정확성은 다소 떨어짐
+
+
+        인접형제선택자, Adjacent Sibling Selector
+        - 선택자 + 선택자
+        - 자식 선택자와 유사
+        - 검색률은 낮지만 정확성은 높아짐.
+
+
+        CSS2 선택자
+        1. 태그 선택자
+        2. id 선택자
+        3. class 선택자
+        4. 그룹 선택자
+        5. 자손 선택자
+        6. 자식 선택자
+        7. 형제 선택자
+        8. 인접 형제 선택자
+
+     -->
+
+     <p>p</p>
+     <div>div</div>
+     <span></span>
+     <p>p</p>
+     <p>p</p>
+     <p>p</p>
+     <div>div</div>
+     <p>p</p>
+     <span></span>
+     <p>p</p>
+
+
+
+</body>
+</html>

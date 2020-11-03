@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* 
+        속성 선택자
+        - 속성 유무 or 속성값을 조건으로 태그를 검색
+
+        1. 선택자[속성명]       : 해당 속성 소유
+        2. 선택자[속성명=값]    : 해당 속성 소유 + 값
+        3. 선택자[속성명^=값]   : 해당 속성 소유 + 특정값으로 시작
+        4. 선택자[속성명$=값]   : 해당 속성 소유 + 특정값으로 끝
+        5. 선택자[속성명*=값]   : 해당 속성 소유 : 특정값 발견(위치 무관)
+        6. 선택자[속성명 속성명 속성명=값 속성명=값] -> 아직 지원 안됨
+    
+        */
+
+        a { color: #333; text-decoration: none; }
+
+        /* div > a[href] { color: red; } */
+
+        /* div > a[target] { color: red; } */
+
+        /* div > a[title] { color: blue; } */
+
+        /* a[target='_self'] { color: blue; } */
+
+        /* ^= : start with */
+        /* a[href^='http://'] { color:green; } */
+        /* a[href^='https://'] { color:orange; } */
+        
+        /* $= : end with */
+        /* a[href$='.com'] { color: brown; } */
+        /* a[href$='.co.kr'] { color: cadetblue; } */
+
+        /* *= : include */
+        /* a[href*=co] { color: chartreuse; } */
+
+        /* 아직 지원 안됨 */
+        /* a[href title target='_blank'] { color:} */
+
+    </style>
+</head>
+<body>
+    <!-- 
+        아래 a태그들의 차이점
+        1. 특정 속성 구현 유무
+        2. 속성값 차이
+
+     -->
+
+    <div><a href="http://naver.com" target="_self" title="포털사이트">네이버</a></div>
+    <div><a href="https://google.com" >구글</a></div>
+    <div><a href="http://daum.net" title="포털사이트">다음</a></div>
+    <div><a href="https://coupang.com" target="_blank">쿠팡</a></div>
+    <div><a href="http://11st.co.kr" target="_self">11번가</a></div>
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

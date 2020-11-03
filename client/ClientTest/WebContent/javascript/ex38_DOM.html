@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         #tbl1 {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        #tbl1 td {
+            border: 1px solid black;
+            width: 126px;
+            height: 126px;
+        }
+        #tbl1 td img {
+            display: block;
+        }
+    </style>
+</head>
+<!-- 마우스 오른쪽 버튼 눌러도 메뉴 안나타나도록 설정하기 -->
+<body oncontextmenu="return false;">
+    
+    <h1>테이블</h1>
+    <table id="tbl1">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <script>
+        //tr
+        var tr = document.getElementById("tbl1").children[0].children;
+        
+        for (var i=0; i<tr.length; i++) {
+            //각 행별로 3개씩의 td를 얻을 수 있음.
+            var td = tr[i].children;
+            
+            for (var j=0; j<td.length; j++) {
+                //td 하나씩 잡기
+                
+                td[j].onmousedown = function () {
+                    //onmousedown -> 마우스로만, onclick -> 키보드로도 클릭 가능 
+                    //onmousedown -> 어떤 마우스 버튼으로 클릭했는지 알고싶을때 사용
+                    
+                    if (event.buttons == 1) {
+                    //이미 한번 누른 것을 다시 누른다고 바뀌지 않는 이유 : 처음엔 td가 가장 안쪽에 있는 객체였지만 img가 삽입된 이후로 img가 가장 안쪽의 객체가 되어 event.srcElement가 img가 되었기 때문!!
+                        
+                        //누르면 계속 바뀌도록 하기 위해 추가작업 해주기
+                        if (Element.nodeName == "TD") {    //TD가 가장 안쪽 객체인 경우
+                            event.srcElement.innerHTML = "<img src='../images/rect_icon01.png'>";
+                        } else if (Element.nodeName == "IMG") {    //IMG가 가장 안쪽 객체인 경우
+                            //부모인 TD의 InnerHTML 속성을 변경해줌.
+                            Element.parentNode.innerHTML = "<img src='../images/rect_icon01.png'>";
+                        };
+
+                    //휠버튼을 누르는 경우    
+                    } else if (event.buttons == 4) {
+                        //이미지 삭제하기 
+                        if (Element.nodeName == "IMG") {
+                            event.srcElement.parentNode.innerHTML = "";        
+                        };
+
+                    } else {
+                        if (event.srcElement.nodeName == "TD") {    //TD가 가장 안쪽 객체인 경우
+                            event.srcElement.innerHTML = "<img src='../images/rect_icon02.png'>";
+                        } else if (event.srcElement.nodeName == "IMG") {    //IMG가 가장 안쪽 객체인 경우
+                            //부모인 TD의 InnerHTML 속성을 변경해줌.
+                            event.srcElement.parentNode.innerHTML = "<img src='../images/rect_icon02.png'>";
+                        };
+                    };
+                }; 
+            }
+        }
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <input type="button" value="버튼" name="btn1" id="btn1">
+    <input type="button" value="버튼" name="btn2" id="btn2">
+    <hr>
+    <img src="../images/catty01.png" alt="" id="img1">
+
+
+
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+
+        //1. BOM
+        document.all.btn1.onclick = function() {};
+        document.all.btn1.onclick = null;
+
+        //2. DOM
+        document.getElementById("btn1").addEventListener("click", function() {});
+        // document.getElementById("btn1").removeEventListener("click");
+
+        //1 + 2
+        document.getElementById("btn1").onclick = function() {};
+
+        //3. jQuery
+        //  a. 전용 이벤트 함수 
+        //  b. 범용 이벤트 함수 : 조작할 수 있는 범위가 전용 이벤트 함수보다 조금 더 넓음.. 
+        jQuery("#btn1").click(function() {alert("클릭")});          
+        jQuery("#btn1").on("click", function() {alert("클릭2")});   //이벤트 켜기
+        jQuery("#btn1").off("click");                               //이벤트 끄기
+
+        
+        // jQuery("#img1").mouseover(function() {});    --> mouseenter 권장    
+        // jQuery("#img1").mouseout(function() {});     --> mouseleave 권장
+        
+        // jQuery("#img1").mouseenter(function() {
+        //     jQuery("#img1").css("opacity", ".3");
+        // });
+        // jQuery("#img1").mouseleave(function() {
+        //     jQuery("#img1").css("opacity", "1");
+        // });
+
+        // jQuery("#img1").mouseenter(function() {
+        //     jQuery("#img1").css("opacity", ".3");
+        //     })
+        //     .mouseleave(function() {
+        //     jQuery("#img1").css("opacity", "1");
+        //     });
+
+        //jQuery -> 객체(일괄적용)다수, 함수위주 패턴, 객체표현식 다수
+        jQuery("#img1").on({
+            mouseenter: function() {
+                jQuery("#img1").css("opacity", ".3");
+            },
+            mouseleave: function() {
+                jQuery("#img1").css("opacity", "1");
+            }
+        })
+
+        //여기서의 this :windpw
+        //객체 안에서의 this : object
+
+        var obj = {
+            name: "홍길동",
+            foo1: function() {
+                console.log(this);  //객체 자신
+            }
+        };
+        obj.foo2 = function() {};   //이벤트 함수 추가는 객체의 프로퍼티 추가와 비슷한 형태임.
+
+        // document.getElementById("btn2").onclick = function() {
+        //     //누른 버튼 참조
+        //     console.log(event.srcElement.id);       //btn2
+        //     console.log(this);                      //객체 자신
+        //     console.log(this.id);                   //btn2
+        //     console.log(event.srcElement == this);  //true, 그러나 항상 같은 것은 아님. 
+        //     //이벤트 함수에서는 this를 잘 쓰지 않음.
+        // };
+
+        jQuery("#btn2").click(function() {
+            console.log(event.srcElement.id);   //jQuery에서는 event.srcElement를 잘 쓰지 않는다..
+            console.log(this.id);
+
+            //this -> 자바스크립트 기반 자료형, .css()를 쓸 수 없다.
+            // this.css("color", "blue");  //사용 안됨, 에러남
+
+            //순수 자바스크립트 객체를 jQuery객체로 변환하여 사용
+            //jQuery(객체) ->> 마치 형변환과 같은 형태
+            jQuery(this).css("color", "blue");
+            
+            //반대로, 순수 jQuery객체를 순수 자바스크립트 객체로 형변환해야할경우
+            //jQuery()의 반환값은 반환값이 하나더라도 항상 배열임. 해당 배열에서 꺼내줄 경우 자바스크립트 객체가 됨.
+            jQuery(this)[0].style.color = "red";
+
+        });
+
+
+
+
+
+
+    </script>
+</body>
+</html>

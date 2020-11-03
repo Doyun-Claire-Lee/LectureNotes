@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jquery it ui -->
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <style>
+        #box3 {
+            border: 10px solid black;
+            width: 500px;
+            height: 300px;
+            /* overflow: hidden; */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>jQuery UI</h1>
+    <ul>
+        <li>Interactions</li>
+        <li>Widgets</li>
+        <li>Effects</li>
+    </ul>
+
+    <img src="../images/catty01.png" alt="" class="cat">
+
+    <hr>
+
+    <img src="../images/catty02.png" alt="" id="cat2">
+    
+    <hr>
+
+    <div id="box3">
+        <img src="../images/catty03.png" alt="" id="cat3">
+    </div>
+
+
+    <!-- 스크립트 삽입 순서 지키기 -->
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script>
+
+        //드래그가 가능하도록 만
+        $(".cat").draggable();
+        $("h1, ul, li").draggable();
+
+        $("#cat2").draggable({
+            // axis : "x"      //좌우로만 드래그됨
+            axis : "y",      //좌우로만 드래그됨
+            grid: [100, 100],
+            cursor: "move"
+        });
+
+        $("#cat3").draggable({
+            // 부모 영역 밖을 빠져나가지 못하도록 함
+            // containment: "#box3"
+            // containment: "parent"
+            
+            //테두리에 자석처럼 달라붙는 현상 
+            // snap: "#box3"
+            snap: "img"
+        });
+
+
+    </script>
+</body>
+</html>

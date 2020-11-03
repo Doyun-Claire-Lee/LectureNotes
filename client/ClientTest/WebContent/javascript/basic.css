@@ -1,0 +1,274 @@
+/* basic.css */
+
+@import url("https://use.fontawesome.com/releases/v5.4.1/css/all.css");
+
+
+/* 닉스곤폰트M */
+/* @font-face { font-family: 'NIXGONM-Vb'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONM-Vb.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* 한글누리체 */
+/* @font-face { font-family: 'HangeulNuri-Bold'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/HangeulNuri-Bold.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* 쿠키런 Bold */
+/* @font-face { font-family: 'CookieRunOTF-Bold'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/CookieRunOTF-Bold00.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* 유토이미지고딕R */
+/* @font-face { font-family: 'BBTreeGR'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGR.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* 유토이미지고딕B */
+/* @font-face { font-family: 'BBTreeGB'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGB.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* 삼겹살체 600g */
+/* @font-face { font-family: 'Handon3gyeopsal600g'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal600g.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* 봉숭아틴트 */
+/* @font-face { font-family: '777Balsamtint'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/777Balsamtint.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* 넥센타이어B */
+/* @font-face { font-family: 'NEXEN_TIRE_Bold'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/NEXEN_TIRE_Bold.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* 뉴욕커 */
+/* @font-face { font-family: '777Newyorkers'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/777Newyorkers.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* 행복고흥B */
+/* @font-face { font-family: '행복고흥B'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/행복고흥B.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* ON석보상절B */
+/* @font-face { font-family: 'TTSeokbosangjeolB'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_ten@1.2/TTSeokbosangjeolB.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* 봄이조아 */
+/* @font-face { font-family: '777Lovespring'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/777Lovespring.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* 어비 혜키체 */
+/* @font-face { font-family: 'UhBeeHyeki'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeeHyeki.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+
+
+
+
+/* 괜찮은 폰트 --------------------------------------------------- */
+ /* @font-face { font-family: 'HealthsetGothicLight'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/HealthsetGothicLight.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* 어비 미미체 */
+/* @font-face { font-family: 'UhBeeMiMi'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeeMiMi.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* 제주감귤 */
+/* @font-face { font-family: 'TTJejuGamgyulR'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/TTJejuGamgyulR.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* 꼬마나비 */
+/* @font-face { font-family: '777Kidbutterfly'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/777Kidbutterfly.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* 고양체 */
+/* @font-face { font-family: 'Goyang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Goyang.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* EBS훈민정음 */
+/* @font-face { font-family: 'EBSHunminjeongeumSBA'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/EBSHunminjeongeum.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* 리틀베어 */
+/* @font-face { font-family: '777Littlebear'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/777Littlebear.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* 배스킨라빈스R */
+@font-face { font-family: 'BRRA_R'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRRA_R.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+/* 꽃보다곰팅 */
+/* @font-face { font-family: '777Flowerbear'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/777Flowerbear.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* 챠오츄르 */
+/* @font-face { font-family: '777Chyaochyureu'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/777Chyaochyureu.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* 빙그레 메로나체 Bold */
+/* @font-face { font-family: 'BinggraeMelona-Bold'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/BinggraeMelona-Bold.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* EBS훈민정음새론체 */
+/* @font-face { font-family: 'EBSHMJESaeronRA'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/EBSHMJESaeronRA.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* 어비 챠밍체 */
+/* @font-face { font-family: 'UhBeecharming'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeecharming.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* 카페24 숑숑 */
+/* @font-face { font-family: 'Cafe24Syongsyong'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Syongsyong.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* 카페24 쑥쑥 */
+/* @font-face { font-family: 'Cafe24Ssukssuk'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Ssukssuk.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* 카페24 동동 */
+/* @font-face { font-family: 'Cafe24Dongdong'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Dongdong.woff') format('woff'); font-weight: normal; font-style: normal; } */
+
+/* D2Coding */
+@font-face { font-family: 'D2Coding'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_three@1.0/D2Coding.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+/* 괜찮은 폰트 --------------------------------------------------- */
+
+
+body {
+	margin-bottom: 100px;
+}
+
+body, p, div, span, ul, ol, li, table, th, td, input, textarea, button, a, select, option {
+	font-family: 'BRRA_R';
+	color: #444;
+	font-size: 1.0321em;
+	outline: none !important;
+}
+
+h1 {
+	font-size: 1.74em;
+}
+
+
+.table {
+	border: 1px solid gray;
+	border-collapse: collapse;	
+}
+
+.table th, .table td {
+	border: 1px solid gray;
+	padding: 4px;
+}
+
+.table th { background-color: #eee; }
+
+.box { border: 1px solid black; }
+
+.box.big { width: 300px; height: 300px; }
+.box.medium { width: 200px; height: 200px; }
+.box.small { width: 100px; height: 100px; }
+
+.box.red { background-color: tomato; }
+.box.blue { background-color: cornflowerblue; }
+.box.yellow { background-color: #FFF766; }
+.box.green { background-color: lightgreen; }
+.box.orange { background-color: #E5C361; }
+
+.main {
+	margin: 0px auto;
+	position: relative;
+	left: 0px;
+	top: 0px;
+}
+.main.m400 {
+	width: 400px;
+}
+.main.m600 {
+	width: 600px;
+}
+.main.m800 {
+	width: 800px;
+}
+.main.m1000 {
+	width: 1000px;
+}
+.main.m1200 {
+	width: 1200px;
+}
+.main.m1400 {
+	width: 1400px;
+}
+.main.m1600 {
+	width: 1600px;
+}
+
+
+
+/* 요구사항 */
+.main .mainHeader {
+	/* border-top: 7px dashed #aaa; */
+	border-bottom: 1px dashed #aaa;
+	
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
+
+ul > li {
+	margin-bottom: 5px;
+}
+
+
+
+/* 요구사항.프로그래밍 코드 */
+.main .code {
+	/* margin-right: -20px; */
+	margin-top: 15px;
+	margin-bottom: 0px;
+	font-family: 'D2Coding';
+	font-size: .74em;
+	/* background-color: rgba(40, 44, 52, .35); */
+	/* border-bottom: 1px dashed gray; */
+	text-align: right;
+	color: #777;
+}
+
+
+
+/* 말풍선 */
+.script {
+	position: absolute;
+	background-repeat: no-repeat;
+	display: none;
+}
+.script > div {
+	font-size: 14px;
+	/* font-weight: bold; */
+	position: absolute;
+	line-height: 1.4em;
+}
+.script01 {
+	background-image: url('../images/script01.png');
+	background-size: 174px 130px;
+	width: 174px;
+	height: 130px;
+}
+.script23 {
+	background-image: url('../images/script23.png');
+	background-size: 250px 250px;
+	width: 250px;
+	height: 250px;
+}
+.script29_1 {
+	background-image: url('../images/script29_1.png');
+	background-size: 250px 250px;
+	width: 250px;
+	height: 250px;
+}
+.script29_2 {
+	background-image: url('../images/script29_2.png');
+	background-size: 250px 250px;
+	width: 250px;
+	height: 250px;
+}
+.script29_3 {
+	background-image: url('../images/script29_3.png');
+	background-size: 250px 250px;
+	width: 250px;
+	height: 250px;
+}
+.script29_4 {
+	background-image: url('../images/script29_4.png');
+	background-size: 250px 250px;
+	width: 250px;
+	height: 250px;
+}
+.script42_1 {
+	background-image: url('../images/script42_1.png');
+	background-size: 250px 250px;
+	width: 250px;
+	height: 250px;
+}
+.script42_2 {
+	background-image: url('../images/script42_2.png');
+	background-size: 250px 250px;
+	width: 250px;
+	height: 250px;
+}
+.script42_3 {
+	background-image: url('../images/script42_3.png');
+	background-size: 250px 250px;
+	width: 250px;
+	height: 250px;
+}
+.script42_4 {
+	background-image: url('../images/script42_4.png');
+	background-size: 250px 250px;
+	width: 250px;
+	height: 250px;
+}

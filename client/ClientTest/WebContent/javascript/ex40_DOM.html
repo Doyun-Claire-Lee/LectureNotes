@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>이벤트</h1>
+    <input type="button" value="버튼1" id="btn1">
+    <hr>
+    <div id="box1"></div>
+
+    <script>
+
+        var btn1 = document.getElementById("btn1");
+        var box1 = document.getElementById("box1");
+
+        /**이벤트**/
+        //BOM과 DOM의 차이가 그닥 없음.
+
+        //버튼 클릭
+        //1. BOM - btn1.onclick = 함수
+        //2. DOM - btn1.addEventListener(이벤트 종류, 함수);
+        // btn1.addEventListener("click", function() {});
+
+        function f1() {
+            box1.innerHTML += "f1<br>";
+        }
+        function f2() {
+            box1.innerHTML += "f2<br>";
+        }
+        function f3() {
+            f1();
+            f2();
+        }
+        //BOM
+        // - 1개의 객체에 하나의 이벤트 함수만을 등록시킬 수 있음. (변수 개념)
+        // btn1.onclick = f1;
+        // btn1.onclick = f1 + f2; //안됨.. -> f3라는 함수안에 f1과 f2를 호출하여 해결..
+        // btn1.onclick = f3;
+
+        //DOM
+        // - 1개의 객체에 여러개의 이벤트 함수를 등록시킬 수 있음. (collection개념)
+        // - 이벤트 함수 집합 : Invocation List
+        btn1.addEventListener("click", f1);
+        btn1.addEventListener("click", f2);
+
+        btn1.removeEventListener("click", f1);  //제거
+
+    </script>
+
+</body>
+</html>

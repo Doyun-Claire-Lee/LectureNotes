@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #img {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            transition: all 1s;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <img src="../images/catty01.png" alt="" id="img">
+
+    <script>
+
+        var img = document.getElementById("img");
+
+        window.onclick = function() {
+            
+            var x = event.clientX;
+            var y = event.clientY;
+
+            img.style.transform = "translate(" + (x-64) + "px, " + (y-64) + "px)"; 
+        };
+
+    </script>
+
+</body>
+</html>

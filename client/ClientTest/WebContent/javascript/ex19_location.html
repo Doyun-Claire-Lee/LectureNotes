@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 
+    *BOM*
+
+    window
+        - screen
+        - location
+        - history
+        - document
+            - image
+            - link
+            - form
+                - textbox
+                - radio
+                    - option
+                - select
+                - file
+                - button
+ -->
+
+    <input type="button" value="클릭" onclick="f1();">
+
+    <hr>
+
+    <input type="url" name="txtURL">
+    <input type="button" value="이동하기" onclick="move();">
+    
+    <script>
+
+        window.document.all.txtURL.onkeyup = function () {
+            if (event.keyCode == 13) {
+                location.href = event.srcElement.value;
+            }
+        }
+        function move() {
+            
+            //사용자가 입력한 값을 url변수에 저장
+            var url = window.document.all.txtURL.value;
+
+            //http://로 시작할 경우
+            if (url.startsWith("http://")) {
+                location.href = url;
+                
+            } else {
+                location.href = "http://" + url;
+            }
+        }
+
+        function f1() {
+            //location객체
+            // - 브라우저의 현재 주소값에 관련된 행동
+            // - 자바스크립트를 사용한 페이지 이동(★★★★★★★★★★★)
+
+
+            console.log(location.href);
+
+            //페이지가 이동됨
+            location.href = "ex17_child.html";
+        }
+
+        window.onkeydown = function() {
+            console.log(event.keyCode);
+
+            //1을 누르면 1번 예제로 이동
+            if (event.keyCode == 49) {
+                location.href = "ex01.html";
+
+            //2를 누르면 2번 예제로 이동
+            } else if (event.keyCode == 50) {
+                location.href = "ex02.html";
+            }
+        }
+
+        console.log(window.location.host);      //도메인 + 포트번호
+        console.log(window.location.hostname);  //도메인
+        console.log(window.location.port);      //포트번호
+        console.log(window.location.protocol);  //프로토콜
+
+
+    </script>
+
+
+</body>
+</html>

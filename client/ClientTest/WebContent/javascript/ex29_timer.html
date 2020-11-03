@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>타이머</h1>
+    <form action="" name="form1">
+        <input type="text" name="txt1">
+        <hr>
+        <input type="button" value = "버튼1" name ="btn1">
+        <input type="button" value = "버튼2" name ="btn2">
+        <hr>
+        <img src="../images/catty01.png" name="img1" alt="">
+    </form>
+
+    <script>
+        var txt1 = document.form1.txt1;
+        var btn1 = document.form1.btn1;
+        var btn2 = document.form1.btn2;
+        // var n = 1;
+        var n = 0;
+        var timer = 0;
+        var tlist = [];
+
+        var colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+        var img1 = document.images["img1"];
+
+
+        //타이머
+        // - 시간을 지정해 놓고, 지정된 시간이 지나면 미리 준비해둔 코드를 실행하는 도구
+        // - setTImeout() : 실행횟수 1회
+        // - 지정된 시간이 지날 때마다 미리 준비해둔 코드를 실행하는 도구
+        // - setInterval() : 실행횟수 n회 ~ 무한대
+
+        btn1.onclick = function() {
+            // setTimeout(함수, 시간(ms));
+            // setTimeout(function() {
+            //     console.log("따르릉");
+            // }, 3000);
+            
+            //setInterval(함수, 시간(ms));
+            // setInterval(function() {
+            //     console.log("따르릉");
+            // }, 1000);
+
+            // test();
+        
+            // setInterval(function() {
+            //     txt1.value = (new Date()).toLocaleTimeString(); //웹에서 보는 모든 시계는 이렇게 만들어짐!!
+            // }, 1000);
+
+            //버튼을 누르면 누를수록 빨라짐? -> 타이머가 중첩이 된 것!!
+            // timer = setInterval(function() {
+            //     txt1.value = n;
+            //     n++;
+            // }, 100);
+            // tlist.push(timer);  //배열에 timer값을 누적시킴.
+            // console.log(timer);
+
+            //처음부터 한번만 누를 수 있게 설정하기!
+            if (timer == 0) {   //초기화시킨 timer값.. 즉, 처음일때만
+                //반환값은 무조건 0보다 큰 값을 가짐. 
+                timer = setInterval(function() {
+                    // txt1.value = n;
+                    // txt1.size = n;
+                    document.body.bgColor = colors[n];
+                    n++;
+                    if(n > 6) n = 0;
+                }, 100);
+            }
+        }
+
+        btn2.onclick = function() {
+            //타이머 중지시키기, 중첩되는것을 방지하기 위해
+            //타이머 함수는 반환값이 있음, 중복되지 않는 정수값 -> 타이머 아이디!
+
+            //setTimeout() - clearTimeout(timer id);
+            //setInterval() - clearInterval(timer id);
+
+            // clearInterval(timer);
+
+            //배열의 메소드
+            //push() : 배열의 마지막에 추가하기
+            //pop() : 배열의 마지막 항목을 꺼내고 제거(stack)
+            //shift() : 배열의 첫번째 항목을 꺼내고 제거(queue)
+
+            //한번에 다 삭제하기, 모든 타이머 중지시키기
+            // for (var i=0; i<tlist.length; i++) {
+            //     clearInterval(tlist[i]);
+            // }
+
+            //한번 클릭할 때 마다 한개의 타이머 중지시키기
+            // -> 한번 클릭할때마다 배열에서 하나만 꺼내기, 꺼낸 것을 삭제하기
+            // if (tlist.length > 0) {
+            //     clearInterval(tlist.shift());
+            // } else {
+            //     console.log("empty list");
+            // }
+
+            clearInterval(timer);   //이후엔 다시 실행이 안됨, timer가 0이 아닌 값에서 끝나버렸기 때문.
+            timer = 0;              //다시 초기화시켜줌.
+        }
+
+        function test () {
+            console.log("안녕하세요");
+            // setTimeout(test(), 3000);  --> test() : 테스트 함수의 반환값
+            setTimeout(test, 3000); //재귀호출, Interval과 같아짐 --> 자주 쓰는 방식 
+        }
+
+        img1.onclick = function() {
+                if (timer == 0) {
+                    timer = setInterval(function() {
+                        n++;
+                        img1.src = "../images/catty0" + n + ".png";
+                        if (n > 8) n = 1;
+                    }, 100);
+
+                } else {
+                    clearInterval(timer);
+                    timer = 0;
+                }
+        }
+
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body { margin-bottom: 300px; }
+        .box {
+            border: 1px solid gray;
+            width: 500px;
+            height: 300px;
+            margin: 20px;
+        }
+        #box1 {
+            /* 배경이미지 여러장 넣기*/
+            background-image: url(../images/catty01.png), url(../images/catty03.png), url(../images/catty05.png);
+            background-repeat: no-repeat;
+            background-position: left top, right top, center;
+        }
+
+        #box2 {
+            background-image: url(../images/cat01_big.jpg);
+            /* background-size: 250px 150px; */
+            /* background-size: cover; */
+            /* background-size: 100% 100%; */
+            /* background-size: 500px auto; */
+            background-size: auto 300px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: navajowhite;
+        }
+
+        #box3 {
+            background-image: url(../images/cat01_big.jpg);
+            background-position: center;
+
+            /* 배경이미지가 있는 공간의 단축을 100%로 출력 + 반복되는 영역 발생 */
+            /*  - 배경이미지의 크기가 상자와 같게 만들되 이미지가 짤리지 않고 출력되게 */
+            /* background-size: auto 상자높이 */
+            /* background-size: contain; */
+
+            /* 배경이미지가 있는 공간의 장축을 100%로 출력 + 반복 영역 미발생 */
+            /*  - 배경 이미지의 일부가 짤리면서 꽉찬 이미지로 출력되게 함 */
+            /* background-size: 상자너비 auto */
+            background-size: cover;
+        }
+
+        #thumbnail {
+            border: 1px solid gray;
+            width: 516px;
+        }
+        #thumbnail::after {
+            content: ' ';
+            display: block;
+            clear: both;
+        }
+
+        #thumbnail > div {
+            border: 1px solid gray;
+            width: 150px;
+            height: 150px;
+            float: left;
+            margin: 10px;
+            text-align: center;
+        }
+
+        #thumbnail > div:nth-child(1) {
+            padding-top: 10px;
+            height: 140px;
+        } 
+        #thumbnail > div:nth-child(1) > img {
+        /* 세로로 긴 이미지 -> 가로를 맞추면 세로로 오버플로우 발생 */
+            /* width: 100%; */
+            height: 100%;
+        } 
+
+        #thumbnail > div:nth-child(2) {
+            padding-top: 30px;
+            height: 120px;
+        } 
+        #thumbnail > div:nth-child(2) > img {
+            width: 100%;
+        }        
+
+        #thumbnail > div:nth-child(3) {
+            padding-top: 50px;
+            height: 100px;
+        } 
+        #thumbnail > div:nth-child(3) > img {
+            width: 100%;
+        } 
+
+        /* 배경화면으로 만드는 썸네일 */
+        /* 이미지 태그보다 다루기가 편함 */
+        #thumbnail2 {
+            border: 1px solid gray;
+            width: 516px;
+        }    
+        #thumbnail2::after {
+            content: ' ';
+            display: block;
+            clear: both;
+        }   
+        #thumbnail2 > div {
+            border: 1px solid gray;
+            width: 150px;
+            height: 150px;
+            float: left;
+            margin: 10px;
+            text-align: center;
+
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+        #thumbnail2 > div:nth-child(1) {
+            background-image: url(../images/sp.png);
+        }
+        #thumbnail2 > div:nth-child(2) {
+            background-image: url(../images/mobile_1440421138.jpg);
+        }
+        #thumbnail2 > div:nth-child(3) {
+            background-image: url(../images/main.png);
+        }
+
+
+        /* 풀사이즈 배경이미지 */
+        html {
+            background-image: url(../images/wall21.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+
+        /* 배경색
+        1. solid color : 단색
+        2. gradiant : 색의 변화를 시각적으로 표현
+            - 선형
+            - 원형
+         */
+        .boxes {
+            width: 300px;
+            height: 200px;
+            border: 1px solid gray;
+        }
+        #boxes1 {
+            background: linear-gradient(white, black);
+        }
+        #boxes2 {
+            background: linear-gradient(black, white);
+        }
+        #boxes3 {
+            /* 8가지 방향 지정 가능 */
+            /* 각도 지정 가능 */
+            /* 여러 색 지정 가능 */
+            /* background: linear-gradient(to top right, yellow, red);     */
+            background: linear-gradient(15deg, yellow, red, cornflowerblue, violet, pink);
+        
+        }
+        #boxes4 {
+            /* 타원 */
+            background: radial-gradient(cornflowerblue, lightpink);
+        }
+        #boxes5 {
+            /* 정원 */
+            background: radial-gradient(circle, cornflowerblue, lightpink);
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <div id="box1" class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis voluptatum unde quod obcaecati cupiditate aliquam facilis? Nulla expedita, beatae, exercitationem minus dolorum facere doloribus odit dicta, quae in nemo natus!</div>
+    <div id="box2" class="box">Ullam quo iste vitae, inventore reiciendis repellat qui quisquam, nisi earum nobis libero id tempore architecto dignissimos at beatae error accusantium expedita ab neque illo. Labore cumque voluptatum perferendis vero!</div>
+    <div id="box3" class="box">Temporibus expedita quos iusto atque. Ad laborum reiciendis autem illum corporis placeat dolore delectus est iure temporibus, blanditiis ea sunt ut esse quasi excepturi magnam officiis vel asperiores dolorum porro!</div>
+
+    <h1>썸네일</h1>
+
+    <div id="thumbnail">
+        <div class="item"><img src="../images/sp.png" alt=""></div>
+        <div class="item"><img src="../images/mobile_1440421138.jpg" alt=""></div>
+        <div class="item"><img src="../images/main.png" alt=""></div>
+    </div>
+
+    <h1>배경이미지로 만드는 썸네일</h1>
+    <div id="thumbnail2">
+        <div class="item2"></div>
+        <div class="item2"></div>
+        <div class="item2"></div>
+    </div>
+    
+    <hr>
+
+    <h1>상자</h1>
+    <div id="boxes1" class="boxes">상자1</div>
+    <div id="boxes2" class="boxes">상자2</div>
+    <div id="boxes3" class="boxes">상자3</div>
+    <div id="boxes4" class="boxes">상자4</div>
+    <div id="boxes5" class="boxes">상자5</div>
+
+
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body {
+            margin-bottom: 300px;
+        }
+
+        .box {
+            border: 1px solid black;
+            width: 300px;
+            height: 200px;
+            margin: 20px;
+        }
+
+        /* 숫자가 커지면 커질수록 둥글어짐, 최대값: 가로, 세로 중 더 짧은 측의 절반 */
+        #box1 { border-radius: 100px;}
+
+        /* 정사각형으로 원 만들기 */
+        #box2 {
+            height: 300px;
+            border-radius: 150px;
+        }
+        #box3 {
+            border-top-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            border-top-right-radius: 50px;
+            border-bottom-left-radius: 50px;
+        }
+
+        #box4 {
+            border-radius: 35%;
+        }
+
+        #box5 {
+            border-radius: 100px;
+        }
+
+        .list > img {
+            display: inline-block;
+            border-radius: 50px;
+        }
+
+        #txt1 {
+            border: 1px solid gray;
+            outline: none;
+            border-radius: 100px;
+            padding: 4px 10px;
+        }
+
+        #btn1 {
+            margin-top: 50px;
+            border: 0px solid gray;
+            background-color: cornflowerblue;
+            color: white;
+            border-radius: 3px;
+
+            /* 버튼에 크기주기 */
+            /* 아래 방법은 버튼의 글자 길이가 길어진 경우 짤리는 문제점이 있음 */
+            /* width: 100px; */
+            /* height: 30px; */
+            
+            /* 버튼에 크기주기2, 글자 길이를 늘여도 짤림 없음 */
+            padding: 8px 45px;
+        }
+
+        #btn1:hover {
+            text-shadow: 1px 1px #666;
+            box-shadow: 1px 1px #666;
+        }
+
+        #tbl1 {
+            /* border: 1px solid gray; */
+            /* border-collapse: collapse; */
+            width: 500px;
+        }
+
+        #tbl1 td {
+            border: 1px solid gray;
+            width: 100px;
+            padding: 5px;
+            /* border-radius: 10px; */
+        }
+
+        #tbl1 tr:first-child td:first-child {
+            border-top-left-radius: 20px;
+        }
+        #tbl1 tr:first-child td:last-child {
+            border-top-right-radius: 20px;
+        }
+        #tbl1 tr:last-child td:first-child {
+            border-bottom-left-radius: 20px;
+        }
+        #tbl1 tr:last-child td:last-child {
+            border-bottom-right-radius: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="box1" class="box">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et voluptate tempora porro officiis laudantium maxime, id deserunt tempore debitis velit ad aliquam inventore commodi maiores at vero! Omnis, expedita iure.</div>
+
+    <div id="box2" class="box">Deleniti dicta corporis rem quasi ratione quia laboriosam est laudantium dolorem ipsam accusamus maiores in nam eligendi animi dignissimos voluptate qui, voluptas inventore placeat debitis. Officiis maiores enim molestiae quis.</div>
+
+    <div id="box3" class="box">Perspiciatis molestiae ea numquam error natus facere facilis porro at provident voluptate possimus, quasi non mollitia consequuntur? Magnam eveniet soluta assumenda, fuga commodi doloremque. Perspiciatis placeat voluptatibus temporibus culpa consequatur?</div>
+
+    <div id="box4" class="box">Debitis consectetur impedit natus earum, quam dolore minima hic pariatur eligendi magnam ullam quia ipsam nulla molestias vero aliquid culpa fugit autem, tempora dolorem quisquam enim. Iste porro quae eligendi?</div>
+
+    <div id="box5" class="box">Ex architecto in deserunt aut veritatis cumque beatae! Fugit magnam maiores doloribus, non nobis corrupti sint minus similique delectus nisi labore sit dolore modi odit ipsam sequi possimus quisquam expedita!</div>
+
+
+    <div class="list">
+        <img src="../images/dog01.jpg" alt="">
+        <img src="../images/dog02.jpg" alt="">
+        <img src="../images/dog03.jpg" alt="">
+        <img src="../images/dog04.jpg" alt="">
+        <img src="../images/dog05.jpg" alt="">
+    </div>
+
+    <h1>컨트롤</h1>
+    <div><input type="text" id="txt1"></div>
+    <div><input type="button" value="Administrator Button" id="btn1"></div>
+
+    <h1>표</h1>
+    <table id="tbl1">
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+            <td>data</td>
+        </tr>
+    </table>
+
+
+
+
+
+    
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        
+        블럭태그
+        - 자신의 영역 내에 자신의 내용물만 출력 -> 라인 독점
+        - 너비 100%, 높이 내용물 만큼(auto)
+        - 너비와 높이를 사용자가 지정 가능
+        - padding과 margin 조절 가능
+
+
+        인라인태그
+        - 자신의 내용과 다른 요소의 내용을 한줄에 출력
+        - 너비 내용물만큼, 높이 내용묾만틈
+        - 너비, 높이 사용자 지정 불가능(★★★★★), 억지로 사용은 가능하지만 하지 말기..
+        - padding, margin 좌우만 조절 가능, 상하 불가능
+
+        */
+
+        .box, .link { border: 1px solid grey;}
+
+        #box2 {
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        #link2 {
+            width: 100px;
+            height: 100px;
+            padding: 50px;
+            margin: 50px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <h1>블럭태그</h1>
+
+    <div id="box1" class="box">상자1</div>
+    <div id="box2" class="box">상자2</div>
+    <div id="box3" class="box">상자3</div>
+
+    <h1>인라인태그</h1>
+
+    <a href="#" id="link1" class="link">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur aut excepturi dolor voluptates libero asperiores quae eos tempore debitis odio.</a>
+    <a href="#" id="link2" class="link">링크2</a>
+    <a href="#" id="link3" class="link">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque necessitatibus doloremque consequuntur commodi modi odio, ea magnam saepe quia repellendus.</a>
+    
+</body>
+</html>

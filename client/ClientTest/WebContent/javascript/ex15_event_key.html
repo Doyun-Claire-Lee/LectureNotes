@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>키 이벤트</h1>
+    <form name="form1">
+        <input type="text" name="txt1" size="50">
+        <hr>
+        <input type="text" name="txt2" size="50">
+        <hr>
+        <textarea name="txt3"></textarea>
+    </form>
+
+
+    <script>
+        
+        /*
+        키 이벤트
+        - 폼관련 태그들에게만 주로 사용한다. (포커스를 가져야 하기 때문)
+        - onkeyXXX
+
+        1. onkeydown
+            - 키를 눌렀을 때 발생
+            - 물리 키에 반응(event.keyCode: 소문자, 대문자의 문자코드 값 차이가 없음.)
+            - 입력값이 바로 필요하지 않은 경우
+
+        2. onkeyup
+            - 키를 떼었을 때 발생
+            - 입력을 사용해야 하는 경우
+
+        3. onkeypress
+            - 키를 눌렀을 때 발생, 현재는 잘 안쓰임(사용할 업무가 많이 없음)
+            - 문자에 반응 (event.keyCode: 소문자, 대문자의 문자코드 값 차이가 있음!!)
+            - 특수키에 반응하지 않는다. (방향키, 보조키 등..)
+
+        */
+        
+        var txt1 = window.document.form1.txt1;
+        var txt2 = window.document.form1.txt2;
+        var txt3 = window.document.form1.txt3;
+        
+        //코드 재사용을 위해 실명 함수를 이벤트로 걸기도 함.
+        txt1.onkeydown = f1;
+        txt1.onkeyup = f2;
+        txt1.onkeypress = f3;
+                
+        function f1() {
+            // console.log("keydown");
+            // console.log(event.keyCode);
+
+            // 아래 텍스트박스에 복사하기
+            // 한박자씩 늦게 복사가 됨 -> txt1 에 입력하는 것 보다 이벤트가 먼저 발생하기 때문에
+            // txt2.value = txt1.value;
+        }
+        function f2() {
+            // console.log("keyup");
+            txt2.value = txt1.value;
+        }
+        function f3() {
+            console.log("keypress");
+            console.log(event.keyCode);
+        }
+
+
+        //전역 이벤트
+        // - 어떤 태그에 포커스가 있든지 항상 반응하는 이벤트
+        // - 윈도우에 걸면 전역 이벤트가 됨.
+
+        window.onkeydown = function() {
+            
+            if(event.keyCode == 37) {           //좌
+                txt3.cols--;
+            } else if (event.keyCode == 39) {   //우
+                txt3.cols++;
+            }else if (event.keyCode == 38) {    //상
+                txt3.rows--;
+            }else if (event.keyCode == 40) {    //하
+                txt3.rows++;
+            }
+        }
+        
+
+    </script>
+</body>
+</html>

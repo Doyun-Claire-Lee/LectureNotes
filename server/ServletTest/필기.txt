@@ -1,0 +1,105 @@
+#Dynamic Web Project 구조
+
+1. Java Resources
+	- 자바 프로젝트의 구조
+	- a. src : 자바 소스 폴더
+	- b. Libraries
+		1) Apache Tomcat(필수)
+			- 웹사이트 관련 jar
+		2) JRE(필수)
+			- 자바 관련 jar
+			
+2. build > classes
+	- src내의 자바 파일의 컴파일 결과를 저장하는 폴더
+	
+3. WebContent
+	- 모든 웹 자원을 관리하는 루트 폴더(외부에 공개되는 폴더)
+	a. META-INF : 아파치 톰캣 폴더
+	b. WEB-INF(********************)
+		- 사이트 전반 관련 설정이 들어있는 폴더
+		- 외부에 비공개되는 폴더(보안)
+	c. WEB-INF > lib
+		- 외부 jar 참조 폴더(jar 파일을 복사해서 붙여넣기만 해두면 됨.)
+		- ojdbc6.jar
+	d. WEB-INF > web.xml(**********)
+		- 사이트 설정 파일
+		
+		
+
+#수업 순서
+
+1. Servlet
+2. JSP
+3. Servlet + JSP
+-----------------
+4. Spring
+5. MyBatis
+
+
+서버 사이드 기술의 목적!
+- 동적으로 웹페이지를 만든다.		
+
+1. 비슷한 레이아웃 + 콘텐츠를 가진 페이지를 다량으로 제작해야 하는 경우
+2. 비슷한 레이아웃 + 개인 콘텐츠를 가진 페이지를 제작해야 하는 경우
+ 
+Servlet,서블릿
+- 자바 진영에서 처음으로 시도한 웹 서버 기술
+- 자바를 사용해서 동적으로 페이지를 만드는 기술
+- Server + Applet(flash, activeX와 비슷한 개념, 작은 프로그램을 만드는 기술)
+
+Servlet 동작 순서
+1. Java + Oracle + JDBC + Servlet -> 페이지(html, css, js)를 동적으로 만드는 프로그램을 만든다.
+2. 1번을 웹 서버와 연동시킨다.(설정)
+3. 브라우저(고객)가 페이지 요청
+4. 1번 프로그램이 요청에 따른 페이지를 제작하고 브라우저에게 돌려준다.(응답)
+
+Servlet Class, 서블릿 클래스
+- 서블릿으로 구성된 프로그램(?)
+- 순수 자바 클래스
+- 웹 어플리케이션(사이트)를 자바 형태로 제작한 것
+- 동적으로 웹페이지를 만드는 주체
+
+Servlet Class 작성 규칙
+1. 서블릿 클래스 선언
+	a-1. javax.servlet.Servlet 인터페이스를 구현한다.(복잡하고 잘 안쓰이는 방식)
+	a-2. javax.servlet.http.HttpServlet 클래스를 상속한다. (간단)
+	
+2. doGet/doPost 메소드 선언
+	- 둘 중 하나 이상 선언 
+	- 클라이언트(브라우저)의 요청이 들어오면 자동으로 실행되는 메소드(콜백
+	- 메소드, 이벤트 함수와 비슷한 개념)
+	- 클라리언트에게 돌려줄 HTML을 작성한다. (******************)
+	- 메소드 작성 규칙
+		a. 매개 변수 작성(2개)
+			1) javax.servlet.http.HttpServletRequest
+			2) javax.servlet.http.HttpServletResponse
+		b. 예외 미루기
+			1) java.io.IOException
+			2) javax.servlet.ServletException
+3. 동적 HTML 문서 구현
+	- HttpServletResponse 객체의 getWriter() 메소드 호출 -> PrintWriter 객체 반환(BufferedWriter 역할)
+	- PrintWriter 객체의 printXXX()를 사용해서 HTML을 작성한다.
+	- 브라우저가 돌려받을 문서가 만들어진다.
+	
+4. 브라우저가 자바 파일(서블릿 클래스)을 호출할 수 있도록 설정한다.
+	- 일반 자바 파일은 URL을 통해서 호출이 불가능
+	- 호출이 가능하게 미리 설정해야 함. -> Web.xml에서 설정!
+	- 서블릿 URL 매핑
+	
+Servlet 특징
+1. 자바 기반
+2. 웹페이지 생산 업무
+3. 자바로 할 수 있는 모든 기능을 웹페이지 생산에 적용 가능
+4. 개발자 생산성 낮음(클라이언트의 모든 코드를 문자열 취급하기 때문에)
+
+Servlet 수업 끝!
+
+	
+	
+
+
+
+
+
+
+

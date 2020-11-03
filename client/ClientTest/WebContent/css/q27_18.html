@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #8FD1D8;
+            margin: 0px;
+        }
+        #main {
+            width: 569px;
+            /* border: 1px solid gray; */
+            margin: 0px auto;
+        }
+        #main h1 {
+            font-variant: small-caps;
+            color: #444;
+            font-size: 48px;
+        }
+        #tape {
+            background-image: url(../images/tape.png);
+            background-repeat: no-repeat;
+            width: 569px;
+            height: 359px;
+            position: relative;
+            top: 0px;
+            left: 0px;
+        }
+        #tape #line {
+            background-image: url(../images/tapeline.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            width: 133px;
+            height: 64px;
+            position: absolute;
+            top: 127.5px;
+            left: 217.5px;
+            overflow: hidden;
+            animation-name: slide;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        #tape #lefthole {
+            display: block;
+            position: absolute;
+            top: 119px;
+            left:125px;
+            animation-name: roll;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        #tape #righthole {
+            display: block;
+            position: absolute;
+            top: 119px;
+            left: 362px;
+            animation-name: roll;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes roll {
+            from {
+                transform: rotate(0deg);
+            } to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes slide {
+            0%  {
+                background-position: -20px 0px;
+            } 25% {
+                background-position:-40px 0px;
+            } 50% {
+                background-position: -20px 0px;
+            } 75% {
+                background-position: 0px 0px;
+            } 100% {
+                background-position: -20px 0px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h1><i class="fas fa-headphones-alt"></i> Music</h1>
+        <div id="tape">
+            <img id="lefthole" src="../images/tapehole.png">
+            <img id="righthole" src="../images/tapehole.png">
+            <div id="line"></div>
+        </div>
+        <hr style="margin-top: 200px; border: 0px; border-top: 1px dashed white;">
+        <a href="../images/tape.zip" style="text-decoration: none; color: #4E4E4E;font-weight: bold;">Image Download</a>
+    </div>		
+        
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* CSS 영역, 주석도 다름 */
+        /* 내부 스타일 시트 CSS */
+        p {
+            color:steelblue;
+        } /* P태그를 찾아 색을 적용하라는 의미 */ 
+    </style>
+
+    <!-- 외부 CSS 파일 참조하기 -->
+    <link rel="stylesheet" href="ex01.css">
+</head>
+<body>
+    
+    <!-- 
+
+        앞으로 HTML태그로는 서식 작업을 절대로 하지 말기!!!!!!!!!!!!!1
+        절대 절대 하지말기.. 
+
+        CSS, Cascading Style Sheet
+        - 스타일 시트
+        - HTML페이지의 **태그**에 서식을 적용하는 언어
+        - 디자인 언어
+        - 독립 사용 불가능, 반드시 HTML문서에서 적용해야 함.
+        
+        CSS 특징
+        1. 골격(HTML 태그 + 데이터)과 서식 코드를 완전 분리한다.
+            - 골격 : HTML 담당
+            - 서식 : CSS 담당
+        2. 분리가능성 덕분에 재사용이 가능해짐. (Greate Merit!)
+        3. 서식 기능 확장
+            - 기존 HTML이 하던 서식 기능보다 업그레이드 됨.(***)
+
+
+        ***CSS는 HTML과 완전히 다른 언어임!!***
+
+        CSS를 HTML 페이지에 적용하는 방법
+        1. Inline Style Sheet, 인라인 스타일 시트
+            - 모든 태그는 style 속성을 가진다. 
+            - style 속성을 사용해서 해당 태그의 서식을 적용하는 방식
+            - style="CSS 구문"
+            - 적용 범위: 태그 1개
+            - 장점: 가독성이 높음
+            - 단점: 재사용 불가(해당 태그만 적용ㄴ)
+
+        2. Embeded Style Sheet, 내부 스타일 시트
+            - head 내에 <style>태그를 사용하여 작성하는 방식
+            - 적용 범위: 한 페이지(해당 페이지)
+            - 장점: 재사용 가능
+            - 단점: 가독성이 떨어짐
+
+        3. External Style Sheet, 외부 스타일 시트
+            - 별도 파일에서 CSS를 작성하는 방식
+            - *.css
+            - <link>라는 태그로 별도의 css 파일을 참조
+            - 적용 범위: 모든 페이지(사이트 내)
+            - 장점: 재사용성이 가장 높음
+            - 단점: 가독성이 가장 낮음..(해당 css파일을 찾아서 확인해야 함.) -> 식별자 선택이 힘들어짐.
+     -->
+
+     <!-- 안쓰는 태그.. -->
+     <font color="red" size="7">홍길동입니다.</font><br> <!-- 폰트 최대 사이즈:7-->
+     <!-- CSS -->
+     <span style="color:red; font-size: 100px; background-color: yellow;">홍길동입니다.</span>
+     <hr>
+
+     <h1>인라인 스타일 시트</h1>
+     <div style="color:darkgreen;">인라인 스타일 시트 꾸미기</div>
+     <hr>
+
+     <h1>내부 스타일 시트</h1>
+
+     <p>내부 스타일 시트 문단입니다.</p>
+     <p>내부 스타일 시트 문단입니다.</p>
+     <p>내부 스타일 시트 문단입니다.</p>
+
+
+
+
+</body>
+</html>

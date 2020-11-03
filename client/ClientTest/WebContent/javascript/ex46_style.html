@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cat {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+</head>
+<body>
+    
+    <img src="../images//catty12.png" alt="" id="cat">
+
+    <script>
+        
+        var cat = document.getElementById("cat");
+        var distance = 15;
+        
+        window.onkeydown = function() {
+
+            if (event.keyCode == 37) {
+            //좌
+                cat.style.left = parseInt(getComputedStyle(cat).left) - distance + "px";
+
+            } else if (event.keyCode == 38) {
+            //상
+                cat.style.top = parseInt(getComputedStyle(cat).top) - distance + "px";
+        
+            } else if (event.keyCode == 39) {
+            //우
+                cat.style.left = parseInt(getComputedStyle(cat).left) + distance + "px";
+
+            } else if (event.keyCode == 40) {
+            //하
+                cat.style.top = parseInt(getComputedStyle(cat).top) + distance + "px";
+            } else if (event.keyCode == 83) {
+            //s, 스텔스모드
+
+                var op = getComputedStyle(cat).opacity;
+                if (op == 1) {
+                    cat.style.opacity = 0.2;
+                } else {
+                    cat.style.opacity = 1;
+                }
+
+            } else if (event.keyCode == 86) {
+            //v
+                var display = getComputedStyle(cat).display;
+
+                if (display == "block") {
+                    cat.style.display = "none";
+                } else {
+                    cat.style.display = "block";
+                }
+            } else if (event.keyCode == 65) {
+            //a
+                var width = getComputedStyle(cat).width;
+
+                if (width == "128px") {
+                    cat.style.width = "256px";
+                } else {
+                    cat.style.width = "128px"; 
+                }
+            }
+
+
+
+        }
+        
+
+        
+        
+        
+    </script>
+
+</body>
+</html>

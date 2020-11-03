@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <style>
+        * { outline: none; }
+        #a1 {
+            width: 400px;
+        }
+        #p1 > div {
+            transition: width 1s;
+            transition-timing-function: linear;
+        }
+        .slider {
+            margin: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <h1>Widgets</h1>
+
+    <h2>Accordion</h2>
+    <div id="a1">
+        <h3>HTML</h3>
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero culpa corporis possimus accusantium natus doloremque porro repellat in quia aut aliquid provident assumenda, iste, voluptate praesentium esse dignissimos ipsa magni!</div>
+        <h3>CSS</h3>
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero culpa corporis possimus accusantium natus doloremque porro repellat in quia aut aliquid provident assumenda, iste, voluptate praesentium esse dignissimos ipsa magni!</div>
+        <h3>JavaScript</h3>
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero culpa corporis possimus accusantium natus doloremque porro repellat in quia aut aliquid provident assumenda, iste, voluptate praesentium esse dignissimos ipsa magni!</div>
+    </div>
+    <hr>
+
+    <h2>Buttons</h2>
+    <div id="btns">
+        <input type="button" value="등록하기" id="btn1" class="btn">
+        <input type="button" value="취소하기" id="btn2" class="btn">
+        <a href="#" class="btn">링크 버튼</a>
+    </div>
+    <hr>
+
+    <h2>Check Box & Radio Button</h2>
+    <h3>취미를 선택하세요.</h3>
+    <div id="set1">
+        <!-- jQueryUI를 적용하려면 라벨이 필수임!! -->
+        <label for="cb1">코딩</label>
+        <input type="checkbox" class="cb" id="cb1">
+        <label for="cb2">먹기</label>
+        <input type="checkbox" class="cb" id="cb2">
+        <label for="cb3">낮잠자기</label>
+        <input type="checkbox" class="cb" id="cb3">
+    </div>
+    <h3>성별을 선택하세요.</h3>
+    <div id="set2">
+        <!-- jQueryUI를 적용하려면 라벨이 필수임!! -->
+        <label for="rb1">여자</label>
+        <input type="radio" class="rb" id="rb1" name="rb">
+        <label for="rb2">남자</label>
+        <input type="radio" class="rb" id="rb2" name="rb">
+        <label for="rb3">둘다 아님</label>
+        <input type="radio" class="rb" id="rb3" name="rb">
+    </div>
+    <hr>
+
+    <h2>Progressbar</h2>
+    <input type="button" value="버튼" id="btn3">
+    <div id="p1"></div>
+    <!-- 개발자도구로 확인해보면 p1안에 새로운 div가 생성되어 있음. 이 div가 진행바 역할을 함. -->
+    <hr>
+
+    <h2>Datepicker</h2>
+    <input type="text" id="date1">
+    <hr>
+
+    <h2>Dialog</h2>
+    <input type="button" value="확인" id="btn4">
+    <div id="dialog1">
+        안녕하세요.
+    </div>
+    <hr>
+
+    <h2>Slider</h2>
+    
+    <div id="slider5" class="slider" title="숙박요금"></div>
+    <div id="slider1" class="slider" title="화면 회전"></div>
+    <fieldset>
+        <div id="slider2" class="slider" title="빨강"></div>
+        <div id="slider3" class="slider" title="파랑"></div>
+        <div id="slider4" class="slider" title="녹색"></div>
+    </fieldset>
+    <hr>
+
+    <h2>Spinner</h2>
+    <input type="text" id="age" title="나이 입력">
+
+    <h2>Tabs</h2>
+    <!-- 따로 요구되는 기본 골격이 있음. 아래처럼 만들 것 -->
+    <div id="tabs">
+        <ul>
+            <li><a href="#tab1">HTML</a></li>
+            <li><a href="#tab2">CSS</a></li>
+            <li><a href="#tab3">JavaScript</a></li>
+        </ul>
+        <div id="tab1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore harum autem tenetur neque atque quae, repellendus numquam, vel doloremque nostrum earum incidunt a ipsam impedit magni omnis ratione officiis ex.</div>
+        <div id="tab2">Quis eius ipsa cum. Impedit nesciunt repellat maiores maxime nam sapiente aliquid ducimus id, officia veritatis sunt beatae eligendi fuga, ex doloribus dolorum dolore cumque non, nisi excepturi in eius.</div>
+        <div id="tab3">Ut, voluptatem optio doloribus placeat commodi numquam sequi delectus. Nulla veniam cum dolorum voluptatem aut incidunt, repudiandae ut dignissimos itaque labore rem, sequi deserunt velit ea expedita officia eaque nemo!</div>
+    </div>
+    
+
+
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script>
+
+        $("#a1").accordion();
+        
+        $(".btn").button();             //단지 디자인을 변경해줌. (같은 분위기를 내도록), 꼭 버튼이 아니어도 잘 변경해줌
+        
+        $(".cb").checkboxradio();
+        $(".rb").checkboxradio();
+        $("#set1, #set2").controlgroup();   //분리되어있던 버튼들이 하나의 큰 상자로 묶이게 됨.
+
+        $("#p1").progressbar({
+            value: 0           //백분율(0~100)
+        });
+        $("#btn3").click(function() {
+            $("#p1").progressbar({
+                value: 50           //백분율(0~100)
+            }); 
+        })
+
+        $("#date1").datepicker({
+            dateFormat: "yy-mm-dd",
+            // minDate: "2020-07-06",   //20200706이전의 날짜는 선택이 불가능하게 됨.
+            // maxDate: "2020-07-24"
+            // minDate: "-5",              //현재 날짜를 기준으로 상대적으로 설정할 수 있음.
+            // maxDate: "+5"
+            minDate: "-1M -5D",
+            maxDate: "+1M +5D"
+        });
+
+        $("#dialog1").hide();
+        $("#btn4").click(function() {
+            $("#dialog1").dialog({ 
+                title: "인삿말",
+                width: 300,
+                height: 250,
+                draggable: false,
+                resizable: false,
+                modal: true,
+                buttons: {
+                    "확인" : function() { alert("파일을 삭제했습니다."); },
+                    "취소" : function() { $("#dialog1").dialog("close"); }  //다이얼로그 창 닫기  
+
+                } 
+            }); 
+            //대화 상자의 종류(일반)
+            //1. modal
+            //  - 팝업창이 포커스를 독점한다.
+            //  - 팝업창에서 작업중인 경우 부모로 포커스를 이동시킬 수 없다.
+            //2. modeless
+            //  - 팝업과 부모창의 포커스 전환이 자유롭다
+            //  - 팝업의 업무와 부모창의 업무가 서로 종속적이지 않을 때
+        })
+
+        $("#slider1").slider({
+            min: 0,
+            max: 1000,
+            step: 10,
+            slide: function(event, ui) {   //움직일때마다 발생하는 이벤트
+                console.log(ui.value);
+                $("body").css("transform", `rotate(${ui.value}deg)`);
+            }
+        });
+
+        $("#slider2, #slider3, #slider4").slider({
+            //RGB로 설정하기
+            min: 0,
+            max: 255,
+            value: 255,
+            slide: function(event, ui) {
+                var r = $("#slider2").slider("value");
+                var g = $("#slider3").slider("value");
+                var b = $("#slider4").slider("value");
+                console.log(r, g, b);
+
+                $("body").css("background-color", `rgb(${r}, ${g}, ${b}`);
+            }
+        });
+        $("#slider5").slider({
+            // orientation: "vertical"
+            range: true,     //범위 설정 가능
+            min: 10000,
+            max: 300000,
+            values: [50000, 200000],
+            step: 10000,
+            change: function(event, ui) {   //change 이벤트: 사용자가 버튼을 놓았을 때 
+            // slide: function(event, ui) {    //slide 이벤트: 버튼을 움직이는 내내
+
+                //value - 단일값, values - 다중값
+                console.log(ui.values[0], ui.values[1]);
+            }
+        });
+
+        $("#age").spinner({
+            min: 15,
+            max: 150, 
+            step: 10
+        });
+        $("#age").tooltip();        //풍선도움말
+        $("*[title]").tooltip({
+            track: true,             //풍선도움말이 따라다님
+            show: {                  //등장 효과 주기
+                effect: "slideDown",
+                delay: 250
+            },
+            hide: {
+                // effect: "explode",
+                effect: "slideUp",
+                // delay: 250
+            }
+        });
+
+        //이벤트
+        //1. 마우스를 객체에 올릴때 바로 발생 -> mouseover, mouseenter
+        //2. 마우스를 객체에 올리고 일정 시간 이후에 발생 -> hover(0.2초 정도)'
+        
+        $("#tabs").tabs({
+            active: 2           //기본값 주기(인덱스임)
+        });
+
+    </script>
+</body>
+</html>

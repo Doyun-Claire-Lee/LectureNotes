@@ -1,0 +1,49 @@
+
+#Spring Tiles
+ - A free open-sourced templating framework
+ - 템플릿 작업을 전문적으로 도와주는 툴
+ - 템플릿 엔진 > 조각 페이지 + include
+ 
+#사이트 구현하기
+ - 주제 : 회원 + 관리자
+ - 회원페이지
+ 	- 회원 정보 페이지
+ 	- 회원 포인트 페이지
+ 	- 회원 게시판
+ - 관리자페이지
+ 	- 관리자 로그 페이지
+ 	- 관리자 회원 관리 페이지
+ 	- 관리자 차트 페이지
+
+#프로젝트 셋팅하기
+	1. 스프링 버전 셋팅
+		- pom.xml
+	2. pom.xml 	 
+		- tiles 관련 jar 5개 추가
+	3. web.xml
+		- *.action
+	4. 파일 생성
+		- webapp > WEB-INF > tiles.xml
+	5. root-context.xml
+		- 설정 없음
+	6. servlet-context.xml
+		- tiles 설정 
+	7. 리소스 등록
+		- webapp > resources > 부트스트랩 복사(css, fonts, js)
+	8. 파일 생성
+		- MainController.java
+		- views > member > info.jsp
+		- views > member > point.jsp
+		- views > member > board.jsp
+		- views > admin > log.jsp
+		- views > admin > member.jsp
+		- views > admin > chart.jsp
+		- views > inc > mainmenu.jsp
+		- views > inc > membermenu.jsp
+		- views > inc > adminmenu.jsp
+		- views > inc > asset.jsp
+		- views > layout > main.jsp
+		
+#Tiles의 단점 -> 초기 세팅 비용 고가..
+#Tiles의 장점 -> 비즈니스 코드를 쉽게 구분할 수 있다.
+		

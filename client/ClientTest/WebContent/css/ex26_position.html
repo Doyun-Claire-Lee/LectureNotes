@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #search {
+            width: 300px;
+            height: 18px;
+            outline: none;
+
+        }
+        #list {
+            /* 추천검색어창 */
+            background-color: linen;
+            border: 1px solid gray;
+            /* 너비와 위치 맞추기 */
+            width: 306px;
+            position: absolute;
+            left: 57px;
+            top: 25px;
+            /* 일단 감춰놓기 */
+            /* display: none; */
+        }
+        #list .item {
+            margin: 5px;
+        }
+        #main{
+            /* border: 2px solid darkgray; */
+            width: 800px;
+            margin: 0px auto;
+            position: relative;
+            left: 0px;
+            top: 0px;
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <div id="main">
+        <header>
+            검색어:
+            <input type="text" id="search" autocomplete="off">
+            <input type="button" value="검색하기" id="btn">
+        </header>
+        <section>
+            <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod temporibus consequatur architecto corporis delectus harum magnam ipsam a placeat quos, sed rerum corrupti tempore soluta eum, perspiciatis repellat amet laudantium?</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora harum dolore itaque maiores! Similique omnis voluptatum vel sed officiis modi dolores tempore excepturi incidunt nam laboriosam consequatur, animi totam magnam.</p>
+            <h1>Corporis delectus sapiente ipsa incidunt molestiae modi molestias, quos illum, aliquid quisquam perferendis explicabo libero neque. Labore laudantium rerum recusandae quos, quidem eum ipsum, blanditiis nobis quod veniam provident adipisci!</h1>
+            <p>Quia consequuntur, cumque illum unde laudantium aspernatur dolor praesentium quae quibusdam exercitationem deleniti libero quidem molestiae repellat? Quos dolorum qui alias excepturi ipsum ea dignissimos totam. Quasi et corporis porro?</p>
+            <h1>Suscipit, quibusdam. Aperiam tempore fuga quis sequi molestiae deserunt consectetur illum voluptatem similique saepe ad hic voluptate, temporibus suscipit, reiciendis assumenda! Esse sed sequi officia nulla accusantium tenetur voluptatem veniam.</h1>
+            <p>Iste exercitationem dignissimos vel iure aliquid excepturi dicta aliquam a harum necessitatibus molestiae, omnis eveniet voluptatibus provident aperiam ab, esse optio similique. Maxime neque nemo tempora! Eos quasi earum repellendus.</p>
+            <h1>Laborum fugiat aperiam neque impedit ad ipsam sed voluptates cum rem mollitia, quasi sint magni? Quaerat necessitatibus dignissimos accusantium, voluptates quis rerum alias? Asperiores incidunt possimus quod ipsam libero quidem.</h1>
+            <p>Porro itaque autem quam pariatur explicabo voluptas omnis? Quasi eligendi eius esse, necessitatibus recusandae impedit repellendus odio dolore vel eum perspiciatis ducimus quas officia excepturi natus sed aliquid aliquam rerum.</p>
+            <h1>Non obcaecati reprehenderit recusandae quibusdam vitae praesentium deleniti est nihil aperiam iure voluptatum voluptatibus, atque corporis eveniet dignissimos ab autem distinctio. Iste odit consectetur optio dicta aspernatur, molestias blanditiis accusamus?</h1>
+            <p>Delectus totam earum omnis rem ut esse fugiat ea, veritatis dolores voluptate odit aut sit exercitationem cupiditate soluta similique porro iste ipsa ipsum id harum cum dolorum repellat. Repellat, alias.</p>
+        </section>
+        <div id="list">
+            <!-- 검색창 밑에 뜰 단어의 목록 -->
+            <div class="item">자바</div>
+            <div class="item">오라클</div>
+            <div class="item">HTML</div>
+            <div class="item">JavaScript</div>
+            <div class="item">CSS</div>
+            <div class="item">JDBC</div>
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

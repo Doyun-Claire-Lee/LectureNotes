@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<!-- 
+		ViewResolver 역할
+		1.return "ex04"를 하는 순간 ViewResolver가 호출됨.
+		2. 전달받은 ex04 앞에 /WEB-INF/views/를 붙이고 뒤에 .jsp를 붙인다.
+	 -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	
+	<context:component-scan base-package="com.test.spring" />
+	
+	<!-- bean 생성하기  -->
+	<beans:bean class="com.test.spring.Hello" name="/hello.action"></beans:bean>
+	<beans:bean class="com.test.spring.Ex01" name="/ex01.action"></beans:bean>
+	
+	
+	<!-- 
+		1. 브라우저에 http://xxxx/ex03.action 이라고 요청한다.
+		2. DispatcherServlet이 요청을 받아 "/ex03.action" 이라는 주소를 확인한다.
+		3. DispatcherServlet이 확인된 "/ex03.action"이라는 주소를 가지고 servlet-context.xml안에 들어있는 모든 <bean>태크의 name값과 비교해서 동일한 <bean>태그를 찾는다.
+		4. 찾은 <bean>태그를 getBean() 메소드를 사용해서 해당 클래스의 객체를 만든다.	-> 누가? DispatcherServlet이!
+		5. 만들어진 객체의 handleRequest() 메소드를 호출해 작업을 진행한다.
+	 -->
+	<beans:bean class="com.test.spring.TestDAO" id="dao"></beans:bean>	<!-- 의존주입할 객체 -->
+	<beans:bean class="com.test.spring.Ex03Controller" name="/ex03.action">
+		<!-- 생성자를 만들었을때 사용하는 주입도구 -->
+		<beans:constructor-arg ref="dao"></beans:constructor-arg> 		<!-- 의존주입 -->
+		<!-- Setter를 만들었을때 사용하는 주입도구 -->
+		<!-- <beans:property name="dao"></beans:property> -->			<!-- 의존주입, setDao()호출 -->
+	</beans:bean>
+
+
+
+</beans:beans>

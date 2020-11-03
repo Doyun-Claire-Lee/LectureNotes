@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tbl1 {
+            border: 1px solid gray;
+            border-collapse: collapse;
+        }
+        #tbl1 td {
+            border: 1px solid gray;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    
+    <table id="tbl1">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <script>
+        var td = document.getElementsByTagName("td");
+        var index = 0;
+
+        td[index].style.backgroundColor = "gold";
+
+        window.onkeydown = function() {
+
+            //왼쪽방향키
+            if (event.keyCode == 37) {
+
+
+                td[index].style.backgroundColor = "transparent";    
+                index--;
+
+                if (index < 0) {
+                    index = td.length-1;
+                    // index = 0;
+                }
+                
+                td[index].style.backgroundColor = "gold";
+                
+
+            //오른쪽방향키
+            } else if (event.keyCode == 39) {
+                
+                td[index].style.backgroundColor = "transparent";    
+                index++;
+
+                if (index >= td.length) {
+                    index = 0;          //순환
+                    // index = td.length-1 //마지막 셀로 고정
+                }
+
+                td[index].style.backgroundColor = "gold";
+                
+            }
+        }
+
+        function clear() {
+            for (var i=0; i<td.length; i++) {
+                td[i].style.backgroundColor = "transparent";
+            }
+        }
+
+
+
+
+
+    </script>
+
+</body>
+</html>

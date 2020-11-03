@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset {
+            width: 250px;
+            height: 100px;
+            border: 1px solid gray;
+        }
+        fieldset > div {
+            margin: 5px;
+        }
+        #tbl1 {
+            border : 1px solid gray;
+            border-collapse: collapse;
+            margin: 20px 0px;
+        }
+
+        #tbl1 td, #tbl1 th { 
+            border: 1px solid gray;
+            width: 70px;
+            height: 45px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h1>테이블</h1>
+
+    <fieldset>
+        <legend>입력</legend>
+        <div>색상코드: <input type="color" id="color"></div>
+        <div>색상명: <input type="text" id="txtname" size="12"></div>
+    </fieldset>
+
+    <table id="tbl1">
+        <thead>
+            <th>색상명</th>
+            <th>미리보기</th>
+        </thead>
+        <tbody id="tbody1">
+            <tr>
+                <td>토마토</td>
+                <td bgcolor="tomato">#FF6347</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        
+        var color = document.getElementById("color")
+        var txtname = document.getElementById("txtname");
+        var tbody1 = document.getElementById("tbody1");
+    
+        txtname.onkeyup = function() {
+
+            //엔터입력했을때
+            if(event.keyCode == 13) {
+                
+                console.log(txtname.value);
+                console.log(color.value);
+
+                var temp ="";
+                temp += "<tr>";
+                    temp += "<td>";
+                    temp += txtname.value;
+                    temp += "</td>";
+                    temp += "<td bgcolor='" + color.value + "'>";
+                    temp += color.value;
+                    temp += "</td>";
+                temp += "</tr>";
+
+                tbody1.innerHTML += temp;
+
+                //다음값을 입력하기 위해 초기화
+                color.value = "#000000";
+                txtname.value = "";
+
+            }
+        };
+
+    </script>
+
+</body>
+</html>

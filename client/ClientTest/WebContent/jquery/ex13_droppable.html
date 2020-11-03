@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <style>
+        #box1 {
+            border: 1px solid gray;
+            width: 400px;
+            height: 400px;
+            background-color: gold;
+            transform: translate(300px, 100px); /* translate 때문에 레이어와 같이 붕 뜨게 되어 요소가 겹치면 가리게 됨*/
+        }
+        #cat1, #cat2 {
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="../images/catty01.png" alt="" id="cat1">
+    <img src="../images/catty02.png" alt="" id="cat2">
+    <div id="box1"></div>
+
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script>
+
+        $("#cat1, #cat2").draggable({
+            cursor: "move",
+            opacity: 0.3
+        });
+        $("#box1").droppable({
+            drop: function(event, ui) { //droppable은 프로퍼티로 drop이라는 요소를 가질 수 있음. 마치 이벤트와 같은 역할을 함
+                                        //아이템을 드래그하여 영역 안에 놓았을 때 이벤트를 발생시킴.
+                // alert(this.id);      //여기서의 this는 box1임. (이벤트의 주체)
+                // alert(ui.draggable.attr("id"));  //ui.draggable -> 이벤트의 객체.. (던져진 객체)
+
+                //drop이 되는 순간 발생할 이벤트
+                // $("#cat1").draggable({   //cat1에만 적용
+                ui.draggable.draggable({    //박스 안에 던져지는 모든 객체에 적용
+                    containment: "#box1"    //박스1을 부모로 지정하기 
+                });
+                
+                //무언가 드랍되면 배경화면 변경하기
+                $(this).css("background-color", "tomato");
+
+                //더블클릭하면 탈출시키기(부모 지정 해제)
+                $("#cat1, #cat2").dblclick(function() {
+                    $(this).draggable({
+                        containment: "" //빈문자열 - 부모 지정 해제
+                    })
+                })
+            }
+        });
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+package com.test.collection;
+
+public class MyStack {
+	
+	private String[] list;
+	private int index;
+
+}

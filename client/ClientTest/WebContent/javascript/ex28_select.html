@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>셀렉트 박스</h1>
+    <select name="sel1" size="10" multiple>
+        <!-- value값은 숫자가 아니어도 됨. 문자여도 됨! -->
+        <option value="1">강아지</option>
+        <option value="2">병아리</option>
+        <option value="3">고양이</option>
+        <option value="4">토끼</option>
+        <option value="5">거북이</option>
+        <option value="red">빨강</option>
+        <option value="blue">파랑</option>
+    </select>
+
+    <hr>
+    <input type="button" value="버튼1" name="btn1">
+    <input type="button" value="버튼2" name="btn2">
+    <input type="button" value="버튼3" name="btn3">
+    <input type="button" value="버튼4" name="btn4">
+    <input type="button" value="버튼5" name="btn5">
+
+    <script>
+
+        //<select>
+        //1. sell.value 읽기/쓰기
+        //2. sell.selected Index 읽기/쓰기
+        //3. sell.options 읽기/쓰기
+
+
+
+
+        var sel1 = document.all.sel1;
+        var btn1 = document.all.btn1;
+        var btn2 = document.all.btn2;
+        var btn3 = document.all.btn3;
+        var btn4 = document.all.btn4;
+        var btn5 = document.all.btn5;
+
+        btn1.onclick = function() {
+            //셀렉트박스에서 선택한 값 알아내기
+            //값 읽기
+            console.log(sel1.value);
+            // sel1.value = 3;
+            sel1.value = "red";
+        }
+
+        btn2.onclick = function() {
+            //선택한 항목의 인덱스값 가져오기
+            console.log(sel1.selectedIndex);
+            sel1.selectedIndex = 5;
+        }
+
+        btn3.onclick = function() {
+            //동적 제어, 변화주기
+            //옵션 태그를 생성하거나 수정하거나 삭제
+
+            //생성 - 메모리상에서만 존재
+            var op = new Option();  //<option></option> 태그 생성하기 
+            op.value = "yellow";    //<option value = "yellow"></option>
+            op.text = "노랑";       //<option value = "yellow">노랑</option>
+
+            //중복추가 방지
+            var isDuplicate = false;
+            for (var i=0; i<sel1.options.length; i++) {
+                // console.log(sel1.options[i].text, sel1.options[i].value);
+                if (sel1.options[i].text == "노랑" && sel1.options[i].value == "yellow") {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+            
+            //<select>의 자식으로 <option>을 추가하기
+            //options라는 배열에 add라는 메소드로 ..
+            if (!isDuplicate) { //중복값이 없는 경우 추가
+                sel1.options.add(op);
+            }
+        }
+
+        btn4.onclick = function() {
+            //<option>삭제 - index shitf 발생함.
+            // sel1.options.remove(index);
+            // sel1.options.remove(3);
+            sel1.options.remove(sel1.selectedIndex);        
+        }
+
+        btn5.onclick = function() {
+            //다중선택시 해야 하는 작업
+            for (var i=0; i<sel1.options.length; i++) {
+                if (sel1.options[i].selected) {
+                console.log(sel1.options[i].selected);
+                }
+            }
+        }
+
+
+    </script>
+
+
+
+</body>
+</html>

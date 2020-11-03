@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cat {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+        #btnStart {
+            display: block;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+    <img src="../images/catty01.png" alt="" id="cat">
+    <input type="button" value="   시 작   " id="btnStart">
+
+    <script>
+
+        var cat = document.getElementById("cat");
+        var btnStart = document.getElementById("btnStart");
+
+        var traceX = [];
+        var traceY = [];
+        var index = 0;
+        var timer = 0;
+        var flag = false;
+
+        //키를 눌렀을때 부터 뗄때까지 기록하는것 -> onkeydown, onkeyup 이벤트 사용하되 boolean 변수를 만들어서 조작할것!!
+        //onkeydown만 걸면 연속해서 누른것으로 인식하기 때문
+    
+
+        window.onkeydown = function() {
+            
+            if (event.ctrlKey) {
+                flag = true;
+            }
+            console.log(flag);
+        }
+        window.onkeyup = function() {
+            flag = false;
+        }
+        window.onmousemove = function() {
+            
+            if (flag) {
+                traceX.push(event.clientX);
+                traceY.push(event.clientY);
+                console.log(traceX, traceY);
+            }
+        }
+        
+    
+        btnStart.onclick = function() {
+            index = 0;
+            
+            timer = setInterval(function() {
+                
+                if (index==traceX.length-1) {
+                    clearInterval(timer);
+                    timer = 0;
+                    traceX = [];
+                    traceY = [];
+                }
+
+                var x = traceX[index];
+                var y = traceY[index];
+                index++;
+
+                cat.style.transform = "translate(" + (x-64) + "px, " + (y-64) + "px)"; 
+
+            }, 10)
+        }
+
+    </script>
+</body>
+</html>

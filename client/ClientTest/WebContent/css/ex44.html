@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            #list {
+                /* border: 1px solid black; */
+                width: 740px;
+                margin: 10px auto;
+            }
+            #list::after {
+                content: " ";
+                display: block;
+                clear: both;
+            }
+            #list div {
+                border: 10px solid tomato;
+                width: 128px;
+                height: 128px;
+                float: left;
+                overflow: hidden;
+            }
+            #list div img {
+                transition: all 0.7s;
+                transform: translate(128px, 0px);
+            }
+            #list div:hover img {
+                /* display: none; */
+                transform: translate(0px, 0px);
+            }
+            /* ------------------------------------------------------------------------------------------------------------ */
+            #list2 {
+                border: 10px solid cornflowerblue;
+                width: 128px;
+                height: 128px;
+                /* 인라인 태그는 수평으로는 부모 영역을 벗어날 수 없다 */
+                overflow: hidden;
+            }
+            #list2 #content {
+                /* border: 1px solid black; */
+                width: 640px;
+                /* 블럭 태그는 부모를 뚫고 나가는 능력이 있다. content라는 블럭태그에 너비를 주니 부모를 뚫고 나감. */
+                transition-property: transform;
+                transition-duration: 3s;
+                transition-timing-function: linear;
+            }
+            #list2 #content img {
+                float: left;
+                /* 인라인태그 사이의 공백 한칸(엔터 등)을 float 속성을 주어 없애줌 */
+            }
+            #list2 #content::after {
+                content: " ";
+                display: block;
+                clear: both;
+            }
+            #list2:hover #content {
+                transform: translate(-512px, 0px);
+            }
+        </style>
+    </head>
+    <body>
+        <h1>고양이</h1>
+        <div id="list">
+            <div><img src="../images/catty01.png" alt="" /></div>
+            <div><img src="../images/catty02.png" alt="" /></div>
+            <div><img src="../images/catty03.png" alt="" /></div>
+            <div><img src="../images/catty04.png" alt="" /></div>
+            <div><img src="../images/catty05.png" alt="" /></div>
+        </div>
+        <h1>고양이, 창문효과</h1>
+        <div id="list2">
+            <!--중요한 역할을 하는 상자-->
+            <div id="content">
+                <img src="../images/catty01.png" alt="" />
+                <img src="../images/catty02.png" alt="" />
+                <img src="../images/catty03.png" alt="" />
+                <img src="../images/catty04.png" alt="" />
+                <img src="../images/catty05.png" alt="" />
+            </div>
+        </div>
+    </body>
+</html>

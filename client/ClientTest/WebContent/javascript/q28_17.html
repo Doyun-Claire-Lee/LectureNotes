@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" href="basic.css">
+    <style>
+        #tbl1 {
+            border: 20px solid #ccc;
+            border-collapse: collapse;
+            margin: 0px auto;
+        }
+        #tbl1 td {
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        #tbl1 td img {
+            width: 128px;
+            height: 128px;
+            border: 1px solid #A9A9A9;
+            border-radius: 4px;
+            padding: 5px;
+            background-color: #eee;
+        }
+        #money {
+            width: 60px;
+            text-align: right;
+            padding: 5px;
+        }
+        #btn1 {
+            display: block;
+            margin-left: 16px;
+            margin-top: 5px;
+            width: 74px;
+            height: 60px;
+        }
+        #tbl1 .item {
+            text-align: center;
+        }
+        #tbl1 .item span:first-child {
+            margin-right: 20px;
+        }
+        #tbl1 .item img {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main m800">
+        <div class="mainHeader">
+            <h1>슬롯 게임</h1>
+            <div class="code">setTimeout() or setInterval() / clearTimeout() or clearInterval()</div>
+        </div>
+        <table id="tbl1">
+            <tr>
+                <td>
+                    <img src="../images/catty01.png" name="img1">
+                    <img src="../images/catty02.png" name="img2">
+                    <img src="../images/catty03.png" name="img3">
+                </td>
+                <td>
+                    $ <input type="text" name="money" id="money">
+                    <input type="button" value="$" name="btn1" id="btn1">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="item">
+                        <span name="score">
+                        <img src="../images/catty01.png">
+                        <img src="../images/catty01.png">
+                        <img src="../images/catty01.png">
+                        x 2
+                        </span>
+                        <span name="score">
+                        <img src="../images/catty02.png">
+                        <img src="../images/catty02.png">
+                        <img src="../images/catty02.png">
+                        x 3
+                        </span>
+                    </div>
+                    <div class="item">
+                        <span name="score">
+                        <img src="../images/catty03.png">
+                        <img src="../images/catty03.png">
+                        <img src="../images/catty03.png">
+                        x 4
+                        </span>
+                        <span name="score">
+                        <img src="../images/catty04.png">
+                        <img src="../images/catty04.png">
+                        <img src="../images/catty04.png">
+                        x 5
+                        </span>
+                    </div>
+                    <div class="item">
+                        <span name="score">
+                        <img src="../images/catty05.png">
+                        <img src="../images/catty05.png">
+                        <img src="../images/catty05.png">
+                        x 6
+                        </span>
+                        <span name="score">
+                        <img src="../images/catty01.png">
+                        <img src="../images/catty01.png">
+                        <img src="../images/catty02.png">
+                        x 7
+                        </span>
+                    </div>
+                    <div class="item">
+                        <span name="score">
+                        <img src="../images/catty01.png">
+                        <img src="../images/catty02.png">
+                        <img src="../images/catty03.png">
+                        x 8
+                        </span>
+                        <span name="score">
+                        <img src="../images/catty02.png">
+                        <img src="../images/catty03.png">
+                        <img src="../images/catty04.png">
+                        x 9
+                        </span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="script script29_2" style="left: -110px; top: 230px;">
+            <div style="left: 55px; top: 45px;">				
+                Math.random()<br><br>
+                각각의 &lt;img&gt;에<br>
+                난수를 사용해서<br>
+                고양이를 할당<br>
+                했습니다.<br>
+            </div>
+        </div>
+        <div class="script script29_1" style="left: 630px; top: 450px;">
+            <div style="left: 100px; top: 30px;">				
+                난수의 배열과<br>
+                배점표의 배열이<br>
+                일치하는지 체크<br>
+                합니다.<br>
+                [1,2,3] = [2,2,3]<br>
+                [1,2,3] = [3,2,5]<br>
+                [1,2,3] = [1,2,3]
+            </div>
+        </div>
+        <div class="script script29_3" style="left: 650px; top: -15px;">
+            <div style="left: 105px; top: 100px;">				
+                결과에 따라<br>
+                소지금을 증가<br>
+                감소시키시오.
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        var money = document.all.money;
+        var btn1 = document.all.btn1;
+        var img1 = document.images["img1"];
+        var img2 = document.images["img2"];
+        var img3 = document.images["img3"];
+        var timer = 0;
+        
+
+
+        money.value = 1000;
+        // money.onchange = function() {
+        //     console.log(money.value);
+        //     if (money.value == 0) {
+        //         btn1.disabled = true;
+        //         document.body.bgColor = "#eee";        
+        //     }
+        // }
+
+        btn1.onclick = function() {
+
+            if (timer == 0) {
+
+                money.value = money.value - 100;
+                
+                timer = setInterval(function() {
+                    img1.src = "../images/catty0" + parseInt(Math.random()*5 + 1) + ".png";
+                    img2.src = "../images/catty0" + parseInt(Math.random()*5 + 1) + ".png";
+                    img3.src = "../images/catty0" + parseInt(Math.random()*5 + 1) + ".png";
+                }, 10);
+
+            } else {
+
+                clearInterval(timer);
+                timer = 0;
+                win();
+                
+                if (money.value == 0) {
+                    btn1.disabled = true;
+                    document.body.bgColor = "#eee";        
+                } else if (money.value > 0) {
+                    btn1.disabled = false;
+                    document.body.bgColor = "white";
+                }
+            }
+        }
+        
+        function getFileName(src) {
+            return src.substr(src.lastIndexOf("/") + 1);
+        }
+
+        function win() {
+
+            if (getFileName(img1.src) == "catty01.png" 
+                && getFileName(img2.src) == "catty01.png"
+                && getFileName(img3.src) == "catty01.png") {
+                    money.value = parseInt(money.value) + 100*2;
+                    console.log(200);  
+                } 
+                else if (getFileName(img1.src) == "catty02.png" 
+                         && getFileName(img2.src) == "catty02.png"
+                         && getFileName(img3.src) == "catty02.png") {
+                    money.value = parseInt(money.value) + 100*3;
+                    console.log(300);
+                }     
+                else if (getFileName(img1.src) == "catty03.png" 
+                         && getFileName(img2.src) == "catty03.png"
+                         && getFileName(img3.src) == "catty03.png") {
+                    money.value = parseInt(money.value) + 100*4;
+                    console.log(400);
+                } 
+                else if (getFileName(img1.src) == "catty04.png" 
+                         && getFileName(img2.src) == "catty04.png"
+                         && getFileName(img3.src) == "catty04.png") {
+                    money.value = parseInt(money.value) + 100*5;
+                    console.log(500);
+                } 
+                else if (getFileName(img1.src) == "catty05.png" 
+                         && getFileName(img2.src) == "catty05.png"
+                         && getFileName(img3.src) == "catty05.png") {
+                    money.value = parseInt(money.value) + 100*6;
+                    console.log(600);
+                } 
+                else if (getFileName(img1.src) == "catty01.png" 
+                         && getFileName(img2.src) == "catty01.png"
+                         && getFileName(img3.src) == "catty02.png") {
+                    money.value = parseInt(money.value) + 100*7;
+                    console.log(700);
+                } 
+                else if (getFileName(img1.src) == "catty01.png" 
+                         && getFileName(img2.src) == "catty02.png"
+                         && getFileName(img3.src) == "catty03.png") {
+                    money.value = parseInt(money.value) + 100*8;
+                    console.log(800);
+                } 
+                else if (getFileName(img1.src) == "catty02.png" 
+                         && getFileName(img2.src) == "catty03.png"
+                         && getFileName(img3.src) == "catty04.png") {
+                    money.value = parseInt(money.value) + 100*9;
+                    console.log(900);
+                } 
+        }
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

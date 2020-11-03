@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        
+        1. :disabled
+        2. :enabled
+
+        3. :required
+        4. :optional
+        
+        5. :read-only
+        
+        6. :focus
+        7. :checked
+        
+         */
+        input {
+            outline: none;
+            border: 1px solid #999;
+            padding: 3px;
+            background-color: white;
+            margin-bottom: 3px;
+        }
+
+        input:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* disabled 아닌 것들만! */
+        input:enabled:hover {
+            /* background-color: lightcoral; */
+            border: 1px solid red;
+        }
+
+        input:required {
+            /* background-color: lightpink; */
+        }
+
+        /* required 아닌 것들만! */
+        input:optional {
+            /* background-color: lightsteelblue; */
+        }
+
+        input:read-only {
+            cursor: not-allowed;
+        }
+
+        /* input[type=checkbox] { */
+            /* 체크박스, 라디오박스, 셀렉트박스 등은 일부 서식이 적용이 안됨. */
+            /* background-color: red; */
+            /* border: 1px solid blue; */
+
+            /* width: 200px; */
+            /* opacity: 0.3; */
+        /* } */
+
+        /* input[type=checkbox]:checked {
+            opacity: 1;
+        } */
+
+        div > input + img {
+            opacity: 0.3;
+        }
+
+        div > input:checked + img {
+            opacity: 1;
+        }
+
+        .line img {
+            opacity: 0.1;
+        }
+
+        .line .data:focus + img {
+            opacity: 1;
+        }
+
+        #cb1 + div {
+            display: none;
+        }
+        
+        #cb1:checked + div {
+            display: block;
+        }
+
+        .item {
+            border: 1px solid gray;
+            width: 300px;
+            margin-bottom: 10px;
+        }
+
+        .item > .cb {
+            display: none;
+        }
+
+        .item > label {
+            font-size: 1.5em;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 5px;
+            display: block;
+            cursor: pointer;
+        }
+
+        .item > div {
+            border-top: 1px solid gray;
+            padding: 5px;
+            display: none;
+        }
+
+        .item > .cb:checked + label + div {
+            display: block;
+        }
+
+        /* before, after : 해당 태그를 찾아 *해당 태그 내*에 내용을 삽입해줌 */
+        /* <span>'['원래내용']'</span> */
+        p > span { color: red; }
+        p > span::before { 
+            content: '[';
+        }
+        p > span::after { 
+            content: ']';
+        }
+
+        /* float + clear */
+        #catlist1, #catlist2 {
+            border: 1px solid gray;
+            margin-bottom: 10px;
+        }
+
+        #catlist1 > img {
+            float: left;
+        }
+
+        #catlist2 > img {
+            float: left;
+        }
+
+        /* <div style="clear:both;"></div>와 같은 의미 */
+        #catlist2::after {
+            content: " ";
+            clear:both;
+            display: block;
+        }
+
+
+    </style>
+</head>
+<!--
+    oncontextmenu : 우클릭 이벤트, 복사방지
+    ondragstart : 마우스 드래그 이벤트  
+    onselectstart : 마우스 드래그 영역선택 이벤트
+ -->
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return true">
+   <h1>폼 관련 선택자</h1>
+    
+   <h2>텍스트 박스</h2>
+    <div><input type="text" required></div>
+    <div><input type="text" readonly></div>
+    <div><input type="text" disabled></div>
+    <div><input type="text"></div>
+    <div><input type="text" required></div>
+    <div><input type="text"></div>
+    <div><input type="text" required></div>
+    <div><input type="text"></div>
+    <div><input type="text" disabled></div>
+    <div><input type="text" readonly></div>
+
+    <h2>체크 박스</h2>
+    <div><input type="checkbox"><img src="../images/catty01.png"></div>
+    <div><input type="checkbox"><img src="../images/catty02.png"></div>
+    <div><input type="checkbox"><img src="../images/catty03.png"></div>
+
+    <h2>데이터 입력</h2>
+    <div class="line">
+        <input type="text" class="data">
+        <img src="../images/bullet07.png" alt="">
+    </div>
+    <div class="line">
+        <input type="text" class="data">
+        <img src="../images/bullet07.png" alt="">
+    </div>
+    <div class="line">
+        <input type="text" class="data">
+        <img src="../images/bullet07.png" alt="">
+    </div>
+    <div class="line">
+        <input type="text" class="data">
+        <img src="../images/bullet07.png" alt="">
+    </div>
+    <div class="line">
+        <input type="text" class="data">
+        <img src="../images/bullet07.png" alt="">
+    </div>
+    <div class="line">
+        <input type="text" class="data">
+        <img src="../images/bullet07.png" alt="">
+    </div>
+
+    <h2>콘텐츠</h2>
+    설명 감추기<input type="checkbox" id="cb1">
+    <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam nesciunt, sed dicta est laudantium nemo optio suscipit? Est assumenda reiciendis repellendus quos, vel ad eius dolor excepturi, mollitia modi sit debitis fuga fugit voluptatum odit! Quibusdam ratione facilis sequi reprehenderit? Rerum vitae corporis quas perferendis maiores est dolores suscipit deleniti.</div>
+
+    <h2>콘텐츠</h2>
+    <div class="item">
+        <input type="checkbox" class="cb" id="cb3"><label for="cb3">Lorem, ipsum dolor.</label>
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore id temporibus ratione consequatur nobis ipsam, ad excepturi! Vitae nihil saepe voluptatum iste, eligendi atque id natus quidem minima a qui eum exercitationem inventore possimus, aliquid ducimus, eius numquam cupiditate voluptatibus dignissimos dolor adipisci non! Recusandae odit sed cumque doloremque pariatur.</div>
+    </div>
+    <div class="item">
+        <input type="checkbox" class="cb" id="cb4"><label for="cb4">Lorem, ipsum dolor.</label>
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore id temporibus ratione consequatur nobis ipsam, ad excepturi! Vitae nihil saepe voluptatum iste, eligendi atque id natus quidem minima a qui eum exercitationem inventore possimus, aliquid ducimus, eius numquam cupiditate voluptatibus dignissimos dolor adipisci non! Recusandae odit sed cumque doloremque pariatur.</div>
+    </div>
+    <div class="item">
+        <input type="checkbox" class="cb" id="cb5"><label for="cb5">Lorem, ipsum dolor.</label>
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore id temporibus ratione consequatur nobis ipsam, ad excepturi! Vitae nihil saepe voluptatum iste, eligendi atque id natus quidem minima a qui eum exercitationem inventore possimus, aliquid ducimus, eius numquam cupiditate voluptatibus dignissimos dolor adipisci non! Recusandae odit sed cumque doloremque pariatur.</div>
+    </div>
+
+    <h2>전, 후 선택자</h2>
+    <p>Lorem ipsum dolor sit amet <span>consectetur</span> adipisicing elit. Repudiandae rerum nesciunt aliquam delectus magni sequi <span>exercitationem</span> corporis ab. Eaque quam nobis molestiae molestias dolores aliquam praesentium, odit asperiores animi inventore. <span>Officiis</span> nihil dolor recusandae eveniet repellendus commodi nostrum autem. Vel dolorem perferendis ad debitis nam deserunt, mollitia cumque nisi tempore.</p>
+
+    <h2>float 속성 + after 속성</h2>
+    <div id="catlist1">
+        <img src="../images/catty01.png" alt="">
+        <img src="../images/catty02.png" alt="">
+        <img src="../images/catty03.png" alt="">
+        <img src="../images/catty04.png" alt="">
+        <img src="../images/catty05.png" alt="">
+        <div style="clear: both;"></div>
+    </div>
+    <div id="catlist2">
+        <img src="../images/catty01.png" alt="">
+        <img src="../images/catty02.png" alt="">
+        <img src="../images/catty03.png" alt="">
+        <img src="../images/catty04.png" alt="">
+        <img src="../images/catty05.png" alt="">
+    </div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            /* position: relative; */
+            /* top: 0px; left: 0px; */
+            /* position: absolute; */
+            border: 10px solid #333;
+            width: 900px;
+            height: 600px;
+            margin: 50px auto;
+            background-color: white;
+            overflow: hidden;
+            transform: translate(0,0);
+        }
+        body {
+            background-color: #555;
+            margin: 0px;
+        }
+        .cat {
+            position: absolute;
+            top: -128px;
+            left: -128px;
+            display: none;
+        }
+    </style>
+</head>
+<body> 
+    <div id="box">    
+        <img src="../images/catty01.png" alt="" class="cat">
+        <img src="../images/catty02.png" alt="" class="cat">
+        <img src="../images/catty03.png" alt="" class="cat">
+        <img src="../images/catty04.png" alt="" class="cat">
+        <img src="../images/catty05.png" alt="" class="cat">
+        <img src="../images/catty06.png" alt="" class="cat">
+        <img src="../images/catty07.png" alt="" class="cat">
+        <img src="../images/catty08.png" alt="" class="cat">
+        <img src="../images/catty09.png" alt="" class="cat">
+        <img src="../images/catty10.png" alt="" class="cat">
+        <img src="../images/catty11.png" alt="" class="cat">
+        <img src="../images/catty12.png" alt="" class="cat">
+        <img src="../images/catty13.png" alt="" class="cat">
+        <img src="../images/catty14.png" alt="" class="cat">
+        <img src="../images/catty15.png" alt="" class="cat">
+        <img src="../images/catty16.png" alt="" class="cat">
+        <img src="../images/catty17.png" alt="" class="cat">
+        <img src="../images/catty18.png" alt="" class="cat">
+        <img src="../images/catty19.png" alt="" class="cat">
+        <img src="../images/catty20.png" alt="" class="cat">
+        <img src="../images/catty21.png" alt="" class="cat">
+    </div>
+
+    <script>
+
+        var cat = document.getElementsByClassName("cat");
+        var traceX = [];
+        var traceY = [];
+        var n = 0;
+
+        window.onmousemove = function() {
+
+            if (n % 2 != 0){ 
+                n++;
+                return;
+            } 
+
+            traceX.push(event.clientX);
+            traceY.push(event.clientY);
+
+            if (traceX.length > cat.length) {
+                traceX.shift();
+                traceY.shift();
+            }
+
+            for (var i=0, j=traceX.length-1; i<cat.length; i++, j--) {
+                cat[i].style.display = "inline";
+                // cat[i].style.transform = "translate(" + (traceX[j]) + "px, " + (traceY[j]) + "px)";
+                //포지션으로 다시 만들어보기!!(보통 포지션을 주면 top, left로 조절하는 편)
+            }
+
+            n++;
+        };
+
+    </script>
+</body>
+</html>

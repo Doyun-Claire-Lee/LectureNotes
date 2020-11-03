@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>History</h1>
+    브라우저가 방문한 이력을 관리하는 객체
+
+    <hr>
+
+    <input type="button" value="뒤로가기" name="btnBack">
+    <input type="button" value="앞으로가기" name="btnForward">
+
+    <script>
+        //window는 생략 가능
+        var btnBack = document.all.btnBack;
+        var btnForward = document.all.btnForward;
+
+        btnBack.onclick = function() {
+
+            //두 메소드가 같은 일을 함
+            // history.back();
+            history.go(-1);
+        };
+        btnForward.onclick = function() {
+            //두 메소드가 같은 일을 함
+            // history.forward();
+            history.go(1);
+        };
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

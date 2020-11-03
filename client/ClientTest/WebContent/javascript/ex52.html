@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+    
+        // ES6(ECMAScript 2015) 이후에 생긴 문법들...
+
+        //화살표 함수, Arrow Function
+        // - 자바의 람다와 유사
+        // - () -> {} : 자바
+        // - () => {} : 자바스크립트
+
+        //일반 함수
+
+        //1. 함수 선언문을 통해 생성
+        function foo1() {
+            console.log("foo1");
+        }
+        //2. 함수 표현식(함수 리터럴)
+        var foo2 = function() {
+            console.log("foo2");
+        };
+
+        foo1();
+        foo2();
+
+        //화살표 함수(=익명 함수)
+        var foo3 = () => console.log("foo3");  
+        foo3();
+
+
+        //매개변수가 없는 경우
+        var foo = () => console.log("bar");
+        foo();
+
+        //매개변수가 하나인 경우
+        var foo = x => console.log(x);
+        foo("매개변수가 하나");
+
+        //매개변수가 여러개인 경우
+        var foo = (x, y) => console.log(x + y);
+        foo(1, 2);
+
+        //반환값이 있는 경우
+        var foo = () => { return "반환값 10";};
+        console.log(foo());
+
+        var foo = () => "반환값 하나";
+        console.log(foo());
+
+        var foo = (x, y) => x * y;
+        console.log(foo(2, 4));
+
+        //-----------------------------------------------------------------------------------
+        console.log();
+        //-----------------------------------------------------------------------------------
+
+        //자바스트립트의 this 키워드
+        console.log(this);  //node.js에서 - {} : 그냥 객체라는 표현
+                            //브라우저에서 - 최상위 객체인 window객체
+        console.log(this == window);    //true
+        console.log(this === window);   //true
+
+        //전역 변수
+        var name = "홍길동";
+        console.log(name);      //홍길동
+        console.log(this.name); //홍길동
+        // => name이 window의 멤버변수가 되어버림.
+        // => 자바스크립트가 window.name = name;이라고 등록을 해버림. (윈도우의 프로퍼티로 등록을 해버림)
+        
+        //전역 함수
+        function hello() {
+            console.log("안녕");
+        }
+        // => hello()가 window의 멤버가 되어버림.
+        // => 자바스크립트가 window의 프로퍼티로 등록을 해버림. 
+
+        hello();        //안녕
+        this.hello();   //안녕
+
+        //자바스크립트에서 전역 멤버(변수, 함수)를 선언하면 자동으로 window의 멤버가 된다.
+        // -> 정확히는 window의 프로퍼티가 된다.
+
+
+        var hong = {    //자바스크립트에서 객체 만드는 방법
+            //자바에서는 멤버라고 하지만 자바스크립트에서는 모두 프로퍼티라고 한다.
+            name: "홍길동",
+            age: 20,
+            hi: function() {
+                console.log(this.name + ": Hi~");
+            }
+        };
+        //객체에 프로퍼티를 나중에 추가하는 방법
+        hong.address = "서울시";
+
+        console.log(hong.name); //홍길동
+        hong.hi();
+        console.log(hong);      //{name: "홍길동", age: 20, address: "서울시", hi: ƒ}
+
+        //향상된 for문, 객체의 프로퍼티를 탐색하는 도구
+        for (var p in hong) {
+            console.log(p); //모든 프로퍼티의 이름이 반환됨.
+        }
+
+        console.clear();
+
+        for (var p in window) {
+            console.log(p);
+        }
+
+        // alert();
+        // setTimeout();
+        // clearInterval();
+        // event
+        // 위의 모든 객체는 모두 window의 프로퍼티임. (윈도우는 생략 가능하기 때문에.. )
+
+        console.clear();
+
+        //화살표 함수 내에서의 this
+        var cat = {
+            sound: "야옹",
+            soundPlay: function() {
+                console.log(this.sound);
+            }
+        }
+        cat.soundPlay();    //야옹
+        
+        var dog = {
+            sound: "멍멍",
+            //객체의 메소드를 정의할 때는 절대로 화살표 함수를 사용하지 말 것!!! 
+            //화살표 함수 내에서는 this의 정의가 다르기 때문 -> 객체를 참조하는 것이 아닌 window(상위 스코프 객체)를 참조하기 때문에...
+            soundPlay: () => {
+                console.log(this.sound);        //undefined
+                console.log(this == window);    //true
+            }
+        }
+        dog.soundPlay();    //undefined
+        
+
+        //비슷한 경우.. 
+        var cat = {
+            sound: "야옹", 
+            soundPlay: function() { 
+
+                //지역변수인 temp는 setTimeout이 실행될 시점에서는 이미 죽은 변수이지만 클로저 현상(?) 으로 인해 살아남을 수 있게 됨.
+                //클로저 :  지역변수가 나중에 쓰일 것을 예상하면 살려두는 것.....ㅠㅠㅠㅠㅠㅠㅠㅠㅠ(??)
+                let temp = this;    //여기서의 this = cat
+
+                //setTimeout -> 콜백 함수, 시스템이나 환경에서 호출해주는 함수.
+                setTimeout(function() {
+                    console.log(this.sound);    //undefined
+                    console.log(this);          //window 객체
+                    console.log(temp.sound);    //야옹
+                }, 1000);
+            }
+        }
+        cat.soundPlay();
+
+        var dog = {
+            sound: "멍멍",
+            soundPlay : function() {
+                setTimeout(function() {
+
+                    //bind()메소드를 사용하여 undefined 현상 해결하기
+                    // - 바깥쪽에서 쓰던 this를 안쪽에서도 쓸 수 있도록 잡아두는 메소드
+                    console.log(this.sound);        //undefined
+
+                }.bind(this), 1000);    //bind!!
+            }
+        }
+        dog.soundPlay();
+
+
+        //이벤트에서도 화살표 쓰지말기!!!!!!
+        btn1.onclick = function() {};   
+        btn1.onclick = () => {};    //이거 안됨!!!!!!!!!
+
+
+
+    </script>
+
+</body>
+</html>

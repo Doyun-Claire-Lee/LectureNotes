@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>window 객체</h1>
+    <form action="" name="form1">
+        <input type="button" value="자식창 띄우기" name="btn1">
+        <input type="button" value="자식창 닫기" name="btn2">
+    </form>
+
+    <h1>회원가입</h1>
+    <form action="" name="form2">
+        아이디: <input type="text" name="txtID">
+        <input type="button" value="아이디 중복 검사" name="btnCheck">
+    </form>
+
+
+    <script>
+
+        var btn1 = window.document.form1.btn1;
+        var btn2 = window.document.form1.btn2;
+        var btnCheck = window.document.form2.btnCheck;
+
+        btn1.onclick = function() {
+            //새창 띄우기
+            // window.open("URL", "name", "options");
+            //1. URL : 주소값
+            //2. name : 이름을 주는 경우 중복하여 같은 주소의 새창을 띄우려 하면 기존에 띄워진 새창을 새로고침함.
+            //3. options
+                // - width, height
+            //내부문서 띄우기
+            // window.open("ex15_event.html", "ex15", "");
+            //외부문서 띄우기
+            window.open("http://naver.com", "naver", "width=300, height=300");
+        }
+
+        btn2.onclick = function() {
+            //자식창 닫기
+            child.close();
+
+            // window.close();
+        }
+
+        btnCheck.onclick = function() {
+			child = window.open("ex17_child.html", "check", "width=330, height=250");
+		};
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+</body>
+</html>

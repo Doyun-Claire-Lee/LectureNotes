@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+	<body>
+	
+	<!--  
+	
+		<img>, Image
+		- 이미지를 출력하는 태그
+		- 단독 태그
+		- 인라인 태그
+		
+		img.src 속성
+		- 이미지 URL(절대경로 or 상대경로)
+		
+		img.alt 속성
+		- 대체 텍스트, 이미지가 손상되었을 경우 나타나는 메세지를 지정할 수 있음.
+		- 이미지를 설명하는 텍스트(메타데이터)
+		- 장애인용 텍스트
+
+	-->
+	
+	<h1>콩지</h1>
+	<img src="images/cat.jpg">
+	
+	<h1>고양이</h1>
+	<img src="images/cat01.jpgㅇㅇ" alt="고양이">
+	
+	<h1>강아지</h1>
+	
+	<!-- 사이즈가 명시되어 있으면 조금 더 안정성이 높음 -->
+	<img src="images/dog01.jpg" alt="강아지">
+	<img src="images/dog01.jpg" width="250" height="188"><br><!-- 원본 사이즈 -->
+	
+	<!-- 크기 조정하기 -->
+	<img src="images/dog01.jpg" width="500" height="376"><br>
+	<img src="images/dog01.jpg" width="2500" height="1880"><br>
+	<img src="images/dog01.jpg" width="25" height="19"><br>
+	
+	<!-- 종횡비 틀어짐 -->
+	<img src="images/dog01.jpg" width="2500" height="188"><br>
+	<img src="images/dog01.jpg" width="250" height="600"><br>
+	
+	<!-- 높이와 너비 둘 중 하나만 넣어도 알아서 맞춰줌 -->
+	<img src="images/dog01.jpg" width="500">
+	<img src="images/dog01.jpg" height="500">
+	
+	<hr>
+	<h1>링크</h1>
+	<!-- href="#" : 빈 링크, 브라우저마다 다르지만 보통 링크를 누르면 맨꼭대기로 이동 -->
+	<a href="#!">빈링크</a><br>	<!-- #!을 넣어 초기화 용도로 빈 링크를 만듬. -->
+	<a href="#">고양이</a><br>						<!-- 텍스트 링크 -->
+	<a href="#"><img src="images/dog01.jpg"></a>	<!-- 이미지 링크 -->
+	
+	
+	<!--  
+	상식?
+	
+	웹(브라우저)에서 사용 가능한 이미지 파일 포맷
+	- jpg(jpeg), gif, png
+	
+	이미지 포맷
+	1. 래스터 방식
+		- 비트맵 이미지
+		- 우리가 흔히 사용하는 이미지 포맷
+		- 이미지 = 점들의 집합
+		- 사진, 색이 많은 이미지묘사에 장점
+		- 확대/축소에 효율이 낮음(품질 저하)
+		a. jpg
+			- 사진 표현
+			- 압축률 높음(=손실율 높음) -> 저장/수정을 반복할수록 품질 저하
+			- 16만 색상 지원
+		b. gif
+			- 비손실 압축
+			- 최다 256색상 지원
+			- 아이콘, 그래프 
+			- 투명 레이어 지원
+			- 애니메이션 지원 -> Animated GIF
+		c. png
+			- 비손실 압축
+			- 투명 레이어 지원
+			- 애니메이션 지원
+			- jpg + gif
+	
+	2. 벡터 방식
+		- 벡터 이미지 
+		- 아이콘, 그래프 출력같은 곳에 많이 사용
+		- 이미지 = 수학 공식
+		- 세밀한 묘사(x), 단순한 이미지 출력용
+		- 확대/축소에 효율이 좋음(품질 유지)
+		- 플래시, 폰트, SVG(HTML5)
+	
+	-->
+
+	</body>
+</html>

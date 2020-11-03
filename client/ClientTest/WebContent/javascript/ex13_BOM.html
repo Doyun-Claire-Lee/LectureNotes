@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        자바스크립트 기능
+        - 코어 + BOM + DOM
+
+        BOM, Browser Object Model
+        - 자바스크립트를 사용해서 HTML문서상의 객체(태그)에 접근하여 태그를 조작하기 위한 기능의 모음(API)
+        - 초기 모델이지만 현재도 일부 사용함
+        - 브라우저상의 여러 객체들을 트리 구조로 제공
+            : 창(윈도우), 제목 표시줄, 주소창, 도구상자, 상태표시줄, 문서 객체, 태그(컨트롤, 이미지, 링크 등...)
+            : BOM트리를 탐색하여 특정 태그에 접근하면 됨.
+        - 태그에 접근
+            1. 유일한 객체인 경우: 예악어로 제공이 됨(windo, document..)
+            2. 일반 객체인 경우: 식별자(name) 명시해야 함, (class, id는 사용 불가함)
+        - 제한된 객체(태그)에만 접근이 가능하다.(링크, 이미지, 폼)    
+
+        */
+    </script>
+</head>
+<body>
+    <form name="form1">
+        <input type="text" name="txt1" value="시간">
+    </form>
+
+    <script>
+        //BOM - 트리 구조의 루트부터 타고 들어가야 함
+        
+        //태그 접근 후 조작
+        //1. 태그의 속성 제어
+        //  - HTML의 속성과 동일한 이름으로 자바스크립트 프로퍼티를 제공한다.
+
+        window.document.form1.txt1.size = 50;
+        window.document.form1.txt1.value = (new Date()).toLocaleTimeString();
+        window.document.form1.txt1.readOnly = true;
+   
+   
+   
+   
+   
+   
+    </script>
+</body>
+</html>

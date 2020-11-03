@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;ERPOS/src/main/webapp/WEB-INF/views/content/hr/attendList.jsp&apos; to &apos;attendlist.jsp&apos;" description="Rename resource &apos;attendList.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/WEB-INF/views/content/hr/attendList.jsp" name="attendlist.jsp" stamp="1601363317421" updateReferences="true"/>
+</session>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        CSS 색상 표현법
+        1. Color name : red, blue...
+        2. RGB Color(HEX) : #FFFFFF
+        3. RGB Color(DEC) : rgb(255, 0, 128)
+        4. RGBA Color(DEC) : rgba(255, 0, 0, 1) --> a:(alpha channel : 투명도, 0~1값)        
+         */
+
+        /* #box1 { background-color:burlywood;} */
+        /* #box1 {background-color: #FA09CA;} */
+        /* #box1 {background-color: rgb(200, 200, 200);} */
+                
+        /* body {background-color: sandybrown;} */
+        /* #box1 { background-color: rgba(100, 200, 200, 0.5);} */
+
+        /* 배경에 이미지 적용 */
+        /* #box1 {background-image: url("../images/catty01.png");} */
+        body { 
+            background-image: url("../images/catty01.png");
+            /* background-repeat: repeat-x;  */
+            /* background-repeat: repeat-y; */
+            background-repeat: no-repeat;
+            background-position: center;
+            /* background-attachment: scroll; */
+            background-attachment: fixed;                    
+        }
+
+        #txt1, #btn1 {
+            
+            /* background-color: steelblue; */
+            background-image: url("../images/bullet03.png");
+
+        }
+
+        #search {
+            background-image: url("../images/hangame.png");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* 가상 클래스 */
+        #search:focus {
+            /* url에 아무것도 적지 않으면 그림이 사라짐. 그러나 포커스를 해제하면 다시 그림이 나타나 글자와 겹칠 수 있어 자바스크립트로 하기! */
+            background-image: url();
+        }
+
+        #btnSearch {
+            /* 여러개의 아이템을 한번에 고칠 수 있기 때문에 자주 쓰임. */
+            background-image: url("../images/bullet04.png");
+            background-repeat: no-repeat;
+            background-position: 7px center;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <!-- 
+        HTML의 서식
+        - 특정 태그만 특정 서식을 가진다
+
+        CSS의 서식
+        - 모든 태그가 모든 서식을 가진다.
+
+        배경 CSS
+        1. 배경색
+            - background-color
+        2. 배경이미지
+            - background-image
+
+     -->
+
+     <!-- <div>HTML 서식:배경색x 글자색X 크기지정X</div> -->
+     <!-- <div id="" class="" title=""></div> -->
+
+     <input type="text" id="search"> 
+     <input type="button" value="   검색" id="btnSearch">
+     <!-- 디자인 기능이 강화된 버튼 태그, 보통 하나의 버튼만 필요할 때 쓰는 것이 좋음. -->
+     <button id="btnSearch2"><img src="../images/bullet04.png">검색</button>
+     <br>
+
+     <input type="text" id="txt1">
+     <br><br>
+     <input type="button" id="btn1" value="버튼">
+
+     <hr>
+
+     <div id="box1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, dolores. Numquam nesciunt rem aliquid quisquam tempore libero. Officia sint vel nemo nesciunt aliquam, dolores sed, corporis illo itaque iste perspiciatis.</div>
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      	input {
+	    	margin: 5px;
+	    }
+    </style>
+</head>
+<body>
+    <form>
+		<input type="button" value="서울시 강남구 역삼동" onclick="sel('06232','서울시 강남구 역삼동');" /><br />
+		<input type="button" value="서울시 강남구 대치동" onclick="sel('06291','서울시 강남구 대치동');" /><br />
+		<input type="button" value="서울시 강남구 도곡동" onclick="sel('06267','서울시 강남구 도곡동');" /><br />
+    </form>
+    
+    <script>
+
+        function sel(post, address) {
+            opener.document.all.zip.value = post;
+            opener.document.all.address1.value = address;
+            opener.document.all.address2.focus();
+            window.close();
+        }
+        
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+#Spring AOP
+
+1. 프로젝트 생성
+
+2. 버전 변경
+	- pom.xml
+	- java 1.8
+	- spring 4.3.8
+	
+3. web.xml
+	- 확장자
+	- 인코딩 필터
+
+4. jar파일 추가
+	- AOPS 관련 jar 3개
+	
+5. root-context
+	- X
+	
+6. servlet-context	
+	- AOP
+
+7. 파일 생성
+	- AOPController.java			//컨트롤라
+	- Iservice.java + Service.java	//주업무 객체
+	- DAO + DTO						//모델 객체
+	- Cross.java					//보조업무 객체
+	- result.jsp
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

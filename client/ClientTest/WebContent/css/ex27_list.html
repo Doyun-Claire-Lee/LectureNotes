@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #list1 {
+            /* 불릿이 밑으로 쳐져 있음.. */
+            list-style-type: none;
+            list-style-image: url(../images/bullet09.png);
+            font-size: 2em;
+        }
+        #list1 li {
+
+        }
+        #list2 {
+            list-style-type: none;
+            font-size: 2em;
+            padding-left: 20px;
+        }
+        #list2 li {
+            /* 쳐진 불릿을 위로 올리기 위해 각 항목의 배경이미지로 삽입하기! */
+            background-image: url(../images/bullet09.png);
+            background-repeat: no-repeat;
+            background-position: 0px center;
+            padding-left: 15px;
+        }
+        #naver {
+            /* 이미지 크롭하기 */
+            width: 450px;
+            height: 110px;
+            /* border: 1px solid black; */
+            background-image: url(../images/sp_main.44265f.png);
+            background-position: 0px -320px;
+        }
+        #mode {
+            /* 이미지 크롭하기 */
+            width: 280px;
+            height: 100px;
+            /* border: 1px solid black; */
+            background-image: url(../images/sp_main.44265f.png);
+            background-position: -550px -235px;
+            /* background-position: -550px -115px; */
+        }
+        #mode:hover {
+            /* 이미지 크롭하기 */
+            width: 280px;
+            height: 100px;
+            /* border: 1px solid black; */
+            background-image: url(../images/sp_main.44265f.png);
+            /* background-position: -550px -235px; */
+            background-position: -550px -120px;
+
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <h1>오늘의 할일</h1>
+    <ul id="list1">
+        <li>비주얼 스튜디오 코드 설치하기</li>
+        <li>이클립스 설치하기</li>
+        <li>오라클 설치하기</li>
+        <li>크롬 설치하기</li>
+    </ul>
+
+    <h1>오늘의 할일</h1>
+    <ul id="list2">
+        <li>비주얼 스튜디오 코드 설치하기</li>
+        <li>이클립스 설치하기</li>
+        <li>오라클 설치하기</li>
+        <li>크롬 설치하기</li>
+    </ul>
+    
+
+    <!-- <img src="../images/sp_main.44265f.png" alt=""> -->
+    <!-- 이미지 크롭하기! -->
+    <div id="naver"></div>
+    <div id="mode"></div>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 250px;
+            height: 188px;
+            border: 10px solid #333;
+            overflow: hidden;
+        }
+        #list {
+            width: 2500px;
+            transition: all 1s linear;
+        }
+        #list img {
+            float: left;
+        }
+        #box:hover #list {
+            /* 마우스를 올리면 이동되는데 마우스를 떼면 다시 원상태로 돌아가게됨. */
+            /* 돌아가지 않도록 자바스트립크로 구현해보기! */
+            /* transform: translate(-2250px,0px); */
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <h1>애완동물</h1>
+    <div id="box">
+        <div id="list">
+            <img src="../images/cat01.jpg" alt="">
+            <img src="../images/cat02.jpg" alt="">
+            <img src="../images/cat03.jpg" alt="">
+            <img src="../images/cat04.jpg" alt="">
+            <img src="../images/cat05.jpg" alt="">
+            <img src="../images/dog01.jpg" alt="">
+            <img src="../images/dog02.jpg" alt="">
+            <img src="../images/dog03.jpg" alt="">
+            <img src="../images/dog04.jpg" alt="">
+            <img src="../images/dog05.jpg" alt="">
+        </div>
+    </div>
+    <hr><input type="button" value="버튼" id="btn1">
+    <select name="" id="sel1">
+        <option value="0">고양이</option>
+        <option value="1">고양이</option>
+        <option value="2">고양이</option>
+        <option value="3">고양이</option>
+        <option value="4">고양이</option>
+        <option value="5">강아지</option>
+        <option value="6">강아지</option>
+        <option value="7">강아지</option>
+        <option value="8">강아지</option>
+        <option value="9">강아지</option>
+    </select>
+
+
+    <script>
+        
+        var btn1 = document.getElementById("btn1");
+        var list = document.getElementById("list");
+        var sel = document.getElementById("sel");
+        var oldX = 0;   //이전 선택 동물
+        var newX = 0;   //현재 선택 동물
+
+        btn1.onclick = function () {
+            list.style.transform = "translate(-2250px, 0px)";
+        };
+        
+        sel1.onchange = function() {
+            console.log(sel1.value);
+            //선택되자마자 변수에 값 대입
+            newX = sel1.value;
+            
+            //이동속도 조절
+            list.style.transitionDuration = Math.abs(newX - oldX) * 0.3 + "s";
+            
+            list.style.transform = "translate(-" + (250*sel1.value) + "px, 0px)";
+            
+            //이동이 끝난 후에는 현재 선택된 이미지가 예전 선택된 이미지가 됨. 
+            oldX = sel1.value;
+        }
+        
+        
+        
+    </script>
+    
+</body>
+</html>

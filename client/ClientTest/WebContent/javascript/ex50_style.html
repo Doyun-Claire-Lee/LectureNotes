@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #puma {
+            /* 퓨마 한마리 분량의 크기를 잡아줌. */
+            width: 512px;
+            height: 256px;
+            background-image: url("../images/puma.png");
+        }
+    </style>
+</head>
+<body>
+    <h1>퓨마</h1>
+    <div id="puma"></div>
+
+
+    <script>
+        var puma = document.getElementById("puma");
+        var timer = 0;
+        var x = 0;
+        var y = 0;
+
+        puma.onmouseover = function() {
+            if (timer == 0) {
+
+                timer = setInterval(function() {
+                    
+                    puma.style.backgroundPosition = x + "px " + y + "px";
+                    x -= 512;
+                    
+                    if (x <= -(512*4)) {
+                        x = 0;
+                        y -= 256;
+                        if (y <= -(256*2)) {
+                            y = 0;
+                        }
+                    }
+                    
+                }, 60);    
+            }
+        }
+
+        puma.onmouseout = function() {
+            clearInterval(timer);
+            timer = 0;
+        }
+
+
+        
+        
+        
+    </script>
+
+</body>
+</html>

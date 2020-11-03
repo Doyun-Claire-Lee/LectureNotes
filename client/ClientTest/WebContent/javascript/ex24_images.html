@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="button" value="테스트" name="btn1">
+    <hr>
+    <img src="../images/catty01.png" name="cat1" alt="">
+    <hr>
+    <img src="../images/arr05.png" name="arr" alt="">
+    <hr>
+    <img src="../images/0.png" name="number" alt="">
+    <hr>
+    <img src="../images/switch_off.png" name="sw" alt="">
+    <hr>
+
+    <!-- data-XXX 속성: 개발자가 이용하기 위해 임의로 만들어낸 임시 저장소 -->
+    <img src="../images/catty01.png" name="c1" data-file="catty04.png" data-origin="catty01.png" data-index="0">
+	<img src="../images/catty02.png" name="c2" data-file="catty05.png" data-origin="catty02.png" data-index="1">
+	<img src="../images/catty03.png" name="c3" data-file="catty06.png" data-origin="catty03.png" data-index="2">
+	<img src="../images/catty07.png" name="c4" data-file="catty08.png" data-origin="catty07.png" data-index="3">
+
+
+    <script>
+
+        var btn1 = document.all.btn1;
+        var cat1 = document.images["cat1"];
+
+        var arr = document.images["arr"];
+        var number = document.images["number"];
+
+        var sw = document.images["sw"];
+
+        btn1.onclick = function() {
+
+            cat1.src = "../images/catty02.png";
+            cat1.width = 300;
+            cat1.title = "고양이";
+        }
+
+        //이미지 롤오버(마우스에 반응해서 움직임)
+        cat1.onmouseover = function() {
+            cat1.src = "../images/catty03.png";
+        }
+        cat1.onmouseout = function() {
+            cat1.src = "../images/catty01.png";
+        }
+        arr.onmouseover = function() {
+            arr.src = "../images/arr13.png";
+        }
+        arr.onmouseout = function() {
+            arr.src = "../images/arr05.png";
+        }
+
+        //이미지 클릭하면 1씩 증가하도록
+        var n = 1;
+        number.onclick = function() {
+            number.src = "../images/" + n + ".png";
+            n++;
+            if (n > 9) { n=0;}
+        }
+
+        //스위치
+        sw.onclick = function() {
+
+            if (getFileName(sw.src) == "switch_off.png") {
+                sw.src = "../images/switch_on.png";
+            } else {
+                sw.src = "../images/switch_off.png";
+                
+            }
+        }
+
+        function getFileName (url) {
+            return url.substr(url.lastIndexOf("/"));
+        }
+
+		//여러개의 이미지를 롤오버 처리하기
+        function m1() {
+			
+			var c1 = document.images["c1"];
+			var c2 = document.images["c2"];
+			var c3 = document.images["c3"];
+
+			c1.onmouseover = function() {
+				c1.src = "../images/catty04.png";
+			};
+			c1.onmouseout = function() {
+				c1.src = "../images/catty01.png";
+			};
+			c2.onmouseover = function() {
+				c2.src = "../images/catty05.png";
+			};
+			c2.onmouseout = function() {
+				c2.src = "../images/catty02.png";
+			};
+			c3.onmouseover = function() {
+				c3.src = "../images/catty06.png";
+			};
+			c3.onmouseout = function() {
+				c3.src = "../images/catty03.png";
+			};
+		}
+		// m1();
+
+        function m2() {
+            for (var i=1; i<=4; i++) {
+                document.images["c" + i].onmouseover = function() {
+                    // document.title = event.srcElement.dataset["file"]
+                    event.srcElement.src = "../images/" + event.srcElement.dataset["file"];
+                }
+                document.images["c" + i].onmouseout = function() {
+                    event.srcElement.src = "../images/" + event.srcElement.dataset["origin"];
+                }
+            }
+        }
+        // m2();
+
+        //제일 권장하는 방법
+        function m3() {
+            var list = [
+               ["catty01.png", "catty04.png"],
+               ["catty02.png", "catty05.png"],
+               ["catty03.png", "catty06.png"],
+               ["catty07.png", "catty08.png"]
+            ];
+
+            for(var i=1; i<=4; i++) {
+                var c = document.images["c" + i];
+
+                c.onmouseover = function() {
+                    //list[i]와 같이 사용할 수 없는 이유 :  클로저 현상이 일어나 i가 마지막 값인 5로 저장이 되어 이벤트에 쓰임.
+                    event.srcElement.src = "../images/" + list[event.srcElement.dataset["index"]][1];
+                }
+                c.onmouseout = function() {
+                    event.srcElement.src = "../images/" + list[event.srcElement.dataset["index"]][0];
+                }
+            }
+        }
+        m3();
+
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>

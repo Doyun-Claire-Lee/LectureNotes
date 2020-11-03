@@ -1,0 +1,12 @@
+1597116030115	Delete element
+1597116086456	Delete element
+1597116104244	Delete element
+1597116167818	Rename type 'CheckListDAO'
+1597126475470	Rename type 'CheckListDTO'
+1597131411881	Encapsulate field 'name'
+1597220101297	Rename type 'ChecklistAddOk'
+1597220115264	Rename type 'ChecklistDeleteOk'
+1597221837163	Rename type 'AddChecklistItemOk'
+1597301209203	Delete element
+1597385594051	Rename type 'getSelectedMemberlist'
+1597392954516	Encapsulate field 'assignFlag'

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cat {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            display: none;
+            /* transition: all 0.1s; */
+            /* transid */
+        }
+    </style>
+</head>
+<body>
+    <img src="../images/catty01.png" alt="" class="cat">
+    <img src="../images/catty02.png" alt="" class="cat">
+    <img src="../images/catty03.png" alt="" class="cat">
+    <img src="../images/catty04.png" alt="" class="cat">
+    <img src="../images/catty05.png" alt="" class="cat">
+    <img src="../images/catty06.png" alt="" class="cat">
+    <img src="../images/catty07.png" alt="" class="cat">
+    <img src="../images/catty08.png" alt="" class="cat">
+    <img src="../images/catty09.png" alt="" class="cat">
+    <img src="../images/catty10.png" alt="" class="cat">
+    <img src="../images/catty11.png" alt="" class="cat">
+    <img src="../images/catty12.png" alt="" class="cat">
+    <img src="../images/catty13.png" alt="" class="cat">
+    <img src="../images/catty14.png" alt="" class="cat">
+    <img src="../images/catty15.png" alt="" class="cat">
+    <img src="../images/catty16.png" alt="" class="cat">
+    <img src="../images/catty17.png" alt="" class="cat">
+    <img src="../images/catty18.png" alt="" class="cat">
+    <img src="../images/catty19.png" alt="" class="cat">
+    <img src="../images/catty20.png" alt="" class="cat">
+    <img src="../images/catty21.png" alt="" class="cat">
+
+    <script>
+
+        var cat = document.getElementsByClassName("cat");
+
+        var traceX = [];
+        var traceY = [];
+
+        var n = 0;
+
+        window.onmousemove = function() {
+
+            //너무 다닥다닥 붙는 것을 방지하기 위하여 2번마다 한번씩 움직여주는 제어 
+            if (n % 2 != 0) {
+                n++;
+                return;
+            }
+            //움직일때마다 배열에 저장하기 
+            traceX.push(event.clientX);
+            traceY.push(event.clientY);
+            // console.log(traceX, traceY);
+            
+            //마우스 움직이기 전까지 고양이 숨기기
+            for (var i=0; i<cat.length; i++) {             
+                cat[i].style.display = "inline";
+            }
+
+            //고양이 갯수보다 좌표 배열의크기가 크면 0번부터 삭제해주기 
+            if (traceX.length > cat.length) {
+                traceX.shift();
+                traceY.shift();
+            }
+
+            //마지막으로 기록된 좌표가 첫번째 고양이의 위치가 되도록 for문 돌리기 
+            for (var i=traceX.length-1, j=0; i>=0; i--, j++) {
+                
+                cat[j].style.transform = "translate(" + (traceX[i]-64) + "px, " + (traceY[i]-64) + "px)"; 
+            }
+
+            n++;
+        };
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 
+        ~ ex19: HTML 4.01
+
+        HTML 5에서 추가된 태그
+        HTML 5 Simantic Tag
+        - 페이지 레이아웃 구성하는 용도
+        - 렌더링 결과가 <div>와 동일(아무런 특징 없는 블럭 태그)
+
+        1. <header>
+            : 해당 영역의 머릿말 역할
+        2. <nav>
+            : 메뉴 역할
+        3. <section>
+            : 주요 콘텐츠 역할
+        4. <article>
+            : 주요 콘텐츠 아이템 역할
+        5. <aside>
+            : 보조 콘텐츠 역할
+        6. <footer>
+            : 바닥글 역할
+     -->
+     
+     <!-- <div id="유일값 식별자" class="그룹식별자">
+        <div id="m1" class="group">강아지</div>
+        <div id="m2" class="group">고양이</div>
+        <div id="m2" class="group">고등어</div>
+     </div> -->
+
+     <h1>이전 방식(div태그)</h1> <!--나중에 스타일 시트를 입혀야 함-->
+     <!-- id를 개발자가 직접 입력할 수 있기 때문에 통일이 안되고, 개발자 오류가 발생할 수 있다는 것이 가장 큰 문제였음. -->
+     
+     <div id="main">
+         <div id="mainmenu">메인 메뉴</div> 
+         <div id="submenu">서브 메뉴</div>
+         <div id="content">
+             <div class="item">콘텐츠 아이템1</div>
+             <div class="item">콘텐츠 아이템2</div>
+             <div class="item">콘텐츠 아이템3</div>
+             <div id="subcontent">추가 콘텐츠</div>
+         </div>
+         <div id="footer">하단부</div>
+     </div>
+
+    
+     <h1>현재 방식(HTML 5)</h1>
+     <!-- 자주 쓰는 태그들을 이름을 붙여 정해놓음. 누가 봐도 코드의 의미를 파악할 수 있기 때문에 전달력이 높음.-->
+
+     <main>
+         <header>
+            <nav>메인 메뉴</nav>
+         </header>
+         <nav>보조 메뉴</nav>
+         <section>
+             <article>콘텐츠 아이템1</article>
+             <article>콘텐츠 아이템2</article>
+             <article>콘텐츠 아이템3</article>
+             <aside>추가 콘텐츠</aside>
+         </section>
+         <footer>하단부</footer>
+     </main>
+
+
+
+</body>
+</html>
